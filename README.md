@@ -8,7 +8,7 @@ A collection of YGOPRO 222server lua and script.
 
 Used on YgoSrv222.
 
-http://mercury233.me/ygosrv233/pre.html(fork)
+http://mercury233.me/ygosrv233/pre.html
 
 资料来源：
 
