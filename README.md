@@ -16,15 +16,15 @@ http://mercury233.me/ygosrv233/pre.html
 
 脚本来源：
 
-作者们
+其他作者们
 
 来自于以上作为222DIY服务器的项目，在此对各自的贡献者表示感谢。
 
 本项目将作为更新编辑222DIY服务器的卡片数据和更新，遵循其版权协定（见下方），但本项目额外要求转载时注明出处，并完整保留本声明。
 
-数据整理：Loki，伤心暗星尘，duel球球，尸体
+CDB和LUA数据整理：蝗蝻
 
-如果您想对本项目进行修改，请移步 https://github.com/Daniel17173/ygopro ，但我们建议您直接参与官方项目ygopro-pre-script。
+如果您想对本项目的服务器数据进行修改，请移步 https://github.com/Daniel17173/ygopro
 
 版权声明
 
