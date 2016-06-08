@@ -1,0 +1,31 @@
+--Sawawa-Pattern Fire
+require "script/c37564765"
+function c37564204.initial_effect(c)
+	local e2=Effect.CreateEffect(c)
+	e2:SetDescription(aux.Stringid(37564204,1))
+	e2:SetType(EFFECT_TYPE_QUICK_O)
+	e2:SetCode(EVENT_FREE_CHAIN)
+	e2:SetRange(LOCATION_MZONE)
+	e2:SetProperty(EFFECT_FLAG_DAMAGE_STEP)
+	e2:SetHintTiming(TIMING_DAMAGE_STEP,TIMING_DAMAGE_STEP+0x1c0)
+	e2:SetCountLimit(1)
+	e2:SetCondition(senya.swwblex)
+	e2:SetCost(senya.swwrmcost(1))
+	e2:SetOperation(c37564204.atkop)
+	c:RegisterEffect(e2)
+	senya.sww(c,1,true,false,false)
+end
+function c37564204.atkop(e,tp,eg,ep,ev,re,r,rp)
+	local e1=Effect.CreateEffect(e:GetHandler())
+	e1:SetType(EFFECT_TYPE_FIELD)
+	e1:SetProperty(EFFECT_FLAG_SET_AVAILABLE+EFFECT_FLAG_IGNORE_RANGE)
+	e1:SetCode(EFFECT_TO_GRAVE_REDIRECT)
+	e1:SetTargetRange(0,0xff)
+	e1:SetValue(LOCATION_REMOVED)
+	e1:SetReset(RESET_PHASE+PHASE_END)
+	e1:SetTarget(c37564204.rmtg)
+	Duel.RegisterEffect(e1,tp)
+end
+function c37564204.rmtg(e,c)
+	return c:GetOwner()~=e:GetHandlerPlayer()
+end
