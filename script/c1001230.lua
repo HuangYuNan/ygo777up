@@ -1,5 +1,5 @@
 --Z1级驱逐舰1号舰—马斯
-require "expansions/script/c1001252"
+require("../script/c1001252")
 function c1001230.initial_effect(c)
 	colle.sum(c,2)
 	colle.atkup(c,110)

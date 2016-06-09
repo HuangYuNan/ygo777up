@@ -1,5 +1,5 @@
 --陆军三式潜航输送艇—Maruyu
-require "expansions/script/c1001252"
+require("../script/c1001252")
 function c1001234.initial_effect(c)
 	colle.sum(c,1)
 	colle.th1(c)
