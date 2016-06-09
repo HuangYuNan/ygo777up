@@ -62,7 +62,7 @@ function c18738102.rmfilter(c)
 end
 function c18738102.thcon(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	return c:IsPreviousPosition(POS_FACEDOWN) and c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK)
+	return c:IsPreviousPosition(POS_FACEDOWN) and (c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK))
 end
 function c18738102.filter(c,e)
 	return c:IsAbleToRemove() and c:IsCanBeEffectTarget(e)

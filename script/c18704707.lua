@@ -50,7 +50,7 @@ function c18704707.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Release(e:GetHandler(),REASON_COST)
 end
 function c18704707.filter(c,e,tp)
-	return c:IsSetCard(0xaab2) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
+	return c:IsSetCard(0xaab2) and c:IsCanBeSpecialSummoned(e,0,tp,false,false) and c:GetLevel()==4
 end
 function c18704707.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>-1

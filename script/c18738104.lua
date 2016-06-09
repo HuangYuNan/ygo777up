@@ -54,7 +54,7 @@ function c18738104.spop(e,tp,eg,ep,ev,re,r,rp,c)
 end
 function c18738104.descon(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	return c:IsPreviousPosition(POS_FACEDOWN) and c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK)
+	return c:IsPreviousPosition(POS_FACEDOWN) and (c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK))
 end
 function c18738104.rmfilter(c)
 	return c:IsAbleToRemove() and c:IsFacedown()

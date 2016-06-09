@@ -11,7 +11,7 @@ function c23400004.initial_effect(c)
 	e1:SetType(EFFECT_TYPE_FIELD)
 	e1:SetRange(LOCATION_FZONE)
 	e1:SetTargetRange(LOCATION_MZONE,0)
-	e1:SetTarget(aux.TargetBoolFunction(Card.IsType,TYPE_DUAL))
+	e1:SetTarget(aux.TargetBoolFunction(Card.IsSetCard,0x530))
 	e1:SetCode(EFFECT_DUAL_STATUS)
 	c:RegisterEffect(e1)
 	--add counter

@@ -56,7 +56,7 @@ function c23400013.addc(e,tp,eg,ep,ev,re,r,rp)
 end
 
 function c23400013.cost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,0x112e,1,REASON_COST) end
+	if chk==0 then return Duel.IsCanRemoveCounter(tp,1,0,0x1530,1,REASON_COST) end
 	Duel.Hint(HINT_OPSELECTED,1-tp,e:GetDescription())
 	Duel.RemoveCounter(tp,1,0,0x1530,1,REASON_COST)
 end

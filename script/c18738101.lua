@@ -67,7 +67,7 @@ function c18738101.rmfilter(c)
 end
 function c18738101.thcon(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	return c:IsPreviousPosition(POS_FACEDOWN) and c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK)
+	return c:IsPreviousPosition(POS_FACEDOWN) and (c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK))
 end
 function c18738101.thfilter(c)
 	return (c:IsSetCard(0x3ab0) or c:IsCode(18738107)) and c:IsAbleToHand() and not c:IsCode(18738106)

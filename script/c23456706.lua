@@ -95,7 +95,7 @@ function c23456706.posop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.RegisterEffect(e1,tp)
 end
 function c23456706.aclimit1(e,c,sump,sumtype,sumpos,targetp,se)
-	return c:IsLocation(LOCATION_EXTRA+LOCATION_GRAVE)
+	return c:IsLocation(LOCATION_DECK+LOCATION_GRAVE)
 end
 function c23456706.rettg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return e:GetHandler():IsAbleToExtra() end

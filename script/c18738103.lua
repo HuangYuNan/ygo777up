@@ -59,7 +59,7 @@ function c18738103.rmfilter(c)
 end
 function c18738103.thcon(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	return c:IsPreviousPosition(POS_FACEDOWN) and c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK)
+	return c:IsPreviousPosition(POS_FACEDOWN) and (c:IsPreviousLocation(LOCATION_ONFIELD) or c:IsPreviousLocation(LOCATION_DECK))
 end
 function c18738103.filter(c,e,tp)
 	return c:IsSetCard(0x3ab0) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
