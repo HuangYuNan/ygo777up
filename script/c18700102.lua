@@ -39,7 +39,7 @@ function c18700102.operation(e,tp,eg,ep,ev,re,r,rp)
 	if tc and Duel.IsExistingTarget(c18700102.mfilter,tp,LOCATION_ONFIELD,0,1,nil)
 	and tc:IsCanBeSpecialSummoned(e,0,tp,false,false) and Duel.SelectYesNo(tp,aux.Stringid(18700102,1))
 	and Duel.GetLocationCount(tp,LOCATION_MZONE)>0 then
-		Duel.SpecialSummon(tc,0,tp,tp,false,false,POS_FACEDOWN_DEFENCE)
+		Duel.SpecialSummon(tc,0,tp,tp,false,false,POS_FACEDOWN_DEFENSE)
 	else
 		Duel.SendtoHand(tc,nil,REASON_EFFECT)
 		Duel.ConfirmCards(1-tp,tc)

@@ -28,7 +28,7 @@ function c80009088.initial_effect(c)
 	e7:SetValue(-500)
 	c:RegisterEffect(e7)
 	local e8=e7:Clone()
-	e8:SetCode(EFFECT_UPDATE_DEFENCE)
+	e8:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e8)	 
 end
 function c80009088.discon(e,tp,eg,ep,ev,re,r,rp)

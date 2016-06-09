@@ -5,7 +5,7 @@ function c18738105.initial_effect(c)
 	e1:SetType(EFFECT_TYPE_FIELD)
 	e1:SetCode(EFFECT_SPSUMMON_PROC)
 	e1:SetProperty(EFFECT_FLAG_SPSUM_PARAM)
-	e1:SetTargetRange(POS_FACEDOWN_DEFENCE,0)
+	e1:SetTargetRange(POS_FACEDOWN_DEFENSE,0)
 	e1:SetCountLimit(1,187381050)
 	e1:SetRange(LOCATION_HAND)
 	e1:SetCondition(c18738105.spcon)
@@ -41,7 +41,7 @@ function c18738105.spop(e,tp,eg,ep,ev,re,r,rp,c)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
 	local g=Duel.SelectMatchingCard(tp,c18738105.rmfilter,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil)
 	if g:GetCount()>0 then
-		Duel.ChangePosition(g,POS_FACEDOWN_DEFENCE)
+		Duel.ChangePosition(g,POS_FACEDOWN_DEFENSE)
 	end
 	--oath effects
 	local e1=Effect.CreateEffect(e:GetHandler())
@@ -67,7 +67,7 @@ function c18738105.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c18738105.desop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	if c:IsRelateToEffect(e) and Duel.SpecialSummon(c,0,tp,tp,false,false,POS_FACEDOWN_DEFENCE)~=0 then
+	if c:IsRelateToEffect(e) and Duel.SpecialSummon(c,0,tp,tp,false,false,POS_FACEDOWN_DEFENSE)~=0 then
 		Duel.ConfirmCards(1-tp,c)
 	end
 end

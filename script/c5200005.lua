@@ -67,7 +67,7 @@ function c5200005.spop(e,tp,eg,ep,ev,re,r,rp)
 end
 function c5200005.descon(e,tp,eg,ep,ev,re,r,rp)
 	local d=Duel.GetAttackTarget()
-	return e:GetHandler()==Duel.GetAttacker() and d and d:IsFaceup() and d:GetDefence()>e:GetHandler():GetAttack()
+	return e:GetHandler()==Duel.GetAttacker() and d and d:IsFaceup() and d:GetDefense()>e:GetHandler():GetAttack()
 end
 function c5200005.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
@@ -75,7 +75,7 @@ function c5200005.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c5200005.desop(e,tp,eg,ep,ev,re,r,rp)
 	local d=Duel.GetAttackTarget()
-	if d:IsRelateToBattle() and d:GetDefence()>e:GetHandler():GetAttack() then
+	if d:IsRelateToBattle() and d:GetDefense()>e:GetHandler():GetAttack() then
 		Duel.Destroy(d,REASON_EFFECT)
 	end
 end

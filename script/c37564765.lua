@@ -3,13 +3,13 @@ os=require('os')
 --7CG universal scripts
 --test parts
 if not Card.GetDefense then
-	Card.GetDefense=Card.GetDefence
-	Card.GetBaseDefense=Card.GetBaseDefence
-	Card.GetBaseDefense=Card.GetBaseDefence
-	Card.GetPreviousDefenseOnField=Card.GetPreviousDefenceOnField
-	Card.IsDefensePos=Card.IsDefencePos
-	Card.IsDefenseBelow=Card.IsDefenceBelow
-	Card.IsDefenseAbove=Card.IsDefenceAbove
+	Card.GetDefense=Card.GetDefense
+	Card.GetBaseDefense=Card.GetBaseDefense
+	Card.GetBaseDefense=Card.GetBaseDefense
+	Card.GetPreviousDefenseOnField=Card.GetPreviousDefenseOnField
+	Card.IsDefensePos=Card.IsDefensePos
+	Card.IsDefenseBelow=Card.IsDefenseBelow
+	Card.IsDefenseAbove=Card.IsDefenseAbove
 end
 --xyz summon of prim
 function senya.rxyz1(c,rk,f)

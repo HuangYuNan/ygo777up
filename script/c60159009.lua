@@ -60,7 +60,7 @@ function c60159009.desop(e,tp,eg,ep,ev,re,r,rp)
 			if opt==0 then
 				Duel.Recover(tp,tc:GetAttack(),REASON_EFFECT)
 			else
-				Duel.Recover(tp,tc:GetDefence(),REASON_EFFECT)
+				Duel.Recover(tp,tc:GetDefense(),REASON_EFFECT)
 			end
 		end
     end

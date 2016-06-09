@@ -144,10 +144,10 @@ function c18743202.filter(c,def)
 end
 function c18743202.destg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	local c=e:GetHandler()
-	if chkc then return chkc:IsLocation(LOCATION_MZONE) and c18743202.filter(chkc,c:GetDefence()) end
-	if chk==0 then return Duel.IsExistingTarget(c18743202.filter,tp,LOCATION_MZONE,LOCATION_MZONE,1,nil,c:GetDefence()) end
+	if chkc then return chkc:IsLocation(LOCATION_MZONE) and c18743202.filter(chkc,c:GetDefense()) end
+	if chk==0 then return Duel.IsExistingTarget(c18743202.filter,tp,LOCATION_MZONE,LOCATION_MZONE,1,nil,c:GetDefense()) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
-	local g=Duel.SelectTarget(tp,c18743202.filter,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil,c:GetDefence())
+	local g=Duel.SelectTarget(tp,c18743202.filter,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil,c:GetDefense())
 	Duel.SetOperationInfo(0,CATEGORY_DESTROY,g,g:GetCount(),0,0)
 end
 function c18743202.desfilter(c,e,def)
@@ -157,15 +157,15 @@ function c18743202.desop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	if not c:IsRelateToEffect(e) then return end
 	local g=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS)
-	local sg=g:Filter(c18743202.desfilter,nil,e,c:GetDefence())
+	local sg=g:Filter(c18743202.desfilter,nil,e,c:GetDefense())
 	Duel.Destroy(sg,REASON_EFFECT)
 end
 function c18743202.destg2(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	local c=e:GetHandler()
-	if chkc then return chkc:IsLocation(LOCATION_MZONE) and c18743202.filter(chkc,c:GetDefence()) end
-	if chk==0 then return Duel.IsExistingTarget(c18743202.filter,tp,LOCATION_MZONE,0,1,nil,c:GetDefence()) end
+	if chkc then return chkc:IsLocation(LOCATION_MZONE) and c18743202.filter(chkc,c:GetDefense()) end
+	if chk==0 then return Duel.IsExistingTarget(c18743202.filter,tp,LOCATION_MZONE,0,1,nil,c:GetDefense()) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
-	local g=Duel.SelectTarget(tp,c18743202.filter,tp,LOCATION_MZONE,0,1,1,nil,c:GetDefence())
+	local g=Duel.SelectTarget(tp,c18743202.filter,tp,LOCATION_MZONE,0,1,1,nil,c:GetDefense())
 	Duel.SetOperationInfo(0,CATEGORY_DESTROY,g,g:GetCount(),0,0)
 end
 function c18743202.dfilter(c,def)
@@ -177,8 +177,8 @@ end
 function c18743202.destg3(e,tp,eg,ep,ev,re,r,rp,chk)
 	local g=e:GetHandler()
 	local tc=g:GetEquipTarget()
-	if chk==0 then return Duel.IsExistingMatchingCard(c18743202.dfilter,tp,0,LOCATION_MZONE,1,nil,tc:GetDefence()) end
-	local g=Duel.SelectTarget(tp,c18743202.dfilter,tp,0,LOCATION_MZONE,1,1,nil,tc:GetDefence())
+	if chk==0 then return Duel.IsExistingMatchingCard(c18743202.dfilter,tp,0,LOCATION_MZONE,1,nil,tc:GetDefense()) end
+	local g=Duel.SelectTarget(tp,c18743202.dfilter,tp,0,LOCATION_MZONE,1,1,nil,tc:GetDefense())
 	Duel.SetOperationInfo(0,CATEGORY_DESTROY,g,g:GetCount(),0,0)
 	Duel.SetOperationInfo(0,CATEGORY_DAMAGE,nil,0,1-tp,nil)
 end
@@ -186,7 +186,7 @@ function c18743202.desop3(e,tp,eg,ep,ev,re,r,rp)
 	local tc=e:GetHandler():GetEquipTarget()
     if not e:GetHandler():IsRelateToEffect(e) then return end
 	local g=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS)
-	local sg=g:Filter(c18743202.dfilter2,nil,e,tc:GetDefence())
+	local sg=g:Filter(c18743202.dfilter2,nil,e,tc:GetDefense())
 	Duel.Destroy(sg,REASON_EFFECT)
 end
 function c18743202.spcon(e,tp,eg,ep,ev,re,r,rp)

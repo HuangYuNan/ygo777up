@@ -27,7 +27,7 @@ end
 function c80000311.atcon(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	local bc=c:GetBattleTarget()
-	return c:IsRelateToBattle() and bc:IsType(TYPE_MONSTER) and bit.band(bc:GetBattlePosition(),POS_DEFENCE)~=0
+	return c:IsRelateToBattle() and bc:IsType(TYPE_MONSTER) and bit.band(bc:GetBattlePosition(),POS_DEFENSE)~=0
 end
 function c80000311.atop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()

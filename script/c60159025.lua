@@ -62,7 +62,7 @@ function c60159025.operation(e,tp,eg,ep,ev,re,r,rp)
 		Duel.BreakEffect()
 		local tc=sg2:GetFirst()
 		local atk=tc:GetAttack()
-		local def=tc:GetDefence()
+		local def=tc:GetDefense()
 		if atk>def then
 			Duel.Damage(1-tp,atk,REASON_EFFECT)
 		else

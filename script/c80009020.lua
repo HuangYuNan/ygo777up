@@ -65,7 +65,7 @@ function c80009020.tglimit(e,re,c)
 	return c:IsControler(e:GetHandlerPlayer()) and c:IsLocation(LOCATION_MZONE) and c:IsFaceup() and c:IsSetCard(0x2d5) and c~=e:GetHandler()
 end
 function c80009020.filter1(c)
-	return c:IsDefencePos() and c:IsDestructable()
+	return c:IsDefensePos() and c:IsDestructable()
 end
 function c80009020.destg1(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c80009020.filter1,tp,0,LOCATION_MZONE,1,nil) end

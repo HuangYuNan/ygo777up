@@ -97,7 +97,7 @@ function c99998995.chop(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetAttacker()
 	if tc==c then tc=Duel.GetAttackTarget() end
 	if tc:IsRelateToBattle()  then
-		Duel.ChangePosition(tc,POS_FACEUP_DEFENCE,0,0,0)
+		Duel.ChangePosition(tc,POS_FACEUP_DEFENSE,0,0,0)
 end
 end
 function c99998995.secon(e,tp,eg,ep,ev,re,r,rp)

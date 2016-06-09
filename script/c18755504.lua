@@ -55,7 +55,7 @@ function c18755504.operation(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_POSCHANGE)
 	local sg=Duel.SelectMatchingCard(tp,c18755504.opfilter,tp,0,LOCATION_MZONE,1,1,nil,e,tp)
 	local tc=sg:GetFirst()
-	if tc and Duel.ChangePosition(tc,POS_FACEUP_DEFENCE) then
+	if tc and Duel.ChangePosition(tc,POS_FACEUP_DEFENSE) then
 		local e1=Effect.CreateEffect(e:GetHandler())
 		e1:SetType(EFFECT_TYPE_SINGLE)
 		e1:SetCode(EFFECT_DISABLE)

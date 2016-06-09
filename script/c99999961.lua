@@ -73,8 +73,8 @@ function c99999961.postg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 end
 function c99999961.posop(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
-	if tc:IsFaceup() and tc:IsRelateToEffect(e) and  Duel.ChangePosition(tc,POS_FACEDOWN_DEFENCE)~=0 then
-    Duel.ChangePosition(tc,POS_FACEUP_DEFENCE,POS_FACEDOWN_DEFENCE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,true)
+	if tc:IsFaceup() and tc:IsRelateToEffect(e) and  Duel.ChangePosition(tc,POS_FACEDOWN_DEFENSE)~=0 then
+    Duel.ChangePosition(tc,POS_FACEUP_DEFENSE,POS_FACEDOWN_DEFENSE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,true)
 end
 end
 function c99999961.scon(e,tp,eg,ep,ev,re,r,rp)

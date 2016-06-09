@@ -72,7 +72,7 @@ function c29200021.handes(e,tp,eg,ep,ev,re,r,rp)
             local tc=eg:GetFirst()
             while tc do
                 if tc:IsFaceup() and tc:GetSummonPlayer()~=tp then
-                    Duel.ChangePosition(tc,POS_FACEUP_DEFENCE)
+                    Duel.ChangePosition(tc,POS_FACEUP_DEFENSE)
                 end
                 tc=eg:GetNext()
             end

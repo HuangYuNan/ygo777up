@@ -38,7 +38,7 @@ function c18700104.activate(e,tp,eg,ep,ev,re,r,rp)
 	if g:GetCount()>0 and Duel.SpecialSummon(g,0,tp,tp,false,false,POS_FACEUP)>0 then
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_FACEDOWN)
 	local sg=Duel.SelectMatchingCard(tp,Card.IsFaceup,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil)
-	Duel.ChangePosition(sg,POS_FACEDOWN_DEFENCE)
+	Duel.ChangePosition(sg,POS_FACEDOWN_DEFENSE)
 	end
 end
 function c18700104.handcon(e,tp,eg,ep,ev,re,r,rp)

@@ -41,11 +41,11 @@ function c18781007.activate1(e,tp,eg,ep,ev,re,r,rp)
 	local tc=g:GetFirst()
 	if tc then
 		if c:IsSummonable(true,nil) and (not c:IsMSetable(true,nil) 
-			or Duel.SelectPosition(tp,c,POS_FACEUP_ATTACK+POS_FACEDOWN_DEFENCE)==POS_FACEUP_ATTACK) then
+			or Duel.SelectPosition(tp,c,POS_FACEUP_ATTACK+POS_FACEDOWN_DEFENSE)==POS_FACEUP_ATTACK) then
 			Duel.Summon(tp,c,true,nil)
 		else Duel.MSet(tp,c,true,nil) end
 		if tc:IsSummonable(true,nil) and (not tc:IsMSetable(true,nil) 
-			or Duel.SelectPosition(tp,tc,POS_FACEUP_ATTACK+POS_FACEDOWN_DEFENCE)==POS_FACEUP_ATTACK) then
+			or Duel.SelectPosition(tp,tc,POS_FACEUP_ATTACK+POS_FACEDOWN_DEFENSE)==POS_FACEUP_ATTACK) then
 			Duel.Summon(tp,tc,true,nil)
 		else Duel.MSet(tp,tc,true,nil) end
 	end

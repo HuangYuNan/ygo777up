@@ -109,7 +109,7 @@ function c18703305.disop(e,tp,eg,ep,ev,re,r,rp)
 		e3:SetReset(RESET_EVENT+0x1ff0000)
 		tc:RegisterEffect(e3)
 		local e4=e3:Clone()
-		e4:SetCode(EFFECT_UPDATE_DEFENCE)
+		e4:SetCode(EFFECT_UPDATE_DEFENSE)
 		tc:RegisterEffect(e4)
 		tc=g:GetNext()
 	end
@@ -140,7 +140,7 @@ function c18703305.atkop(e,tp,eg,ep,ev,re,r,rp)
 		e2:SetValue(800)
 		tc:RegisterEffect(e2)
 		local e3=e2:Clone()
-		e3:SetCode(EFFECT_UPDATE_DEFENCE)
+		e3:SetCode(EFFECT_UPDATE_DEFENSE)
 		tc:RegisterEffect(e3)
 	end
 end

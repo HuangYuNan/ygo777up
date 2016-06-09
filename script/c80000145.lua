@@ -77,7 +77,7 @@ function c80000145.filter222(c)
 end
 function c80000145.posop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetMatchingGroup(c80000145.filter222,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
-	Duel.ChangePosition(g,POS_FACEUP_DEFENCE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK)
+	Duel.ChangePosition(g,POS_FACEUP_DEFENSE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK)
 end
 function c80000145.ffilter(c)
 	return  c:IsSetCard(0x2d0) and c:IsType(TYPE_SYNCHRO)

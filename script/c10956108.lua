@@ -52,7 +52,7 @@ function c10956108.initial_effect(c)
 	c:RegisterEffect(e5)
 end
 function c10956108.disable(e,c)
-	return (c:IsType(TYPE_EFFECT) or bit.band(c:GetOriginalType(),TYPE_EFFECT)==TYPE_EFFECT) and c:IsDefencePos()
+	return (c:IsType(TYPE_EFFECT) or bit.band(c:GetOriginalType(),TYPE_EFFECT)==TYPE_EFFECT) and c:IsDefensePos()
 end
 function c10956108.sfilter(c)
 	return c:IsRace(RACE_SPELLCASTER) and c:IsType(TYPE_SYNCHRO)

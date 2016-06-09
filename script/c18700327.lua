@@ -43,7 +43,7 @@ function c18700327.target(e,c)
 	return c:IsSetCard(0xabb)
 end
 function c18700327.incon(e)
-	return e:GetHandler():IsDefencePos()
+	return e:GetHandler():IsDefensePos()
 end
 function c18700327.descon(e,tp,eg,ep,ev,re,r,rp)
 	local d=Duel.GetAttackTarget()

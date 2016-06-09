@@ -31,7 +31,7 @@ function c80000350.initial_effect(c)
 	e4:SetValue(c80000350.atkval1)
 	c:RegisterEffect(e4)
 	local e5=e4:Clone()
-	e5:SetCode(EFFECT_UPDATE_DEFENCE)
+	e5:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e5)
 	--cannot special summon
 	local e6=Effect.CreateEffect(c)

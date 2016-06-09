@@ -43,7 +43,7 @@ function c80000348.tgfilter(c)
 	return c:IsSetCard(0x2d0) and c:IsRace(RACE_INSECT) and c:IsAbleToGrave() and c:GetLevel()==6
 end
 function c80000348.spfilter(c,e,tp)
-	return c:GetAttack()==2400 and c:GetDefence()==2000 and c:IsCanBeSpecialSummoned(e,0,tp,true,true) and c:IsSetCard(0x2d0) and c:IsRace(RACE_INSECT)
+	return c:GetAttack()==2400 and c:GetDefense()==2000 and c:IsCanBeSpecialSummoned(e,0,tp,true,true) and c:IsSetCard(0x2d0) and c:IsRace(RACE_INSECT)
 end
 function c80000348.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then

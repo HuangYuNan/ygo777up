@@ -46,7 +46,7 @@ function c29200009.op(e,tp,eg,ep,ev,re,r,rp)
 	Duel.ConfirmCards(tp,tc)
 	Duel.ShuffleHand(1-tp)
 	if (res==0 and tc:IsType(TYPE_MONSTER)) or (res==1 and tc:IsType(TYPE_SPELL)) or (res==2 and tc:IsType(TYPE_TRAP)) then
-		Duel.ChangePosition(sg,POS_FACEUP_DEFENCE,0,POS_FACEUP_DEFENCE,0)
+		Duel.ChangePosition(sg,POS_FACEUP_DEFENSE,0,POS_FACEUP_DEFENSE,0)
 	else
 		Duel.ChangePosition(sg,POS_FACEUP_ATTACK,0,POS_FACEUP_ATTACK,0)
 	end

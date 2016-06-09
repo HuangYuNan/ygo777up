@@ -57,7 +57,7 @@ end
 function c18781004.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chkc then return chkc:IsLocation(LOCATION_MZONE) end
 	if chk==0 then return Duel.IsExistingTarget(c18781004.filter2,tp,0,LOCATION_MZONE,1,nil) end
-	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DEFENCE)
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DEFENSE)
 	local sg=Duel.GetMatchingGroup(c18781004.filter2,tp,0,LOCATION_MZONE,nil)
 	Duel.SetOperationInfo(0,CATEGORY_POSITION,sg,1,0,0)
 end
@@ -65,6 +65,6 @@ function c18781004.operation(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	local sg=Duel.GetMatchingGroup(nil,tp,0,LOCATION_MZONE,nil)
 	if sg then
-		Duel.ChangePosition(sg,POS_FACEUP_DEFENCE,POS_FACEUP_DEFENCE,POS_FACEUP_DEFENCE,POS_FACEUP_DEFENCE)
+		Duel.ChangePosition(sg,POS_FACEUP_DEFENSE,POS_FACEUP_DEFENSE,POS_FACEUP_DEFENSE,POS_FACEUP_DEFENSE)
 	end
 end

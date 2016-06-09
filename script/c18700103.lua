@@ -48,6 +48,6 @@ function c18700103.regop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetMatchingGroup(c18700103.filter,tp,0,LOCATION_ONFIELD,nil)
     local g1=Duel.GetMatchingGroup(Card.IsFaceup,tp,0,LOCATION_MZONE,nil)
     if g:GetCount()>0 and Duel.Remove(g,POS_FACEUP,REASON_EFFECT)~=0 then
-        Duel.ChangePosition(g1,POS_FACEDOWN_DEFENCE)
+        Duel.ChangePosition(g1,POS_FACEDOWN_DEFENSE)
     end
 end

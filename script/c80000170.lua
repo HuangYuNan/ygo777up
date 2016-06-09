@@ -55,7 +55,7 @@ function c80000170.descon(e,tp,eg,ep,ev,re,r,rp)
 	local d=Duel.GetAttackTarget()
 	if d==c then d=Duel.GetAttacker() end
 	e:SetLabelObject(d)
-	return d and d:IsFaceup() and d:GetDefence()<=c:GetAttack()
+	return d and d:IsFaceup() and d:GetDefense()<=c:GetAttack()
 end
 function c80000170.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
@@ -64,7 +64,7 @@ end
 function c80000170.desop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	local d=e:GetLabelObject()
-	if c:IsFaceup() and c:IsRelateToEffect(e) and d:IsRelateToBattle() and d:GetDefence()<=c:GetAttack() then
+	if c:IsFaceup() and c:IsRelateToEffect(e) and d:IsRelateToBattle() and d:GetDefense()<=c:GetAttack() then
 		Duel.Destroy(d,REASON_EFFECT)
 	end
 end 

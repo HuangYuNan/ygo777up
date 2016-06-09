@@ -30,7 +30,7 @@ end
 function c18700316.operation(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
 	if tc:IsRelateToEffect(e) and tc:IsFacedown() then
-		Duel.ChangePosition(tc,POS_FACEUP_DEFENCE)
+		Duel.ChangePosition(tc,POS_FACEUP_DEFENSE)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_ATOHAND)
 	local sg=Duel.SelectMatchingCard(tp,c18700316.filter1,tp,LOCATION_DECK,0,1,1,nil)
 	if sg:GetCount()>0 then

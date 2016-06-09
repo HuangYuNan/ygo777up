@@ -5,7 +5,7 @@ function c18738103.initial_effect(c)
 	e1:SetType(EFFECT_TYPE_FIELD)
 	e1:SetCode(EFFECT_SPSUMMON_PROC)
 	e1:SetProperty(EFFECT_FLAG_SPSUM_PARAM)
-	e1:SetTargetRange(POS_FACEDOWN_DEFENCE,0)
+	e1:SetTargetRange(POS_FACEDOWN_DEFENSE,0)
 	e1:SetCountLimit(1,187381030)
 	e1:SetRange(LOCATION_HAND)
 	e1:SetCondition(c18738103.spcon)
@@ -75,6 +75,6 @@ function c18738103.thop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.SelectMatchingCard(tp,c18738103.filter,tp,LOCATION_DECK+LOCATION_GRAVE,0,1,1,nil,e,tp)
 	if g:GetCount()>0 then
 	Duel.ConfirmCards(1-tp,g)
-		Duel.SpecialSummon(g,0,tp,tp,false,false,POS_FACEDOWN_DEFENCE)
+		Duel.SpecialSummon(g,0,tp,tp,false,false,POS_FACEDOWN_DEFENSE)
 	end
 end

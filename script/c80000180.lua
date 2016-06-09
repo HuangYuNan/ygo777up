@@ -17,7 +17,7 @@ function c80000180.initial_effect(c)
 	e2:SetValue(300)
 	c:RegisterEffect(e2)  
 	local e4=e2:Clone()
-	e4:SetCode(EFFECT_UPDATE_DEFENCE)
+	e4:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e4) 
 	--search
 	local e5=Effect.CreateEffect(c)

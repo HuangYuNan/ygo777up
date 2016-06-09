@@ -75,7 +75,7 @@ function c18706035.checkop(e,tp,eg,ep,ev,re,r,rp)
 	if p2 then Duel.RegisterFlagEffect(1,18706035,RESET_PHASE+PHASE_END,0,1) end
 end
 function c18706035.incon(e)
-	return e:GetHandler():GetOverlayCount()>0 and e:GetHandler():IsDefencePos()
+	return e:GetHandler():GetOverlayCount()>0 and e:GetHandler():IsDefensePos()
 end
 function c18706035.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return e:GetHandler():CheckRemoveOverlayCard(tp,1,REASON_COST) end

@@ -82,7 +82,7 @@ function c60150631.reptg(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c60150631.filter(c,tc)
     if not c:IsFaceup() then return false end
-    return tc:GetBaseAttack()~=c:GetAttack() or tc:GetBaseAttack()~=c:GetDefence()
+    return tc:GetBaseAttack()~=c:GetAttack() or tc:GetBaseAttack()~=c:GetDefense()
 end
 function c60150631.condition(e,tp,eg,ep,ev,re,r,rp)
     local c=e:GetHandler()
@@ -94,7 +94,7 @@ function c60150631.operation(e,tp,eg,ep,ev,re,r,rp)
     local c=e:GetHandler()
     local bc=c:GetBattleTarget()
 	local atk=bc:GetAttack()
-    local def=bc:GetDefence()
+    local def=bc:GetDefense()
     if c:IsFaceup() and c:IsRelateToBattle() and bc:IsFaceup() and bc:IsRelateToBattle() then
         local e1=Effect.CreateEffect(c)
         e1:SetType(EFFECT_TYPE_SINGLE)

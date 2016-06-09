@@ -20,7 +20,7 @@ function c18700001.activate(e,tp,eg,ep,ev,re,r,rp)
 			Duel.BreakEffect()
 			Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_POSCHANGE)
 			local sg=tg:Select(tp,1,5,nil)
-		if sg:GetCount()>0 and Duel.ChangePosition(sg,POS_FACEUP_DEFENCE)~=0 then
+		if sg:GetCount()>0 and Duel.ChangePosition(sg,POS_FACEUP_DEFENSE)~=0 then
 		local ag=Duel.GetMatchingGroup(c18700001.spfilter,tp,LOCATION_EXTRA,0,nil,e,tp)
 		if ag:GetCount()>0 and Duel.SelectYesNo(tp,aux.Stringid(18700001,0)) then
 			Duel.BreakEffect()

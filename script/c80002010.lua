@@ -23,7 +23,7 @@ function c80002010.initial_effect(c)
 	e3:SetValue(500)
 	c:RegisterEffect(e3)
 	local e4=e3:Clone()
-	e4:SetCode(EFFECT_UPDATE_DEFENCE)
+	e4:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e4) 
 	--Activate
 	local e5=Effect.CreateEffect(c)

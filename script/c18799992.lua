@@ -88,7 +88,7 @@ function c18799992.reop(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
 	if tc:IsRelateToEffect(e) and tc:IsFaceup() then
 		if tc:IsType(TYPE_MONSTER) then
-			Duel.ChangePosition(tc,POS_FACEDOWN_DEFENCE)
+			Duel.ChangePosition(tc,POS_FACEDOWN_DEFENSE)
 		else
 			Duel.ChangePosition(tc,POS_FACEDOWN)
 			Duel.RaiseEvent(tc,EVENT_SSET,e,REASON_EFFECT,tp,tp,0)

@@ -39,7 +39,7 @@ function c18787003.initial_effect(c)
 	c:RegisterEffect(e3)
 	--def
 	local e4=e3:Clone()
-	e4:SetCode(EFFECT_UPDATE_DEFENCE)
+	e4:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e4)
 end
 function c18787003.filter(c)

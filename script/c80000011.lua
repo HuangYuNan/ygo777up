@@ -120,7 +120,7 @@ function c80000011.addown(c,e)
 	e1:SetValue(c:GetCounter(0x18)*-800)
 	c:RegisterEffect(e1)
 	local e2=e1:Clone()
-	e2:SetCode(EFFECT_UPDATE_DEFENCE)
+	e2:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e2)
 end
 function c80000011.adval(e,tp,eg,ep,ev,re,r,rp)

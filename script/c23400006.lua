@@ -28,7 +28,7 @@ function c23400006.initial_effect(c)
 	--atk
 	local e4=Effect.CreateEffect(c)
 	e4:SetType(EFFECT_TYPE_FIELD)
-	e4:SetCode(EFFECT_UPDATE_DEFENCE)
+	e4:SetCode(EFFECT_UPDATE_DEFENSE)
 	e4:SetRange(LOCATION_MZONE)
 	e4:SetCondition(aux.IsDualState)
 	e4:SetTargetRange(LOCATION_MZONE,0)

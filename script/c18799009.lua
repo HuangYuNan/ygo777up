@@ -71,12 +71,12 @@ end
 function c18799009.op(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetMatchingGroup(c18799009.afilter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
 	if g:GetCount()>0 then
-		Duel.ChangePosition(g,POS_FACEDOWN_DEFENCE)
+		Duel.ChangePosition(g,POS_FACEDOWN_DEFENSE)
 	end
 end
 function c18799009.regcon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler()==Duel.GetAttacker() and Duel.GetAttackTarget() 
-	and Duel.GetAttackTarget():IsDefencePos() and Duel.GetAttackTarget():IsAbleToRemove()
+	and Duel.GetAttackTarget():IsDefensePos() and Duel.GetAttackTarget():IsAbleToRemove()
 end
 function c18799009.regtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	local t=Duel.GetAttackTarget()

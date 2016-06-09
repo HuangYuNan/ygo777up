@@ -34,7 +34,7 @@ end
 function c18799012.activate(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
 	if tc:IsRelateToEffect(e) and tc:IsFaceup() then
-	Duel.ChangePosition(tc,POS_FACEDOWN_DEFENCE)
+	Duel.ChangePosition(tc,POS_FACEDOWN_DEFENSE)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_FACEUP)
 	local g2=Duel.SelectMatchingCard(tp,aux.disfilter1,tp,0,LOCATION_MZONE,1,1,nil)
 	local c=e:GetHandler()
