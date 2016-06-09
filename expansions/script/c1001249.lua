@@ -1,5 +1,5 @@
 --金刚级高速战舰2号舰—比睿
-require("/expansions/script/c1001252")
+require "script/c1001252"
 function c1001249.initial_effect(c)
 	c:SetUniqueOnField(1,0,1001249)
 	colle.sum2(c,8)

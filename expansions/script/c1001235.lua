@@ -1,5 +1,5 @@
 --U艇IXC型—U-511
-require("/expansions/script/c1001252")
+require "script/c1001252"
 function c1001235.initial_effect(c)
 	colle.sum(c,2)
 	colle.thc(c)
