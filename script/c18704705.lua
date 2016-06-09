@@ -77,6 +77,7 @@ function c18704705.thfilter(c)
 	return c:IsSetCard(0xaab2)  and c:IsAbleToHand()
 end
 function c18704705.activate(e,tp,eg,ep,ev,re,r,rp)
+	if not e:GetHandler():IsRelateToEffect(e) then return end
 	local tg=Duel.GetMatchingGroup(c18704705.filter,tp,LOCATION_REMOVED+LOCATION_GRAVE,0,nil)
 	if tg:GetCount()>0 then
 		Duel.SendtoDeck(tg,nil,2,REASON_EFFECT)
