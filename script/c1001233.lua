@@ -1,5 +1,5 @@
 --海大VI型潜水艇1号舰—伊168
-require "/expansions/script/c1001252"
+require "/script/c1001252"
 function c1001233.initial_effect(c)
 	colle.sum(c,1)
 	colle.th1(c)

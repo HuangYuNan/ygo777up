@@ -1,5 +1,5 @@
 --古鹰级重巡洋舰2号舰—加古
-require "/expansions/script/c1001252"
+require "/script/c1001252"
 function c1001241.initial_effect(c)
 	colle.sum(c,3)
 	colle.atkup(c,100)

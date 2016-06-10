@@ -1,5 +1,5 @@
 --岛风级驱逐舰1号舰—岛风
-require "/expansions/script/c1001252"
+require "/script/c1001252"
 function c1001223.initial_effect(c)
 	colle.sum(c,3)
 	colle.atkup(c,200)

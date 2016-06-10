@@ -1,5 +1,5 @@
 --大淀级轻巡洋舰1号舰—大淀
-require "/expansions/script/c1001252"
+require "/script/c1001252"
 function c1001236.initial_effect(c)
 	colle.sum(c,3)
 	colle.atkup(c,100)

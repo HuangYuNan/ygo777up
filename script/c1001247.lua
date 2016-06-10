@@ -1,5 +1,5 @@
 --长门级战列舰2号舰—陆奥
-require "/expansions/script/c1001252"
+require "/script/c1001252"
 function c1001247.initial_effect(c)
 	c:SetUniqueOnField(1,0,1001247)
 	colle.sum2(c,10)
