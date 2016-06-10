@@ -1,5 +1,5 @@
 --吹雪级驱逐舰1号舰—吹雪
-require "/script/c1001252"
+require "script/c1001252"
 function c1001219.initial_effect(c)
 	c:SetUniqueOnField(1,0,c:GetCode())
 	colle.sum(c,2)

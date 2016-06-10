@@ -1,5 +1,5 @@
 --秋月级驱逐舰1号舰—秋月
-require "/script/c1001252"
+require "script/c1001252"
 function c1001224.initial_effect(c)
 	colle.sum(c,3)
 	colle.atkup(c,200)

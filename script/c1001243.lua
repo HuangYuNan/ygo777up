@@ -1,5 +1,5 @@
 --千岁级轻空母2号舰—千代田
-require "/script/c1001252"
+require "script/c1001252"
 function c1001243.initial_effect(c)
 	colle.sum(c,2)
 	colle.thc(c)
