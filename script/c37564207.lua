@@ -1,5 +1,5 @@
 --Sawawa-Koishi Circulation
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564207.initial_effect(c)
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(37564207,1))

@@ -1,5 +1,5 @@
 --quesar
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564032.initial_effect(c)
 	aux.AddXyzProcedure(c,nil,6,4,c37564032.ovfilter,aux.Stringid(37564032,0),5)
 	c:EnableReviveLimit()

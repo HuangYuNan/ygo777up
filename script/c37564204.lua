@@ -1,5 +1,5 @@
 --Sawawa-Pattern Fire
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564204.initial_effect(c)
 	local e2=Effect.CreateEffect(c)
 	e2:SetDescription(aux.Stringid(37564204,1))

@@ -1,5 +1,5 @@
 --Reverse or Treat?
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564226.initial_effect(c)
 	--
 	local e1=Effect.CreateEffect(c)

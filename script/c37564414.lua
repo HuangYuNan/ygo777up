@@ -1,5 +1,5 @@
 --百慕 学院的绮罗星·奥莉维亚
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564414.initial_effect(c)
 	aux.AddXyzProcedure(c,senya.bmchkfilter,3,2,nil,nil,5)
 	c:EnableReviveLimit()

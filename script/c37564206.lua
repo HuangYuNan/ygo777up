@@ -1,5 +1,5 @@
 --Sawawa-Satori Crisis
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564206.initial_effect(c)
 	senya.sww(c,1,true,false,false)
 	local e1=Effect.CreateEffect(c)

@@ -1,5 +1,5 @@
 --百慕 沉默的歌姬·伊丝卡
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564404.initial_effect(c)
 	senya.bm(c,c37564404.target,c37564404.activate,true,CATEGORY_SPECIAL_SUMMON)
 end

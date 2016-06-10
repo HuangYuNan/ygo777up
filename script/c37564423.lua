@@ -1,5 +1,5 @@
 --百慕 窈窕名流·夏洛特
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564423.initial_effect(c)
 	senya.bmdamchk(c,false)
 	aux.AddXyzProcedure(c,senya.bmchkfilter,3,2)

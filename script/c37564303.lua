@@ -1,5 +1,5 @@
 --new utakat
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564303.initial_effect(c)
 	senya.rxyz2(c,nil,nil,3)
 	senya.mk(c,7,37564303,false)

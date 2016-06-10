@@ -1,5 +1,5 @@
 --百慕 神秘微笑·亚拉璐
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564452.initial_effect(c)
 	senya.bm(c)
 	local e3=Effect.CreateEffect(c)

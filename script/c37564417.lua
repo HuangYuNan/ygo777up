@@ -1,5 +1,5 @@
 --百慕 水晶鞋之传说·阿莫莉丝
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564417.initial_effect(c)
 	aux.AddXyzProcedure(c,senya.bmchkfilter,3,3)
 	c:EnableReviveLimit()

@@ -1,5 +1,5 @@
 --百慕 神秘微笑·亚拉璐  
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564405.initial_effect(c)
 	senya.bm(c,c37564405.sptg,c37564405.spop,false,CATEGORY_SPECIAL_SUMMON)
 	Duel.AddCustomActivityCounter(37564405,ACTIVITY_SPSUMMON,c37564405.counterfilter)

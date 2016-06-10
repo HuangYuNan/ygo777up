@@ -1,5 +1,5 @@
 --Sawawa-永远的三日天下
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564228.initial_effect(c)
 	senya.sww(c,2,true,false,false)
 	senya.bmdamchk(c,true)

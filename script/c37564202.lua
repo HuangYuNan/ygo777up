@@ -1,5 +1,5 @@
 --Sawawa-High Speed Cucumber
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564202.initial_effect(c)
 senya.sww(c,2,true,true,false)
 local e1=Effect.CreateEffect(c)

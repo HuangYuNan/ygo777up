@@ -1,4 +1,4 @@
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564407.initial_effect(c)
 	senya.bm(c,c37564407.target,c37564407.operation,true,CATEGORY_TOHAND)
 end

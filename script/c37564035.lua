@@ -1,5 +1,5 @@
 --暗黑元素·蒂斯梅尔
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564035.initial_effect(c)
 	c:EnableReviveLimit()
 	aux.AddXyzProcedure(c,nil,4,3,nil,nil,5)

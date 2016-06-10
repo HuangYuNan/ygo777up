@@ -1,5 +1,5 @@
 --百慕 宣战布告·布莱
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564421.initial_effect(c)
 	c:EnableReviveLimit()
 	aux.AddFusionProcFun2(c,aux.FilterBoolFunction(Card.IsFusionSetCard,0x770),aux.FilterBoolFunction(Card.IsFusionSetCard,0x775),true)

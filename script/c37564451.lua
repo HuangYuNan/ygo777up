@@ -1,5 +1,5 @@
 --百慕 冲击的相遇·莉普丝
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564451.initial_effect(c)
 	senya.bm(c)
 	local e3=Effect.CreateEffect(c)

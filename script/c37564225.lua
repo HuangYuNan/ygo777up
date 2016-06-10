@@ -1,5 +1,5 @@
 --Sawawa-Border of Life
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564225.initial_effect(c)
 	c:EnableReviveLimit()
 --tg

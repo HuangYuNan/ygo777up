@@ -1,5 +1,5 @@
 --元素创造者·Senya
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564022.initial_effect(c)
 	--xyz summon
 	aux.AddXyzProcedure(c,nil,5,4,nil,nil,5)

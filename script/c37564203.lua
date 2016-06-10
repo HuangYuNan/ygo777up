@@ -1,5 +1,5 @@
 --Sawawa-Kira Kira Time
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564203.initial_effect(c)
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(37564203,1))

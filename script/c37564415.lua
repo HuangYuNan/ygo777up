@@ -1,5 +1,5 @@
 --百慕 拼搏才能·香蒂
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564415.initial_effect(c)
 	aux.AddXyzProcedure(c,senya.bmchkfilter,3,3)
 	c:EnableReviveLimit()

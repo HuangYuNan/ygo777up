@@ -1,5 +1,5 @@
 --百慕 全力偶像·萨妮娅
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564410.initial_effect(c)
 	senya.bm(c,c37564410.target,c37564410.operation,true)
 end

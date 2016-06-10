@@ -1,5 +1,5 @@
 --百慕 恋之王牌·丘莉姆
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564453.initial_effect(c)
 	senya.bm(c)
 	local e3=Effect.CreateEffect(c)

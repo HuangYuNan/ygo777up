@@ -1,5 +1,5 @@
 --百慕 冷淡的视线·萨拉  
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564454.initial_effect(c)
 	senya.bm(c)
 	local e3=Effect.CreateEffect(c)

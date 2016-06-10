@@ -1,5 +1,5 @@
 --Sawawa-Flowering Night
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564227.initial_effect(c)
 	senya.sww(c,1,true,false,false)
 	local e5=Effect.CreateEffect(c)

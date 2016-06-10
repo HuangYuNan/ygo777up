@@ -1,5 +1,5 @@
 --百慕 午后的茶会·库贝尔
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564409.initial_effect(c)
 	senya.bm(c,c37564409.target,c37564409.activate,true,CATEGORY_DESTROY)
 end

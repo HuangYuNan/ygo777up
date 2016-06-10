@@ -1,5 +1,5 @@
 --百慕 魔法的应援·妮娜
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564402.initial_effect(c)
 	senya.bm(c,c37564402.target,c37564402.operation,false,CATEGORY_RECOVER+CATEGORY_DAMAGE)
 end

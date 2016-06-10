@@ -1,5 +1,5 @@
 --千年幻想郷～千年疾走響～
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564210.initial_effect(c)
 	c:SetUniqueOnField(1,1,37564210)
 	c:EnableReviveLimit()

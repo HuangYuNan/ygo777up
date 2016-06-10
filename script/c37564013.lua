@@ -1,5 +1,5 @@
 --元素的使者·Prim
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564013.initial_effect(c)
 	senya.rxyz1(c,4)
 	--攻击上升

@@ -1,5 +1,5 @@
 --Sawawa-上海红茶馆
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564212.initial_effect(c)
 --suf
 	local e2=Effect.CreateEffect(c)

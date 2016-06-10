@@ -1,5 +1,5 @@
 --帕拉诺尼亚 ???
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564310.initial_effect(c)
 	senya.rxyz2(c,nil,nil,3)
 --atk

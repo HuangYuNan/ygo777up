@@ -1,5 +1,5 @@
 --Tomaru Susumu
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564503.initial_effect(c)
 	senya.nnhr(c)
 	c:EnableReviveLimit()

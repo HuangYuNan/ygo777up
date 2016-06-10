@@ -1,5 +1,5 @@
 --华光之二重·罗蕾塔
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564412.initial_effect(c)
 	senya.bmrl(c,true)
 	local e1=Effect.CreateEffect(c)

@@ -1,5 +1,5 @@
 --百慕 舞台风暴·约理
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564401.initial_effect(c)
 	senya.bm(c,c37564401.target,c37564401.activate,false,CATEGORY_TOHAND+CATEGORY_SEARCH)
 end

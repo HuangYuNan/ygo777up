@@ -1,5 +1,5 @@
 --百慕 指尖确认·真子
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564408.initial_effect(c)
 	senya.bm(c,c37564408.target,c37564408.activate,true,CATEGORY_TOHAND)
 end

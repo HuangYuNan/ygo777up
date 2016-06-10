@@ -1,5 +1,5 @@
 --Crazy Cinderella
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564220.initial_effect(c)
 	--Activate
 	local e1=Effect.CreateEffect(c)

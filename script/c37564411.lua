@@ -1,5 +1,5 @@
 --百慕 全开偶像·露璃
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564411.initial_effect(c)
 	senya.bmrl(c)
 	senya.bmdamchk(c,false)

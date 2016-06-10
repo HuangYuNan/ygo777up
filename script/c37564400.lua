@@ -1,5 +1,5 @@
 --传说的华光之二重·内克塔里娅
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564400.initial_effect(c)
 	senya.rxyz1(c,3,c37564400.mfilter)
 --atk

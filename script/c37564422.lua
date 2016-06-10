@@ -1,5 +1,5 @@
 --百慕 甜蜜乐园·玛妮娅
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564422.initial_effect(c)
 	senya.bm(c,c37564422.sptg,c37564422.spop,false,CATEGORY_SPECIAL_SUMMON)
 end

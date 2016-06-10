@@ -1,5 +1,5 @@
 --钢铁元素·斯库修
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564034.initial_effect(c)
 	aux.AddXyzProcedure(c,nil,4,2,nil,nil,5)
 	 c:EnableReviveLimit()

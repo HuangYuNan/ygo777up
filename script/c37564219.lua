@@ -1,5 +1,5 @@
 --Syan High Speed
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564219.initial_effect(c)	
 local e1=Effect.CreateEffect(c)
 	e1:SetCategory(CATEGORY_TODECK+CATEGORY_DRAW)

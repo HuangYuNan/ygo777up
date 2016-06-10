@@ -1,5 +1,5 @@
 --百慕 魔法的音杖·夏尔温
-require "script/c37564765"
+require "/expansions/script/c37564765"
 function c37564403.initial_effect(c)
 	senya.bm(c,c37564403.target,c37564403.activate,false,CATEGORY_DRAW)
 end
