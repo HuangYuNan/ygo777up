@@ -74,40 +74,27 @@ function c60150625.negop(e,tp,eg,ep,ev,re,r,rp)
     local c=e:GetHandler()
     local bc=c:GetBattleTarget()
 	if bc==nil then return end
-    if bc then
-		--
-		local e1=Effect.CreateEffect(e:GetHandler())
-		e1:SetType(EFFECT_TYPE_FIELD)
-		e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
-		e1:SetCode(EFFECT_CANNOT_ACTIVATE)
-		e1:SetTargetRange(1,1)
-		e1:SetValue(c60150625.aclimit)
-		e1:SetLabel(bc:GetCode())
-		if Duel.GetTurnPlayer()==tp then
-			e1:SetReset(RESET_PHASE+PHASE_END+RESET_SELF_TURN,2)
-		else
-			e1:SetReset(RESET_PHASE+PHASE_END+RESET_SELF_TURN)
-		end
-		Duel.RegisterEffect(e1,tp)
-		--
-		local e2=Effect.CreateEffect(e:GetHandler())
-		e2:SetType(EFFECT_TYPE_FIELD)
-		e2:SetCode(EFFECT_CANNOT_SPECIAL_SUMMON)
-		e2:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
-		e2:SetTargetRange(1,1)
-		e2:SetTarget(c60150625.splimit)
-		e2:SetLabel(bc:GetCode())
-		if Duel.GetTurnPlayer()==tp then
-			e2:SetReset(RESET_PHASE+PHASE_END+RESET_SELF_TURN,2)
-		else
-			e2:SetReset(RESET_PHASE+PHASE_END+RESET_SELF_TURN)
-		end
-		Duel.RegisterEffect(e2,tp)
+    local e1=Effect.CreateEffect(e:GetHandler())
+    e1:SetType(EFFECT_TYPE_FIELD)
+    e1:SetCode(EFFECT_CANNOT_SPECIAL_SUMMON)
+    e1:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
+    e1:SetTargetRange(1,1)
+    e1:SetTarget(c60150625.sumlimit)
+    e1:SetLabel(bc:GetCode())
+    if Duel.GetTurnPlayer()==tp then
+        e1:SetReset(RESET_PHASE+PHASE_END+RESET_SELF_TURN,2)
+    else
+        e1:SetReset(RESET_PHASE+PHASE_END+RESET_SELF_TURN)
     end
+    Duel.RegisterEffect(e1,tp)
+    local e4=e1:Clone()
+    e4:SetCode(EFFECT_CANNOT_ACTIVATE)
+    e4:SetValue(c60150625.aclimit)
+    Duel.RegisterEffect(e4,tp)
 end
-function c60150625.aclimit(e,re)
-    return re:GetHandler():IsCode(e:GetLabel()) and not re:GetHandler():IsImmuneToEffect(e)
+function c60150625.sumlimit(e,c)
+    return c:IsCode(e:GetLabel())
 end
-function c60150625.splimit(e,c)
-    return c:IsCode(e:GetLabel()) and not c:IsImmuneToEffect(e)
+function c60150625.aclimit(e,re,tp)
+    return re:GetHandler():IsCode(e:GetLabel()) and re:IsActiveType(TYPE_MONSTER) and not re:GetHandler():IsImmuneToEffect(e)
 end
