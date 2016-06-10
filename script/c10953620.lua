@@ -62,13 +62,13 @@ function c10953620.initial_effect(c)
 	c:RegisterEffect(e8)
 end
 function c10953620.target1(e,c)
-	return (c:IsSetCard(0x23c) or c:IsSetCard(0x350)) and c:IsType(TYPE_MONSTER)
+	return (c:IsSetCard(0x23c) or c:IsSetCard(0x350)) and c:IsType(TYPE_MONSTER) and c:IsLevelBelow(5)
 end
 function c10953620.effectfilter(e,ct)
 	local p=e:GetHandler():GetControler()
 	local te,tp=Duel.GetChainInfo(ct,CHAININFO_TRIGGERING_EFFECT,CHAININFO_TRIGGERING_PLAYER)
 	local tc=te:GetHandler()
-	return p==tp and (tc:IsSetCard(0x23c) or tc:IsSetCard(0x350))
+	return p==tp and (tc:IsSetCard(0x23c) or tc:IsSetCard(0x350)) and tc:IsLevelBelow(5)
 end
 function c10953620.lvfilter(c)
 	return c:IsFaceup() and (c:IsSetCard(0x23c) or c:IsSetCard(0x350)) and c:IsLevelAbove(1)

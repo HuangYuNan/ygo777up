@@ -43,7 +43,7 @@ function c10953632.spcon(e,c)
 		and Duel.IsExistingMatchingCard(c10953632.spfilter,tp,LOCATION_MZONE,0,1,nil)
 end
 function c10953632.filter2(c)
-	return c:IsSetCard(0x23c) and c:IsAbleToDeckAsCost()
+	return c:IsSetCard(0x23c) and c:IsFaceup() and c:IsAbleToDeckAsCost()
 end
 function c10953632.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c10953632.filter2,tp,LOCATION_REMOVED,0,2,nil) end
