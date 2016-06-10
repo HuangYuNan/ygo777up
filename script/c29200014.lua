@@ -30,16 +30,15 @@ function c29200014.filter(c,e,tp)
 end
 function c29200014.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0
-		and Duel.IsExistingTarget(c29200014.filter,tp,LOCATION_HAND,0,1,e:GetHandler(),e,tp) end
+		and Duel.IsExistingMatchingCard(c29200014.filter,tp,LOCATION_HAND,0,1,nil,e,tp) end
 	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,g,1,0,0)
 end
 function c29200014.operation(e,tp,eg,ep,ev,re,r,rp)
 	if Duel.GetLocationCount(tp,LOCATION_MZONE)<=0 then return end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
-	local g=Duel.SelectTarget(tp,c29200014.filter,tp,LOCATION_HAND,0,1,1,e:GetHandler(),e,tp)
-	local tc=g:GetFirst()
-	if tc>0 then
-		Duel.SpecialSummon(tc,0,tp,tp,false,false,POS_FACEUP)
+	local g=Duel.SelectMatchingCard(tp,c29200014.filter,tp,LOCATION_HAND,0,1,1,nil,e,tp)
+	if g:GetCount()>0 then
+		Duel.SpecialSummon(g,0,tp,tp,false,false,POS_FACEUP)
 	end
 end
 function c29200014.cost1(e,tp,eg,ep,ev,re,r,rp,chk)
