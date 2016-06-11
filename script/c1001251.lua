@@ -1,5 +1,5 @@
 --金刚级高速战舰4号舰—雾岛
-require "/expansions/script/c1001252"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
 function c1001251.initial_effect(c)
 	c:SetUniqueOnField(1,0,1001251)
 	colle.sum2(c,8)

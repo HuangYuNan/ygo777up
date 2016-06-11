@@ -1,5 +1,5 @@
 --海大VI型潜水艇1号舰—伊168
-require "/expansions/script/c1001252"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
 function c1001233.initial_effect(c)
 	colle.sum(c,1)
 	colle.th1(c)

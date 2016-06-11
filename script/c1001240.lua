@@ -1,5 +1,5 @@
 --古鹰级重巡洋舰1号舰—古鹰
-require "/expansions/script/c1001252"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
 function c1001240.initial_effect(c)
 	colle.sum(c,3)
 	colle.atkup(c,100)
