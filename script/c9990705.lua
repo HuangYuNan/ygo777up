@@ -24,7 +24,7 @@ function c9990705.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	e1:SetReset(RESET_PHASE+PHASE_END)
 	e1:SetTargetRange(1,0)
 	e1:SetTarget(function(e,c,sump,sumtype,sumpos,targetp,se)
-		return not c:IsLocation(LOCATION_EXTRA) or bit.band(sumtype,SUMMON_TYPE_FUSION)==SUMMON_TYPE_FUSION
+		return c:IsLocation(LOCATION_EXTRA) and bit.band(sumtype,SUMMON_TYPE_FUSION)~=SUMMON_TYPE_FUSION
 	end)
 	Duel.RegisterEffect(e1,tp)
 end
