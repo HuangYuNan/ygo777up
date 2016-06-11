@@ -62,7 +62,7 @@ function c80000086.initial_effect(c)
 	c:RegisterEffect(e4)  
 end
 function c80000086.bpcon(e)
-	return e:GetHandler():IsPosition(POS_FACEUP_DEFENSE)
+	return e:GetHandler():IsPosition(POS_FACEUP_DEFENCE)
 end
 function c80000086.efilter(e,te)
 	return te:IsActiveType(TYPE_TRAP)

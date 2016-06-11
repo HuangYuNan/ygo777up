@@ -30,7 +30,7 @@ function c80000192.initial_effect(c)
 	--defind
 	local e3=Effect.CreateEffect(c)
 	e3:SetType(EFFECT_TYPE_SINGLE)
-	e3:SetCode(EFFECT_UPDATE_DEFENSE)
+	e3:SetCode(EFFECT_UPDATE_DEFENCE)
 	e3:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
 	e3:SetRange(LOCATION_MZONE)
 	e3:SetValue(c80000192.atkval)
@@ -94,7 +94,7 @@ function c80000192.operation(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.SelectMatchingCard(tp,c80000192.filter,tp,LOCATION_GRAVE+LOCATION_DECK,0,ft,ft,nil,e,tp)
 	local tc=g:GetFirst()
 	while tc do
-		Duel.SpecialSummonStep(tc,0,tp,tp,false,false,POS_FACEUP_DEFENSE)
+		Duel.SpecialSummonStep(tc,0,tp,tp,false,false,POS_FACEUP_DEFENCE)
 		c:SetCardTarget(tc)
 		tc=g:GetNext()
 	end

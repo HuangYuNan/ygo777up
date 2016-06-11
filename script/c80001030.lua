@@ -7,7 +7,7 @@ function c80001030.initial_effect(c)
 	e1:SetProperty(EFFECT_FLAG_UNCOPYABLE)
 	e1:SetRange(LOCATION_HAND)
 	e1:SetCondition(c80001030.spcon)
-	c:RegisterEffect(e1)  
+	c:RegisterEffect(e1) 
 	--summon success
 	local e2=Effect.CreateEffect(c)
 	e2:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
@@ -26,10 +26,14 @@ function c80001030.initial_effect(c)
 	c:RegisterEffect(e2)   
 end
 function c80001030.cfilter(c)
-	return not (c:IsRace(RACE_WINDBEAST) and c:IsAttribute(ATTRIBUTE_WATER))
+	return c:IsFacedown() or not c:IsAttribute(ATTRIBUTE_WATER) or not c:IsRace(RACE_WINDBEAST)
 end
 function c80001030.spcon(e,c)
-	return not Duel.IsExistingMatchingCard(c80001030.cfilter,tp,LOCATION_MZONE,0,1,nil)
+	if c==nil then return true end
+	local tp=c:GetControler()
+	return Duel.GetLocationCount(tp,LOCATION_MZONE)>0
+		and Duel.GetFieldGroupCount(tp,LOCATION_MZONE,0)>0
+		and not Duel.IsExistingMatchingCard(c80001030.cfilter,tp,LOCATION_MZONE,0,1,nil)
 end
 function c80001030.sumsuc(e,tp,eg,ep,ev,re,r,rp)
 	local e1=Effect.CreateEffect(e:GetHandler())

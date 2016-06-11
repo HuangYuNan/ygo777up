@@ -73,7 +73,7 @@ function c80000162.skipcon(e)
 	return Duel.GetTurnPlayer()~=e:GetHandlerPlayer()
 end
 function c80000162.filter(c,tp)
-	return c:IsPosition(POS_DEFENSE) and not c:IsType(TYPE_TOKEN)
+	return c:IsPosition(POS_DEFENCE) and not c:IsType(TYPE_TOKEN)
 		and (c:IsControler(tp) or c:IsAbleToChangeControler())
 end
 function c80000162.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)

@@ -15,7 +15,7 @@ function c80008002.initial_effect(c)
 	e2:SetValue(300)
 	c:RegisterEffect(e2)
 	local e3=e2:Clone()
-	e3:SetCode(EFFECT_UPDATE_DEFENSE)
+	e3:SetCode(EFFECT_UPDATE_DEFENCE)
 	c:RegisterEffect(e3) 
 	--cannot attack
 	local e5=Effect.CreateEffect(c)
@@ -71,7 +71,7 @@ function c80008002.atktg(e,c)
 	return c:IsAttribute(ATTRIBUTE_WATER) and c:IsType(TYPE_MONSTER) and c:IsRace(RACE_SPELLCASTER)
 end
 function c80008002.filter(c)
-	return c:IsAttribute(ATTRIBUTE_WATER) and c:IsType(TYPE_MONSTER) and c:IsAbleToHand() and c:IsRace(RACE_SPELLCASTER)
+	return c:IsAttribute(ATTRIBUTE_WATER) and c:IsType(TYPE_MONSTER) and c:IsAbleToHand() and c:IsRace(RACE_SPELLCASTER) and c:GetLevel()==8
 end
 function c80008002.thtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c80008002.filter,tp,LOCATION_DECK,0,1,nil) end

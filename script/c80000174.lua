@@ -30,7 +30,7 @@ c80000174.lvdn={80000173}
 function c80000174.retcon(e,tp,eg,ep,ev,re,r,rp)
 	if not re then return false end
 	local rc=re:GetHandler()
-	return rc:IsCode(80000173) or rc:IsCode(80000058) 
+	return rc:IsCode(80000173) or rc:IsCode(80000058) or rc:IsCode(80000355)
 end
 function c80000174.spcon(e,tp,eg,ep,ev,re,r,rp)
 	return rp~=tp and e:GetHandler():GetPreviousControler()==tp

@@ -84,7 +84,7 @@ function c80000156.filter222(c)
 end
 function c80000156.posop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetMatchingGroup(c80000156.filter222,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
-	Duel.ChangePosition(g,POS_FACEUP_DEFENSE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,true)
+	Duel.ChangePosition(g,POS_FACEUP_DEFENCE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,true)
 end
 function c80000156.filter(c,tp)
 	return c:IsCode(80000147) and c:GetActivateEffect():IsActivatable(tp)

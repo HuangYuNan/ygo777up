@@ -63,7 +63,7 @@ function c1000406.repoperation(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Remove(e:GetHandler(),POS_FACEUP,REASON_EFFECT)
 end
 function c1000406.filter2(c)
-	return c:IsFaceup() and (c:IsType(TYPE_SPELL) or c:IsType(TYPE_TRAP))
+	return (c:IsType(TYPE_SPELL) or c:IsType(TYPE_TRAP))
 end
 function c1000406.value(e,c)
 	return Duel.GetMatchingGroupCount(c1000406.filter2,0,LOCATION_ONFIELD+LOCATION_GRAVE,LOCATION_ONFIELD+LOCATION_GRAVE,nil)*50

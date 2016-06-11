@@ -46,7 +46,7 @@ function c80008018.initial_effect(c)
 	c:RegisterEffect(e4)   
 end
 function c80008018.desfilter(c)
-	return c:IsFaceup() and c:IsAttribute(ATTRIBUTE_WATER) and c:IsRace(RACE_SPELLCASTER) and c:IsDestructable()
+	return c:IsFaceup() and c:IsAttribute(ATTRIBUTE_WATER) and c:IsRace(RACE_SPELLCASTER) and c:IsDestructable() and not c:IsType(TYPE_PENDULUM)
 end
 function c80008018.desfilter2(c,e)
 	return c80008018.desfilter(c) and c:IsCanBeEffectTarget(e)

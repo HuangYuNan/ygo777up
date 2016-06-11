@@ -88,7 +88,7 @@ end
 function c80000280.operation(e,tp,eg,ep,ev,re,r,rp)
 	if e:GetLabel()==0 or not e:GetHandler():IsRelateToEffect(e) then return end
 	local g=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS):Filter(c80000280.pfilter,nil,e)
-	Duel.ChangePosition(g,POS_FACEUP_DEFENSE)
+	Duel.ChangePosition(g,POS_FACEUP_DEFENCE)
 end
 function c80000280.cfilter(c)
 	return c:IsFaceup() and c:IsCode(80000148)

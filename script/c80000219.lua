@@ -64,7 +64,7 @@ function c80000219.spop(e,tp,eg,ep,ev,re,r,rp)
 		e1:SetReset(RESET_EVENT+0x1fe0000)
 		c:RegisterEffect(e1)
 		local e2=e1:Clone()
-		e2:SetCode(EFFECT_SET_DEFENSE)
+		e2:SetCode(EFFECT_SET_DEFENCE)
 		c:RegisterEffect(e2)
 	end
 end
@@ -97,7 +97,7 @@ function c80000219.spop1(e,tp,eg,ep,ev,re,r,rp)
 		e1:SetReset(RESET_EVENT+0x1fe0000)
 		tc:RegisterEffect(e1)
 		local e2=e1:Clone()
-		e2:SetCode(EFFECT_SET_DEFENSE)
+		e2:SetCode(EFFECT_SET_DEFENCE)
 		tc:RegisterEffect(e2)
 		Duel.SpecialSummonComplete()
 	end

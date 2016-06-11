@@ -79,7 +79,7 @@ function c80000089.tg(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c80000089.op(e,tp,eg,ep,ev,re,r,rp)
 	local g=eg:Filter(c80000089.filter1,nil,e,tp)
-	Duel.ChangePosition(g,POS_FACEDOWN_DEFENSE)
+	Duel.ChangePosition(g,POS_FACEDOWN_DEFENCE)
 end
 function c80000089.efilter(e,te)
 	return te:IsActiveType(TYPE_MONSTER) and te:GetOwner()~=e:GetOwner()

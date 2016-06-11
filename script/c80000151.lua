@@ -73,7 +73,7 @@ function c80000151.operation(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c80000151.posop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetMatchingGroup(c80000151.filter1,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
-	Duel.ChangePosition(g,POS_FACEUP_DEFENSE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK)
+	Duel.ChangePosition(g,POS_FACEUP_DEFENCE,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK,POS_FACEUP_ATTACK)
 end
 function c80000151.filter1(c)
 	return c:IsFaceup() and not c:IsSetCard(0x2d0)

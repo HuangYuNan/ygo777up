@@ -15,7 +15,7 @@ c80000231.lvupcount=1
 c80000231.lvup={80000232}
 function c80000231.condition(e,tp,eg,ep,ev,re,r,rp)
 	return r~=REASON_REPLACE and Duel.GetAttackTarget()==e:GetHandler() and Duel.GetAttacker():IsControler(1-tp)
-		and e:GetHandler():GetBattlePosition()==POS_FACEDOWN_DEFENSE
+		and e:GetHandler():GetBattlePosition()==POS_FACEDOWN_DEFENCE
 end
 function c80000231.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsControler(tp) and chkc:IsLocation(LOCATION_MZONE) end

@@ -66,7 +66,7 @@ function c80000048.atkop(e,tp,eg,ep,ev,re,r,rp)
 	local coin=Duel.SelectOption(1-tp,aux.Stringid(80000048,2),aux.Stringid(80000048,3))
 	local res=Duel.TossCoin(1-tp,1)
 	if coin~=res then
-	   Duel.ChangePosition(c,POS_FACEUP_DEFENSE) 
+	   Duel.ChangePosition(c,POS_FACEUP_DEFENCE) 
 	   else
 	   Duel.NegateAttack()  
 	end

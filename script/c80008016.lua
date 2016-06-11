@@ -77,7 +77,7 @@ function c80008016.lvop2(e,tp,eg,ep,ev,re,r,rp)
 	c:RegisterEffect(e2)
 end
 function c80008016.filter(c,e,tp)
-	return c:IsAttribute(ATTRIBUTE_WATER) and c:IsRace(RACE_SPELLCASTER) and c:IsCanBeSpecialSummoned(e,SUMMON_TYPE_ADVANCE,tp,false,false)
+	return c:IsAttribute(ATTRIBUTE_WATER) and c:IsRace(RACE_SPELLCASTER) and c:IsCanBeSpecialSummoned(e,SUMMON_TYPE_ADVANCE,tp,false,false) and c:GetLevel()==8
 end
 function c80008016.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0
@@ -93,11 +93,11 @@ function c80008016.spop(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.SelectMatchingCard(tp,c80008016.filter,tp,LOCATION_HAND,0,1,1,nil,e,tp)
 	if g:GetCount()>0 then
 		Duel.SpecialSummon(g,SUMMON_TYPE_ADVANCE,tp,tp,false,false,POS_FACEUP)
-	local sg=Duel.GetMatchingGroup(c80008016.tgfilter,p,LOCATION_DECK,0,nil)
-	if sg:GetCount()>0 and Duel.SelectYesNo(p,aux.Stringid(80008016,0)) then
+	local sg=Duel.GetMatchingGroup(c80008016.tgfilter,tp,LOCATION_DECK,0,nil)
+	if sg:GetCount()>0 and Duel.SelectYesNo(tp,aux.Stringid(80008016,0)) then
 		Duel.BreakEffect()
-		Duel.Hint(HINT_SELECTMSG,p,HINTMSG_TOGRAVE)
-		local hg=sg:Select(p,1,1,nil)
+		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TOGRAVE)
+		local hg=sg:Select(tp,1,1,nil)
 		Duel.SendtoGrave(hg,REASON_EFFECT)
 		end
 	end

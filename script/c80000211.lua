@@ -49,7 +49,7 @@ function c80000211.initial_effect(c)
 	c:RegisterEffect(e5)
 end
 function c80000211.indcon(e)
-	return e:GetHandler():IsPosition(POS_FACEUP_DEFENSE)
+	return e:GetHandler():IsPosition(POS_FACEUP_DEFENCE)
 end
 function c80000211.splimit(e,se,sp,st)
 	return bit.band(st,SUMMON_TYPE_RITUAL)==SUMMON_TYPE_RITUAL
@@ -91,7 +91,7 @@ end
 function c80000211.posop(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
 	if not tc or not tc:IsRelateToEffect(e) then return end
-	if Duel.ChangePosition(tc,POS_FACEUP_DEFENSE,0,POS_FACEUP_ATTACK,0)==0 then return end
+	if Duel.ChangePosition(tc,POS_FACEUP_DEFENCE,0,POS_FACEUP_ATTACK,0)==0 then return end
 	local e1=Effect.CreateEffect(e:GetHandler())
 	e1:SetType(EFFECT_TYPE_SINGLE)
 	e1:SetCode(EFFECT_SWAP_AD)

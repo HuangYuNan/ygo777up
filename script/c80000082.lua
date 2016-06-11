@@ -29,7 +29,7 @@ function c80000082.initial_effect(c)
 --defind
 	local e6=Effect.CreateEffect(c)
 	e6:SetType(EFFECT_TYPE_SINGLE)
-	e6:SetCode(EFFECT_UPDATE_DEFENSE)
+	e6:SetCode(EFFECT_UPDATE_DEFENCE)
 	e6:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
 	e6:SetRange(LOCATION_MZONE)
 	e6:SetValue(c80000082.atkval)

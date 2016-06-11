@@ -12,7 +12,7 @@ function c80000284.initial_effect(c)
 	e2:SetValue(c80000284.adval)
 	c:RegisterEffect(e2)
 	local e3=e2:Clone()
-	e3:SetCode(EFFECT_UPDATE_DEFENSE)
+	e3:SetCode(EFFECT_UPDATE_DEFENCE)
 	c:RegisterEffect(e3) 
 	--special summon
 	local e1=Effect.CreateEffect(c)
@@ -87,7 +87,7 @@ function c80000284.spop(e,tp,eg,ep,ev,re,r,rp)
 	local sg=g:Filter(Card.IsRelateToEffect,nil,e)
 	if Duel.GetLocationCount(tp,LOCATION_MZONE)<sg:GetCount() then return end
 	if sg:GetCount()>0 then
-		Duel.SpecialSummon(sg,0,tp,tp,false,false,POS_FACEUP_DEFENSE)
+		Duel.SpecialSummon(sg,0,tp,tp,false,false,POS_FACEUP_DEFENCE)
 	end
 end
 function c80000284.indval(e,c)

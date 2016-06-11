@@ -53,7 +53,7 @@ function c80000292.activate(e,tp,eg,ep,ev,re,r,rp)
 		Duel.BreakEffect()
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
 		local fg=sg:Select(tp,ft,ft,nil)
-		Duel.SpecialSummon(fg,0,tp,tp,false,false,POS_FACEUP_DEFENSE)
+		Duel.SpecialSummon(fg,0,tp,tp,false,false,POS_FACEUP_DEFENCE)
 	end
 end
 function c80000292.tgfilter(c)

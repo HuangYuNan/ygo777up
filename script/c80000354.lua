@@ -16,7 +16,7 @@ function c80000354.initial_effect(c)
 	c:RegisterEffect(e5) 
 	--defup
 	local e6=e5:Clone()
-	e6:SetCode(EFFECT_UPDATE_DEFENSE)
+	e6:SetCode(EFFECT_UPDATE_DEFENCE)
 	c:RegisterEffect(e6) 
 	--trigger
 	local e2=Effect.CreateEffect(c)

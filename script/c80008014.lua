@@ -77,7 +77,7 @@ function c80008014.lvop2(e,tp,eg,ep,ev,re,r,rp)
 	c:RegisterEffect(e2)
 end
 function c80008014.spfilter(c,e,tp)
-	return c:IsAttribute(ATTRIBUTE_WATER) and c:IsRace(RACE_SPELLCASTER) and not c:IsCode(80008014) and c:IsCanBeSpecialSummoned(e,0,tp,true,true)
+	return c:IsAttribute(ATTRIBUTE_WATER) and c:IsRace(RACE_SPELLCASTER) and not c:IsCode(80008014) and c:IsCanBeSpecialSummoned(e,0,tp,true,true) and c:IsLevelAbove(8)
 end
 function c80008014.sptg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsLocation(LOCATION_GRAVE) and chkc:IsControler(tp) and c80008014.spfilter(chkc,e,tp) end
