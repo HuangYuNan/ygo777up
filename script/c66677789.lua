@@ -44,7 +44,7 @@ function c66677789.initial_effect(c)
 		local g=Group.CreateGroup()
 		if op==0 and Duel.IsExistingMatchingCard(c66677789.tfilter,tp,LOCATION_GRAVE,0,2,nil,0) then
 			Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_ATOHAND)
-			g=Duel.SelectMatchingCard(tp,c66677789.tfilter,tp,LOCATION_GRAVE,0,2,2,nil,0)	
+			g=Duel.SelectMatchingCard(tp,c66677789.tfilter,tp,LOCATION_GRAVE,0,2,2,nil,0)   
 		elseif op==1 and Duel.IsExistingMatchingCard(c66677789.tfilter,tp,LOCATION_REMOVED,0,2,nil,1) then
 			Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_ATOHAND)
 			g=Duel.SelectMatchingCard(tp,c66677789.tfilter,tp,LOCATION_REMOVED,0,2,2,nil,1)
@@ -90,9 +90,9 @@ function c66677789.target(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c66677789.activate(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	local g=Duel.GetFieldGroup(ep,LOCATION_HAND,0)
+	local g=Duel.GetFieldGroup(tp,0,LOCATION_HAND)
 	if g:GetCount()==0 then return end
-	local sg=g:RandomSelect(1-tp,1)
+	local sg=g:RandomSelect(tp,1)
 	if c:GetOverlayGroup():IsExists(Card.IsRace,1,nil,RACE_SEASERPENT) and e:GetLabel()==1 and c:IsType(TYPE_XYZ) then
 		Duel.Overlay(c,sg)
 	else

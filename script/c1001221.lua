@@ -1,5 +1,5 @@
 --朝潮级驱逐舰1号舰—朝潮
-require  “/expansions/script/c1001252”
+require("/expansions/script/c1001252")
 function c1001221.initial_effect(c)
 	colle.sum(c,1)
 	colle.atkup(c,100)
