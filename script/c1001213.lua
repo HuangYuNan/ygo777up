@@ -57,7 +57,7 @@ function c1001213.condition(e,tp,eg,ep,ev,re,r,rp)
 	return eg:IsExists(c1001213.spfilter,1,nil,tp)
 end
 function c1001213.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return true end
+	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0 and e:GetHandler():IsCanBeSpecialSummoned(e,0,tp,false,false) end
 	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,e:GetHandler(),1,0,0)
 end
 function c1001213.operation(e,tp,eg,ep,ev,re,r,rp)
