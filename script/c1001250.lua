@@ -1,5 +1,5 @@
 --金刚级高速战舰3号舰—榛名
-if not colle then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
+require  “/expansions/script/c1001252”
 function c1001250.initial_effect(c)
 	c:SetUniqueOnField(1,0,1001250)
 	colle.sum2(c,8)

@@ -1,5 +1,5 @@
 --吹雪级驱逐舰1号舰—吹雪
-if not colle then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
+require  “/expansions/script/c1001252”
 function c1001219.initial_effect(c)
 	c:SetUniqueOnField(1,0,c:GetCode())
 	colle.sum(c,2)

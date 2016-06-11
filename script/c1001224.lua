@@ -1,5 +1,5 @@
 --秋月级驱逐舰1号舰—秋月
-if not colle then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
+require  “/expansions/script/c1001252”
 function c1001224.initial_effect(c)
 	colle.sum(c,3)
 	colle.atkup(c,200)
