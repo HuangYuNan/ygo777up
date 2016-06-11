@@ -1,5 +1,5 @@
 --百慕 魔法的音杖·夏尔温
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564403.initial_effect(c)
 	senya.bm(c,c37564403.target,c37564403.activate,false,CATEGORY_DRAW)
 end

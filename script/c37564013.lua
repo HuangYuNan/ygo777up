@@ -1,5 +1,5 @@
 --元素的使者·Prim
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564013.initial_effect(c)
 	senya.rxyz1(c,4)
 	--攻击上升
@@ -24,25 +24,18 @@ function c37564013.initial_effect(c)
 	e3:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
 	e3:SetRange(LOCATION_MZONE)
 	e3:SetValue(aux.tgval)
-	e3:SetCondition(c37564013.indcon)
+	e3:SetCondition(c37564013.xmcon(3))
 	c:RegisterEffect(e3)
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_SINGLE)
 	e1:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
 	e1:SetRange(LOCATION_MZONE)
 	e1:SetCode(EFFECT_INDESTRUCTABLE_EFFECT)
-	e1:SetCondition(c37564013.indcon)
+	e1:SetCondition(c37564013.xmcon(3))
 	e1:SetValue(1)
 	c:RegisterEffect(e1)
 	--2属性吸素材
-	local e5=Effect.CreateEffect(c)
-	e5:SetDescription(aux.Stringid(37564013,0))
-	e5:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
-	e5:SetCode(EVENT_BATTLE_START)
-	e5:SetCondition(c37564013.descon)
-	e5:SetTarget(c37564013.destg)
-	e5:SetOperation(c37564013.desop)
-	c:RegisterEffect(e5)
+	senya.atkdr(c,c37564013.xmcon(2),c37564013.destg)
 	--4属性3康
 	local e6=Effect.CreateEffect(c)
 	e6:SetDescription(aux.Stringid(37564013,1))
@@ -63,7 +56,7 @@ function c37564013.initial_effect(c)
 	e9:SetCode(EVENT_FREE_CHAIN)
 	e9:SetRange(LOCATION_MZONE)
 	e9:SetCountLimit(1)
-	e9:SetCondition(c37564013.tdcon)
+	e9:SetCondition(c37564013.xmcon(5))
 	e9:SetTarget(c37564013.tdtg)
 	e9:SetOperation(c37564013.tdop)
 	c:RegisterEffect(e9)
@@ -74,7 +67,7 @@ function c37564013.initial_effect(c)
 	e7:SetType(EFFECT_TYPE_QUICK_O)
 	e7:SetCode(EVENT_FREE_CHAIN)
 	e7:SetRange(LOCATION_MZONE)
-	e7:SetCondition(c37564013.sppcon)
+	e7:SetCondition(c37564013.xmcon(6))
 	e7:SetCost(c37564013.sppcost)
 	e7:SetTarget(c37564013.spptg)
 	e7:SetOperation(c37564013.sppop)
@@ -83,27 +76,13 @@ end
 function c37564013.atkval(e,c)
 	return c:GetOverlayCount()*1000
 end
-function c37564013.indcon(e,tp,eg,ep,ev,re,r,rp)
-	return e:GetHandler():GetOverlayGroup():GetClassCount(Card.GetAttribute)>=3
-end
-function c37564013.descon(e,tp,eg,ep,ev,re,r,rp)
-	local c=e:GetHandler()
-	local bc=c:GetBattleTarget()
-	return e:GetHandler():GetOverlayGroup():GetClassCount(Card.GetAttribute)>=2 and bc and bit.band(bc:GetSummonType(),SUMMON_TYPE_SPECIAL)==SUMMON_TYPE_SPECIAL and not bc:IsType(TYPE_TOKEN)
-end
-function c37564013.destg(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return true end
-end
-function c37564013.desop(e,tp,eg,ep,ev,re,r,rp)
-	local c=e:GetHandler()
-	local tc=c:GetBattleTarget()
-	if c:IsRelateToEffect(e) and c:IsFaceup() and tc:IsRelateToBattle() and not tc:IsImmuneToEffect(e) then
-		local og=tc:GetOverlayGroup()
-		if og:GetCount()>0 then
-			Duel.SendtoGrave(og,REASON_RULE)
-		end
-		Duel.Overlay(c,Group.FromCards(tc))
+function c37564013.xmcon(ct)
+	return function(e,tp,eg,ep,ev,re,r,rp)
+		return e:GetHandler():GetOverlayGroup():GetClassCount(Card.GetAttribute)>=ct
 	end
+end
+function c37564013.destg(c,ec)
+	return bit.band(c:GetSummonType(),SUMMON_TYPE_SPECIAL)==SUMMON_TYPE_SPECIAL
 end
 function c37564013.discon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():GetOverlayGroup():GetClassCount(Card.GetAttribute)>=4
@@ -122,9 +101,6 @@ function c37564013.disop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.Destroy(eg,REASON_EFFECT)
 	end
 end
-function c37564013.tdcon(e,tp,eg,ep,ev,re,r,rp)
-	return e:GetHandler():GetOverlayGroup():GetClassCount(Card.GetAttribute)>=5
-end
 function c37564013.tdtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(aux.TRUE,tp,0,LOCATION_ONFIELD,1,e:GetHandler()) end
 	Duel.SetOperationInfo(0,CATEGORY_REMOVE,nil,1,0,0)
@@ -135,9 +111,6 @@ function c37564013.tdop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
 		local sg=Duel.SelectMatchingCard(tp,aux.TRUE,tp,0,LOCATION_ONFIELD,1,1,e:GetHandler())
 		Duel.Remove(sg,POS_FACEUP,REASON_RULE)
-end
-function c37564013.sppcon(e,tp,eg,ep,ev,re,r,rp)
-	return e:GetHandler():GetOverlayGroup():GetClassCount(Card.GetAttribute)>=6
 end
 function c37564013.sppcost(e,tp,eg,ep,ev,re,r,rp,chk)
 	local c=e:GetHandler()

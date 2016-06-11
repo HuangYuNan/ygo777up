@@ -1,5 +1,5 @@
 --Sawawa-Prism Crash
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564229.initial_effect(c)
 	senya.sww(c,1,true,false,false)
 	local e5=Effect.CreateEffect(c)
@@ -19,7 +19,7 @@ function c37564229.drfilter(c,e,tp)
 	return c:IsSetCard(0x773) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
 end
 function c37564229.desfilter(c)
-	return c:IsAttribute(ATTRIBUTE_LIGHT) and c:IsAbleToHand() and c:IsRace(RACE_FAIRY)
+	return c:IsAttribute(ATTRIBUTE_LIGHT) and c:IsAbleToHand() and c:IsRace(RACE_FAIRY) and c:IsFaceup()
 end
 function c37564229.destg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsOnField() and c37564229.desfilter(chkc) end

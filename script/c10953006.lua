@@ -1,7 +1,7 @@
 --花妖精·带刺玫瑰
 function c10953006.initial_effect(c)
 	--synchro summon
-	aux.AddSynchroProcedure(c,aux.FilterBoolFunction(Card.IsSetCard,0x2e4),aux.NonTuner(nil),1)
+	aux.AddSynchroProcedure(c,aux.FilterBoolFunction(Card.IsSetCard,0x234),aux.NonTuner(nil),1)
 	c:EnableReviveLimit()
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_SINGLE)
@@ -33,7 +33,7 @@ function c10953006.condition(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.GetFieldGroupCount(tp,LOCATION_GRAVE,0)==0
 end
 function c10953006.filter2(c)
-	return c:IsSetCard(0x2e4) and c:IsType(TYPE_MONSTER) and c:IsAbleToDeckAsCost()
+	return c:IsSetCard(0x234) and c:IsType(TYPE_MONSTER) and c:IsAbleToDeckAsCost()
 end
 function c10953006.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c10953006.filter2,tp,LOCATION_REMOVED,0,2,nil) end

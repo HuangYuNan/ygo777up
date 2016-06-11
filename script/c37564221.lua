@@ -1,5 +1,5 @@
 --Septette for the Dead Princess
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564221.initial_effect(c)
 	senya.sww(c,2,true,false,false)
 	local e9=Effect.CreateEffect(c)
@@ -43,7 +43,7 @@ function c37564221.operation(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function c37564221.rmfilter(c)
-	return c:GetSummonLocation()==LOCATION_EXTRA and c:IsAbleToDeck()
+	return c:GetSummonLocation()==LOCATION_EXTRA and c:IsAbleToDeck() and c:IsFaceup()
 end
 function c37564221.target1(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c37564221.rmfilter,tp,LOCATION_MZONE,LOCATION_MZONE,1,nil) end

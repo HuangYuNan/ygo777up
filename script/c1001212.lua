@@ -47,7 +47,7 @@ function c1001212.filter_a(c)
 	return c:IsFaceup() and c:IsCode(1001201)
 end
 function c1001212.indcon(e)
-	return Duel.IsExistingMatchingCard(c1001212.filter_a,0,LOCATION_GRAVE,0,1,nil)
+	return Duel.IsExistingMatchingCard(c1001212.filter_a,0,LOCATION_GRAVE+LOCATION_EXTRA,0,1,nil)
 end
 function c1001212.discon(e,tp,eg,ep,ev,re,r,rp)
 	return eg:IsContains(e:GetHandler())

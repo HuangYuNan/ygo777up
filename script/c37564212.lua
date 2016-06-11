@@ -1,5 +1,5 @@
 --Sawawa-上海红茶馆
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564212.initial_effect(c)
 --suf
 	local e2=Effect.CreateEffect(c)

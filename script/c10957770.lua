@@ -57,7 +57,7 @@ function c10957770.cfilter(c)
 	return c:IsSetCard(0x239) and c:IsType(TYPE_PENDULUM)
 end
 function c10957770.condition(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.IsExistingMatchingCard(c10957770.cfilter,0,LOCATION_EXTRA,0,3,nil)
+	return Duel.IsExistingMatchingCard(c10957770.cfilter,0,LOCATION_EXTRA,0,2,nil)
 end
 function c10957770.dfilter(c)
 	return c:IsAbleToGraveAsCost() and c:IsType(TYPE_PENDULUM) and c:IsFaceup()

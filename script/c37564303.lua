@@ -1,8 +1,8 @@
 --new utakat
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564303.initial_effect(c)
 	senya.rxyz2(c,nil,nil,3)
-	senya.mk(c,7,37564303,false)
+	senya.mk(c,7,37564303,false,aux.dogcon)
 	local e1=Effect.CreateEffect(c)
 	e1:SetCategory(CATEGORY_ATKCHANGE)
 	e1:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)

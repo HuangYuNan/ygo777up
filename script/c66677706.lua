@@ -50,7 +50,7 @@ function c66677706.disop(e,tp,eg,ep,ev,re,r,rp)
 end
 function c66677706.descon(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	return rp~=tp and c:GetPreviousControler()==tp and c:IsReason(REASON_DESTROY) and c:IsReason(REASON_BATTLE+REASON_EFFECT)
+	return rp~=tp and c:GetPreviousControler()==tp and bit.band(r,REASON_DESTROY)~=0
 end
 function c66677706.filter(c)
 	return c:IsType(TYPE_MONSTER) and c:IsAbleToHand() and c:IsSetCard(0x777) and c:IsFaceup()
@@ -66,7 +66,7 @@ function c66677706.op(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS)
 	local tg=g:Filter(Card.IsRelateToEffect,nil,e)
 	if tg:GetCount()>0 then
-		Duel.SendtoHand(tg,nil,REASON_EFFECT)
-		Duel.ConfirmCards(1-tp,tg)
+		Duel.SendtoHand(tc,nil,REASON_EFFECT)
+		Duel.ConfirmCards(1-tp,tc)
 	end
 end

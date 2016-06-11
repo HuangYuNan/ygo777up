@@ -43,7 +43,7 @@ function c10957773.cfilter(c)
 	return c:IsSetCard(0x239) and c:IsType(TYPE_PENDULUM)
 end
 function c10957773.condition(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.IsExistingMatchingCard(c10957773.cfilter,0,LOCATION_EXTRA,0,3,nil)
+	return Duel.IsExistingMatchingCard(c10957773.cfilter,0,LOCATION_EXTRA,0,2,nil)
 end
 function c10957773.recon(e)
 	return e:GetHandler():IsLocation(LOCATION_PZONE)

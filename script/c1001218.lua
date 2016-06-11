@@ -24,7 +24,7 @@ function c1001218.initial_effect(c)
 	c:RegisterEffect(e2)
 end
 function c1001218.filter(c)
-	return c:IsFaceup() and c:IsSetCard(0x3205) and c:IsAbleToRemoveAsCost()
+	return c:IsFaceup() and (c:IsSetCard(0x3205) or c:IsSetCard(0x5205)) and c:IsAbleToDeckOrExtraAsCost()
 end
 function c1001218.costfilter(c,rg,dg)
 	local a=0
@@ -88,7 +88,7 @@ function c1001218.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TOGRAVE)
 		local sg2=rg:FilterSelect(tp,c1001218.costfilter2,1,1,sc,a,dg)
 		sg1:Merge(sg2)
-		Duel.SendtoGrave(sg1,REASON_COST)
+		Duel.SendtoExtraP(sg1,nil,REASON_COST)
 	end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
 	local g=Duel.SelectTarget(tp,Card.IsDestructable,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,3,e:GetHandler())

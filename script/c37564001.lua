@@ -25,7 +25,7 @@ function c37564001.initial_effect(c)
 	c:RegisterEffect(e1)
    --half damage
 	local e4=Effect.CreateEffect(c)
-	e4:SetType(EFFECT_TYPE_CONTINUOUS+EFFECT_TYPE_FIELD+EFFECT_CANNOT_DISABLE)
+	e4:SetType(EFFECT_TYPE_CONTINUOUS+EFFECT_TYPE_FIELD+EFFECT_FLAG_CANNOT_DISABLE)
 	e4:SetRange(LOCATION_MZONE)
 	e4:SetCode(EVENT_PRE_BATTLE_DAMAGE)
 	e4:SetCondition(c37564001.dcon)

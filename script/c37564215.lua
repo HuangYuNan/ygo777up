@@ -1,7 +1,7 @@
 --Sawawa-Over the Life Hurtling
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564215.initial_effect(c)
-	senya.sww(c,2,true,false,false)
+	senya.sww(c,1,true,false,false)
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(37564215,1))
 	e1:SetCategory(CATEGORY_REMOVE)

@@ -1,5 +1,5 @@
 --Touhou Sawawa Arrange
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564200.initial_effect(c)
 	
 	local e1=Effect.CreateEffect(c)

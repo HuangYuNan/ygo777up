@@ -1,5 +1,5 @@
 --百慕 恋之王牌·丘莉姆
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564453.initial_effect(c)
 	senya.bm(c)
 	local e3=Effect.CreateEffect(c)

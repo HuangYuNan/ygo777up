@@ -25,7 +25,7 @@ function c10953003.initial_effect(c)
 	e4:SetRange(LOCATION_MZONE)
 	e4:SetTargetRange(LOCATION_HAND+LOCATION_MZONE,0)
 	e4:SetCode(EFFECT_EXTRA_SUMMON_COUNT)
-	e4:SetTarget(aux.TargetBoolFunction(Card.IsSetCard,0x2e4))
+	e4:SetTarget(aux.TargetBoolFunction(Card.IsSetCard,0x234))
 	c:RegisterEffect(e4)
 	--redirect
 	local e5=Effect.CreateEffect(c)
@@ -48,7 +48,7 @@ function c10953003.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Release(g,REASON_COST)
 end
 function c10953003.filter(c,e,tp)
-	return c:IsSetCard(0x2e4) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
+	return c:IsSetCard(0x234) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)
 end
 function c10953003.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>-1

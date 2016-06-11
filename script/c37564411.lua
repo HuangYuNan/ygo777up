@@ -1,5 +1,5 @@
 --百慕 全开偶像·露璃
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564411.initial_effect(c)
 	senya.bmrl(c)
 	senya.bmdamchk(c,false)

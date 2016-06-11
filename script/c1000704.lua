@@ -41,6 +41,15 @@ function c1000704.initial_effect(c)
 	e5:SetTarget(c1000704.thtg)
 	e5:SetOperation(c1000704.thop)
 	c:RegisterEffect(e5) 
+	--splimit
+	local e6=Effect.CreateEffect(c)
+	e6:SetType(EFFECT_TYPE_FIELD)
+	e6:SetCode(EFFECT_CANNOT_SPECIAL_SUMMON)
+	e6:SetProperty(EFFECT_FLAG_PLAYER_TARGET+EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_CANNOT_NEGATE)
+	e6:SetRange(LOCATION_PZONE)
+	e6:SetTargetRange(1,0)
+	e6:SetTarget(c1000702.splimit)
+	c:RegisterEffect(e6)
 end
 function c1000704.sccon(e)
 	local seq=e:GetHandler():GetSequence()
@@ -92,5 +101,6 @@ function c1000704.thop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.ConfirmCards(1-tp,tc)
 	end
 end
-
-
+function c1000704.splimit(e,c)
+	return not c:IsRace(RACE_ZOMBIE) and c:IsAttribute(ATTRIBUTE_DARK)
+end

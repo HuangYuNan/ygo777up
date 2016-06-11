@@ -68,9 +68,9 @@ function c99999923.filter(c)
 end
 function c99999923.setg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c99999923.filter,tp,LOCATION_DECK+LOCATION_GRAVE,0,1,nil)
-    and Duel.IsPlayerCanDraw(tp,2)	end
+    and Duel.IsPlayerCanDraw(tp,1)	end
 	Duel.SetOperationInfo(0,CATEGORY_TOHAND,nil,1,tp,LOCATION_DECK+LOCATION_GRAVE)
-	Duel.SetOperationInfo(0,CATEGORY_DRAW,nil,0,tp,2)
+	Duel.SetOperationInfo(0,CATEGORY_DRAW,nil,0,tp,1)
 	Duel.SetOperationInfo(0,CATEGORY_HANDES,nil,0,tp,1)
 end
 function c99999923.seop(e,tp,eg,ep,ev,re,r,rp)
@@ -87,7 +87,7 @@ function c99999923.seop(e,tp,eg,ep,ev,re,r,rp)
 			Duel.SendtoHand(tc,nil,REASON_EFFECT)
 			Duel.ConfirmCards(1-tp,tc)
 		end
-	   if Duel.Draw(tp,2,REASON_EFFECT)==2 then
+	   if Duel.Draw(tp,1,REASON_EFFECT)==1 then
 		Duel.ShuffleHand(tp)
 		Duel.BreakEffect()
 		Duel.DiscardHand(tp,nil,1,1,REASON_EFFECT+REASON_DISCARD)

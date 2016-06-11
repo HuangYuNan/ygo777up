@@ -1,5 +1,5 @@
 --quesar
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564032.initial_effect(c)
 	aux.AddXyzProcedure(c,nil,6,4,c37564032.ovfilter,aux.Stringid(37564032,0),5)
 	c:EnableReviveLimit()

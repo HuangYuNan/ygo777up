@@ -87,7 +87,7 @@ function c37564021.tg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,nil,1,tp,LOCATION_EXTRA)
 end
 function c37564021.matfilter(c)
-	return c:IsType(TYPE_XYZ)
+	return c:IsType(TYPE_XYZ) and c:IsSetCard(0x770)
 end
 function c37564021.op(e,tp,eg,ep,ev,re,r,rp)
 	if Duel.GetLocationCount(tp,LOCATION_MZONE)<0 then return end

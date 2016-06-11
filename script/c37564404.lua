@@ -1,5 +1,5 @@
 --百慕 沉默的歌姬·伊丝卡
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564404.initial_effect(c)
 	senya.bm(c,c37564404.target,c37564404.activate,true,CATEGORY_SPECIAL_SUMMON)
 end

@@ -1,5 +1,5 @@
 --华光之二重·罗蕾塔
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564412.initial_effect(c)
 	senya.bmrl(c,true)
 	local e1=Effect.CreateEffect(c)

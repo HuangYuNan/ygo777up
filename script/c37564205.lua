@@ -1,5 +1,5 @@
 --Sawawa-Lunatic Sprinter
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564205.initial_effect(c)
 local e1=Effect.CreateEffect(c)
 	e1:SetCategory(CATEGORY_ATKCHANGE)
@@ -25,34 +25,5 @@ function c37564205.atkop(e,tp,eg,ep,ev,re,r,rp)
 	local gc=g:RandomSelect(tp,1):GetFirst()
 	Duel.Remove(gc,POS_FACEUP,REASON_EFFECT)
 		local tc=Duel.GetOperatedGroup():GetFirst()
-		if tc and c:IsFaceup() then
-			local code=tc:GetOriginalCode()
-			local atk=tc:GetBaseAttack()
-			local def=tc:GetBaseDefense()
-			local cid=0
-			local e1=Effect.CreateEffect(c)
-			e1:SetType(EFFECT_TYPE_SINGLE)
-			e1:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
-			e1:SetReset(RESET_EVENT+0x1fe0000)
-			e1:SetCode(EFFECT_CHANGE_CODE)
-			e1:SetValue(code)
-			c:RegisterEffect(e1)
-			local e3=Effect.CreateEffect(c)
-			e3:SetType(EFFECT_TYPE_SINGLE)
-			e3:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
-			e3:SetReset(RESET_EVENT+0x1fe0000)
-			e3:SetCode(EFFECT_SET_BASE_ATTACK)
-			e3:SetValue(atk)
-			c:RegisterEffect(e3)
-			local e4=Effect.CreateEffect(c)
-			e4:SetType(EFFECT_TYPE_SINGLE)
-			e4:SetProperty(EFFECT_FLAG_CANNOT_DISABLE)
-			e4:SetReset(RESET_EVENT+0x1fe0000)
-			e4:SetCode(EFFECT_SET_BASE_DEFENSE)
-			e4:SetValue(def)
-			c:RegisterEffect(e4)
-			if not tc:IsType(TYPE_TRAPMONSTER) then
-				cid=c:CopyEffect(code, RESET_EVENT+0x1fe0000)
-			end
-		end
+		senya.copy(e,nil,tc)
 end

@@ -1,5 +1,5 @@
 --百慕 甜蜜和声·莫娜
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564416.initial_effect(c)
 	aux.AddXyzProcedure(c,senya.bmchkfilter,3,2,nil,nil,5)
 	c:EnableReviveLimit()
@@ -16,13 +16,7 @@ function c37564416.initial_effect(c)
 	e4:SetOperation(c37564416.drop)
 	c:RegisterEffect(e4)
 	--destroy
-	local e1=Effect.CreateEffect(c)
-	e1:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
-	e1:SetCode(EVENT_BATTLE_START)
-	e1:SetCondition(c37564416.descon)
-	e1:SetTarget(c37564416.destg)
-	e1:SetOperation(c37564416.desop)
-	c:RegisterEffect(e1)
+	senya.atkdr(c,c37564416.regcon,c37564416.destg)
 	local e8=Effect.CreateEffect(c)
 	e8:SetCategory(CATEGORY_REMOVE)
 	e8:SetType(EFFECT_TYPE_IGNITION)
@@ -48,13 +42,8 @@ end
 function c37564416.atlimit(e,c)
 	return c~=e:GetHandler()
 end
-function c37564416.descon(e,tp,eg,ep,ev,re,r,rp)
-	local c=e:GetHandler()
-	local bc=c:GetBattleTarget()
-	return bc and not bc:IsAttribute(ATTRIBUTE_WATER) and not bc:IsType(TYPE_TOKEN) and c:GetFlagEffect(37564416)>0 and c:IsType(TYPE_XYZ)
-end
-function c37564416.destg(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return e:GetHandler():IsType(TYPE_XYZ) end
+function c37564416.destg(c,ec)
+	return not c:IsAttribute(ATTRIBUTE_WATER)
 end
 function c37564416.desop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()

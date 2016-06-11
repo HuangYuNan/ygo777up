@@ -37,7 +37,7 @@ function c10953000.condition(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.GetFieldGroupCount(tp,LOCATION_GRAVE,0)==0
 end
 function c10953000.filter(c)
-	return c:IsSetCard(0x2e4) and c:IsType(TYPE_SPELL) and c:IsAbleToHand()
+	return c:IsSetCard(0x234) and c:IsType(TYPE_SPELL) and c:IsAbleToHand()
 end
 function c10953000.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c10953000.filter,tp,LOCATION_DECK,0,1,nil) end

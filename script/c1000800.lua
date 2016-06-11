@@ -30,7 +30,7 @@ function c1000800.initial_effect(c)
 end
 function c1000800.cfilter(c,tp)
 	return c:IsLocation(LOCATION_MZONE) and c:IsFaceup() and c:IsControler(tp) and 
-	(c:IsSetCard(0x3204) or c:IsSetCard(0xa204) or c:IsSetCard(0x120) or c:IsSetCard(0x200) or c:IsSetCard(0xc204) or c:IsSetCard(0x72c))
+	(c:IsSetCard(0x3204) or c:IsSetCard(0xa204) or c:IsSetCard(0x5b23) or c:IsSetCard(0x6b25) or c:IsSetCard(0xc204) or c:IsSetCard(0x3205))
 end
 function c1000800.negcon(e,tp,eg,ep,ev,re,r,rp)
 	if not re:IsHasProperty(EFFECT_FLAG_CARD_TARGET) then return end
@@ -62,8 +62,7 @@ end
 function c1000800.tgcon(e,tp,eg,ep,ev,re,r,rp)
 	if tp==Duel.GetTurnPlayer() then return false end
 	local tc=Duel.GetAttackTarget()
-	return tc and tc:IsFaceup() and tc:IsControler(tp) and (tc:IsSetCard(0xa204) or
-	tc:IsSetCard(0x3204) or tc:IsSetCard(0x120) or tc:IsSetCard(0x200) or tc:IsSetCard(0xc204) or c:IsSetCard(0x72c))
+	return tc and tc:IsFaceup() and tc:IsControler(tp) and (c:IsSetCard(0x3204) or c:IsSetCard(0xa204) or c:IsSetCard(0x5b23) or c:IsSetCard(0x6b25) or c:IsSetCard(0xc204) or c:IsSetCard(0x3205))
 end
 function c1000800.tgtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0 

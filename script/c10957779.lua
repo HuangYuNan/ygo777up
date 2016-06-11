@@ -1,6 +1,5 @@
 --Miracle·Honest
 function c10957779.initial_effect(c)
-	c:SetSPSummonOnce(10957779)
 	--pendulum summon
 	aux.EnablePendulumAttribute(c,false)
 	--Activate
@@ -52,7 +51,7 @@ function c10957779.initial_effect(c)
 	e6:SetCategory(CATEGORY_DESTROY)
 	e6:SetType(EFFECT_TYPE_IGNITION)
 	e6:SetRange(LOCATION_PZONE)
-	e6:SetCountLimit(1,10957779)
+	e6:SetCountLimit(1)
 	e6:SetTarget(c10957779.sptg2)
 	e6:SetOperation(c10957779.spop2)
 	c:RegisterEffect(e6)	   
@@ -61,7 +60,7 @@ function c10957779.cfilter(c)
 	return c:IsSetCard(0x239) and c:IsType(TYPE_PENDULUM)
 end
 function c10957779.condition(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.IsExistingMatchingCard(c10957779.cfilter,0,LOCATION_EXTRA,0,2,nil)
+	return Duel.IsExistingMatchingCard(c10957779.cfilter,0,LOCATION_EXTRA,0,1,nil)
 end
 function c10957779.condtion2(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():GetPreviousLocation()==LOCATION_DECK

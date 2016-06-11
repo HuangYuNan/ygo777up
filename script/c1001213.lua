@@ -57,7 +57,7 @@ function c1001213.condition(e,tp,eg,ep,ev,re,r,rp)
 	return eg:IsExists(c1001213.spfilter,1,nil,tp)
 end
 function c1001213.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
-		if chk==0 then return true end
+	if chk==0 then return true end
 	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,e:GetHandler(),1,0,0)
 end
 function c1001213.operation(e,tp,eg,ep,ev,re,r,rp)
@@ -70,7 +70,7 @@ function c1001213.operation(e,tp,eg,ep,ev,re,r,rp)
 		e1:SetTarget(c1001213.target)
 		e1:SetCode(EFFECT_SYNCHRO_LEVEL)
 		e1:SetValue(c1001213.slevel)
-		e1:SetReset(RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_END)
+		e1:SetReset(RESET_PHASE+PHASE_END)
 		Duel.RegisterEffect(e1,tp)
 		--xyz
 		local e2=Effect.CreateEffect(e:GetHandler())
@@ -79,7 +79,7 @@ function c1001213.operation(e,tp,eg,ep,ev,re,r,rp)
 		e2:SetTarget(c1001213.target)
 		e2:SetCode(EFFECT_XYZ_LEVEL)
 		e2:SetValue(c1001213.xyzlv)
-		e2:SetReset(RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_END)
+		e2:SetReset(RESET_PHASE+PHASE_END)
 		Duel.RegisterEffect(e2,tp)
 	end
 end
@@ -87,11 +87,11 @@ function c1001213.target(e,c)
 	return c:IsSetCard(0x3205)
 end
 function c1001213.slevel(e,c)
-	local lv=e:GetHandler():GetLevel()
+	local lv=c:GetLevel()
 	return 4*65536+lv
 end
 function c1001213.xyzlv(e,c,rc)
-	return 0x40000+e:GetHandler():GetLevel()
+	return 0x40000+c:GetLevel()
 end
 function c1001213.synfilter(c,syncard,tuner,f)
 	return c:IsFaceup() and c:IsNotTuner() and c:IsCanBeSynchroMaterial(syncard,tuner) and c:IsSetCard(0x3205) and (f==nil or f(c))

@@ -26,9 +26,9 @@ function c10957782.dfilter(c)
 	return c:IsAbleToGraveAsCost() and c:IsType(TYPE_PENDULUM) and c:IsSetCard(0x239)
 end
 function c10957782.thcost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(c10957782.dfilter,tp,LOCATION_EXTRA,0,2,e:GetHandler()) end
+	if chk==0 then return Duel.IsExistingMatchingCard(c10957782.dfilter,tp,LOCATION_EXTRA,0,1,e:GetHandler()) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TOGRAVE)
-	local g=Duel.SelectMatchingCard(tp,c10957782.dfilter,tp,LOCATION_EXTRA,0,2,2,e:GetHandler())
+	local g=Duel.SelectMatchingCard(tp,c10957782.dfilter,tp,LOCATION_EXTRA,0,1,1,e:GetHandler())
 	Duel.SendtoGrave(g,REASON_COST)
 end
 function c10957782.destg(e,tp,eg,ep,ev,re,r,rp,chk)

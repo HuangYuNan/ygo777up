@@ -1,5 +1,5 @@
 --百慕 学院的绮罗星·奥莉维亚
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564414.initial_effect(c)
 	aux.AddXyzProcedure(c,senya.bmchkfilter,3,2,nil,nil,5)
 	c:EnableReviveLimit()

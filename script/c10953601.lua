@@ -53,13 +53,13 @@ function c10953601.ovfilter(c,g)
 	return c:IsFaceup() and (c:IsSetCard(0x23c) or c:IsSetCard(0x350)) and  c:IsCanBeXyzMaterial(g) and not c:IsType(TYPE_TOKEN)
 end
 function c10953601.spcon(e,c)
-	if  Duel.IsExistingMatchingCard(c10953601.ovfilter,e:GetHandlerPlayer(),LOCATION_MZONE,0,5,nil,e:GetHandler()) then return true
+	if  Duel.IsExistingMatchingCard(c10953601.ovfilter,e:GetHandlerPlayer(),LOCATION_MZONE,0,4,nil,e:GetHandler()) then return true
 	else return false end
 end
 function c10953601.spop(e,tp,eg,ep,ev,re,r,rp,c) 
 	local c=e:GetHandler()
-	local g=Duel.SelectMatchingCard(tp,c10953601.ovfilter,e:GetHandlerPlayer(),LOCATION_MZONE,0,5,5,nil,e:GetHandler())
-	if g:GetCount()==5  then
+	local g=Duel.SelectMatchingCard(tp,c10953601.ovfilter,e:GetHandlerPlayer(),LOCATION_MZONE,0,4,4,nil,e:GetHandler())
+	if g:GetCount()==4  then
 	local tg=g:GetFirst()
 	while tg do
 	local og=tg:GetOverlayGroup()

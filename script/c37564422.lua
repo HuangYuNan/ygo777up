@@ -1,5 +1,5 @@
 --百慕 甜蜜乐园·玛妮娅
-require "/expansions/script/c37564765"
+if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
 function c37564422.initial_effect(c)
 	senya.bm(c,c37564422.sptg,c37564422.spop,false,CATEGORY_SPECIAL_SUMMON)
 end

@@ -38,7 +38,7 @@ function c37564037.splimit(e,c,sump,sumtype,sumpos,targetp,se)
 	return not c:IsSetCard(0x770) and c:IsLocation(LOCATION_EXTRA)
 end
 function c37564037.cfilter(c)
-	return c:IsFaceup() and c:IsLevelBelow(4)
+	return c:IsFaceup() and c:IsLevelBelow(4) and c:IsLevelAbove(4)
 end
 function c37564037.spcon(e,tp,eg,ep,ev,re,r,rp)
 	return eg:IsExists(c37564037.cfilter,1,nil)

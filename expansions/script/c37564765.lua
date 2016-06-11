@@ -5,7 +5,7 @@ os=require('os')
 if not Card.GetDefense then
 	Card.GetDefense=Card.GetDefence
 	Card.GetBaseDefense=Card.GetBaseDefence
-	Card.GetBaseDefense=Card.GetBaseDefence
+	Card.GetTextDefense=Card.GetTextDefence
 	Card.GetPreviousDefenseOnField=Card.GetPreviousDefenceOnField
 	Card.IsDefensePos=Card.IsDefencePos
 	Card.IsDefenseBelow=Card.IsDefenceBelow
@@ -222,11 +222,9 @@ end
 end
 
 ---check date dt="Mon" "Tue" etc
-function senya.weekcon(dt)
+function senya.dtcon(dt,excon)
 	return function(e,tp,eg,ep,ev,re,r,rp)
-		local st=os.date()
-		local dt1=st:sub(1,3)
-		return dt==dt1
+		return dt==os.date("%a") and (not excon or excon(e,tp,eg,ep,ev,re,r,rp))
 	end
 end
 --copy effect c=getcard(nil=orcard) tc=sourcecard ht=showcard(bool) res=reset event(nil=no reset)
@@ -626,3 +624,56 @@ function senya.pr2(c,des,tg,op,istg,ctg)
 	end
 end
 
+--xyz monster atk drain effect
+--con(usual)=condition tg(battledcard,card)=filter
+--cost=cost
+function senya.atkdr(c,con,tg,cost,ctlm,ctlmid)
+	local e5=Effect.CreateEffect(c)
+	e5:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
+	e5:SetCode(EVENT_BATTLE_START)
+	if ctlm then e5:SetCountLimit(ctlm,ctlmid) end
+	e5:SetCondition(senya.atkdrcon(con,tg))
+	if cost then e5:SetCost(cost) end
+	e5:SetTarget(senya.atkdrtg)
+	e5:SetOperation(senya.atkdrop)
+	c:RegisterEffect(e5)
+end
+function senya.atkdrcon(con,tg)
+	return function(e,tp,eg,ep,ev,re,r,rp)
+		local c=e:GetHandler()
+		local bc=c:GetBattleTarget()
+		return (not con or con(e,tp,eg,ep,ev,re,r,rp)) and bc and (not tg or tg(bc,c)) and not bc:IsType(TYPE_TOKEN)
+	end
+end
+function senya.atkdrtg(e,tp,eg,ep,ev,re,r,rp,chk)
+	if chk==0 then return e:GetHandler():IsType(TYPE_XYZ) end
+end
+function senya.atkdrop(e,tp,eg,ep,ev,re,r,rp)
+	local c=e:GetHandler()
+	local tc=c:GetBattleTarget()
+	if c:IsRelateToEffect(e) and c:IsFaceup() and tc:IsRelateToBattle() and not tc:IsImmuneToEffect(e) then
+		local og=tc:GetOverlayGroup()
+		if og:GetCount()>0 then
+			Duel.SendtoGrave(og,REASON_RULE)
+		end
+		Duel.Overlay(c,Group.FromCards(tc))
+	end
+end
+--nanahira parts
+function senya.nnhr(c)
+	local e2=Effect.CreateEffect(c)
+	e2:SetType(EFFECT_TYPE_SINGLE)
+	e2:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
+	e2:SetCode(EFFECT_CHANGE_CODE)
+	e2:SetRange(LOCATION_ONFIELD+LOCATION_GRAVE)
+	e2:SetValue(37564765)
+	c:RegisterEffect(e2)
+	senya.nntr(c)
+end
+function senya.nntr(c)
+	local e1=Effect.CreateEffect(c)
+	e1:SetType(EFFECT_TYPE_SINGLE)
+	e1:SetProperty(EFFECT_FLAG_UNCOPYABLE+EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_SET_AVAILABLE)
+	e1:SetCode(37564765)
+	c:RegisterEffect(e1)
+end
