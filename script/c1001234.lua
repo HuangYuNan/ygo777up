@@ -1,5 +1,5 @@
 --陆军三式潜航输送艇—Maruyu
-if not senya then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
+if not colle then local io=require('io') local chk=io.open("expansions/script/c1001252","r") if chk then chk:close() require "expansions/script/c1001252" else require "script/c1001252" end end
 function c1001234.initial_effect(c)
 	colle.sum(c,1)
 	colle.th1(c)

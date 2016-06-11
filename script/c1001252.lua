@@ -1,4 +1,5 @@
 colle=colle or {}
+os=require('os')
 function colle.sum(c,ct)
 	local e4=Effect.CreateEffect(c)
 	e4:SetCategory(CATEGORY_SPECIAL_SUMMON)
