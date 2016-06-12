@@ -27,7 +27,7 @@ function c114100130.filter(c)
 	return c:IsType(TYPE_SPELL+TYPE_TRAP) and c:IsAbleToGrave()
 end
 function c114100130.downfilter(c)
-	return c:IsFaceup() and ( c:GetAttack()>=0 or c:GetDefense()>=0 )
+	return c:IsFaceup() and ( c:GetAttack()>=0 or c:GetDefence()>=0 )
 end
 function c114100130.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c114100130.filter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,nil) end
@@ -54,7 +54,7 @@ function c114100130.desop(e,tp,eg,ep,ev,re,r,rp)
 				e1:SetReset(RESET_EVENT+0x1fe0000)
 				tc:RegisterEffect(e1)
 				local e2=e1:Clone()
-				e2:SetCode(EFFECT_UPDATE_DEFENSE)
+				e2:SetCode(EFFECT_UPDATE_DEFENCE)
 				tc:RegisterEffect(e2)
 				tc=mg:GetNext()
 			end

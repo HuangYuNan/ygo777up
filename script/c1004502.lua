@@ -12,16 +12,6 @@ function c1004502.initial_effect(c)
 	e2:SetCondition(c1004502.sprcon)
 	e2:SetOperation(c1004502.sprop)
 	c:RegisterEffect(e2)
-	--newname
-	local e5=Effect.CreateEffect(c)
-	e5:SetDescription(aux.Stringid(1004502,2))
-	e5:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_O)
-	e5:SetCode(EVENT_SPSUMMON_SUCCESS)
-	e5:SetProperty(EFFECT_FLAG_CARD_TARGET)
-	e5:SetCondition(c1004502.thcon)
-	e5:SetTarget(c1004502.target)
-	e5:SetOperation(c1004502.spop1)
-	c:RegisterEffect(e5)
 	--fuck new name
 	local e4=Effect.CreateEffect(c)
 	e4:SetDescription(aux.Stringid(1004502,1))
@@ -62,32 +52,6 @@ function c1004502.sprop(e,tp,eg,ep,ev,re,r,rp,c)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
 	local g1=Duel.SelectMatchingCard(tp,c1004502.spfilter1,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,2,99,nil,tp)
 	Duel.Destroy(g1,POS_FACEUP,REASON_COST)
-end
-function c1004502.thcon(e,tp,eg,ep,ev,re,r,rp)
-	return e:GetHandler():GetSummonLocation()==LOCATION_EXTRA
-end
-function c1004502.spfilter2(c,tp)
-	return c:IsFaceup() and not c:IsCode(1004502)
-end
-function c1004502.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
-	if chkc then return chkc:IsLocation(LOCATION_ONFIELD) and chkc:IsFaceup() end
-	if chk==0 then return Duel.IsExistingTarget(c1004502.spfilter2,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,nil) end
-end
-function c1004502.spop1(e,tp,eg,ep,ev,re,r,rp)
-	local c=e:GetHandler()
-	local g=Duel.SelectMatchingCard(tp,c1004502.spfilter2,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,2,nil)
-	local tg=g:GetFirst()
-	while tg do
-			local e4=Effect.CreateEffect(c)
-			e4:SetType(EFFECT_TYPE_SINGLE)
-			e4:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
-			e4:SetCode(EFFECT_CHANGE_CODE)
-			e4:SetRange(LOCATION_ONFIELD)
-			e4:SetValue(1004501)
-			e4:SetReset(RESET_EVENT+0x1fe0000)
-			tg:RegisterEffect(e4)
-	tg=g:GetNext()
-	end
 end
 function c1004502.spcon(e,tp,eg,ep,ev,re,r,rp)
 	local tc=eg:GetFirst()

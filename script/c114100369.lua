@@ -72,7 +72,7 @@ function c114100369.operation(e,tp,eg,ep,ev,re,r,rp)
 		e3:SetReset(RESET_EVENT+0x1fe0000)
 		tc:RegisterEffect(e3)
 		local e4=e3:Clone()
-		e4:SetCode(EFFECT_UPDATE_DEFENSE)
+		e4:SetCode(EFFECT_UPDATE_DEFENCE)
 		tc:RegisterEffect(e4)
 	end
 end

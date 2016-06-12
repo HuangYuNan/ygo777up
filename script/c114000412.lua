@@ -51,7 +51,7 @@ end
 function c114000412.xyzcon(e,c,og)
 	if c==nil then return true end
 	local abcount=0
-	if Duel.GetLocationCount(c:GetControler(),LOCATION_MZONE)>=0 then 
+	if Duel.GetLocationCount(c:GetControler(),LOCATION_MZONE)>=0 and Duel.GetFlagEffect(tp,114000412)==0 then 
 		local check=false
 		local lvb=c114000412.lvchk(c:GetControler())
 		for i=1,lvb do
@@ -65,7 +65,7 @@ function c114000412.xyzcon(e,c,og)
 	local ft=Duel.GetLocationCount(c:GetControler(),LOCATION_MZONE)
 	local ct=-ft
 	--if 2<=ct then return false end
-	if ct<2 then if Duel.CheckXyzMaterial(c,nil,4,2,2,og) then abcount=abcount+1 end end
+	if ct<2 then if Duel.CheckXyzMaterial(c,nil,2,2,2,og) then abcount=abcount+1 end end
 	if abcount>0 then
 		e:SetLabel(abcount)
 		return true
@@ -87,6 +87,7 @@ function c114000412.xyzop(e,tp,eg,ep,ev,re,r,rp,c,og)
 		end
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_XMATERIAL)
 		if sel==2 then
+			Duel.RegisterFlagEffect(tp,114000412,RESET_PHASE+PHASE_END,0,1)
 			local ag=Duel.GetMatchingGroup(c114000412.xyzfilter,tp,LOCATION_MZONE,0,nil)
 			local pg=Group.CreateGroup()
 			local chkpg=false
@@ -102,7 +103,7 @@ function c114000412.xyzop(e,tp,eg,ep,ev,re,r,rp,c,og)
 			end
 			mg=pg:Select(tp,1,1,nil)
 		else
-			mg=Duel.SelectXyzMaterial(tp,c,nil,4,2,2)
+			mg=Duel.SelectXyzMaterial(tp,c,nil,2,2,2)
 		end
 		c:SetMaterial(mg)
 		Duel.Overlay(c,mg)
@@ -125,7 +126,7 @@ function c114000412.xyzdef(c)
 		local jud=false
 		local lvb=c114000412.lvchk(tp)
 		for i=1,lvb do
-			if i==4 then 
+			if i==2 then 
 				if c:IsXyzLevel(mgtg,i) then jud=true end
 			else
 				if c:IsXyzLevel(mgtg,i) and c:IsSetCard(0x221) then jud=true end
@@ -134,7 +135,7 @@ function c114000412.xyzdef(c)
 		end
 		return jud
 	else
-		return c:GetLevel()==4 or ( c:IsSetCard(0x221) and not c:IsType(TYPE_XYZ) )
+		return c:GetLevel()==2 or ( c:IsSetCard(0x221) and not c:IsType(TYPE_XYZ) )
 	end
 end
 

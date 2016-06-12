@@ -46,7 +46,7 @@ function c114100284.tgop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.HintSelection(tg)
 		if Duel.SendtoGrave(tg,REASON_EFFECT)>0 then
 			Duel.BreakEffect()
-			Duel.ChangePosition(e:GetHandler(),POS_FACEDOWN_DEFENSE)
+			Duel.ChangePosition(e:GetHandler(),POS_FACEDOWN_DEFENCE)
 		end
 	end
 end

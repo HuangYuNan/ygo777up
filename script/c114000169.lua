@@ -16,7 +16,7 @@ function c114000169.initial_effect(c)
 	c:RegisterEffect(e2)
 	--defup
 	local e3=e2:Clone()
-	e3:SetCode(EFFECT_UPDATE_DEFENSE)
+	e3:SetCode(EFFECT_UPDATE_DEFENCE)
 	c:RegisterEffect(e3)
 end
 function c114000169.filter(c)
