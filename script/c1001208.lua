@@ -71,7 +71,7 @@ function c1001208.chain_operation(e,te,tp,tc,mat,sumtype)
 	e:Reset()
 end
 function c1001208.filter_a(c)
-	return c:IsSetCard(0x3205) and c:IsDestructable()
+	return c:IsFaceup() and c:IsSetCard(0x3205) and c:IsDestructable()
 end
 function c1001208.filter_b(c)
 	return c:IsSetCard(0x3205) and (c:IsType(TYPE_SPELL) or c:IsType(TYPE_TRAP)) and c:IsAbleToHand()
