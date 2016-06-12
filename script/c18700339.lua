@@ -39,7 +39,7 @@ function c18700339.operation(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	local g=Duel.GetMatchingGroup(Card.IsCanTurnSet,tp,0,LOCATION_MZONE,nil)
 	if g:GetCount()>0 then
-	Duel.ChangePosition(g,POS_FACEDOWN_DEFENSE)
+	Duel.ChangePosition(g,POS_FACEDOWN_DEFENCE)
 	if not c:IsRelateToEffect(e) or c:IsFacedown() then return end
 	local ct=Duel.GetMatchingGroupCount(nil,tp,0,LOCATION_ONFIELD,nil)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_XMATERIAL)
