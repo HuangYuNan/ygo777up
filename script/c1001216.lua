@@ -112,7 +112,7 @@ function c1001216.ptop(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
 	if tc:IsRelateToEffect(e) then
 		local atk=tc:IsFaceup() and tc:GetAttack() or 0
-		if Duel.Destroy(tc,REASON_EFFECT)>0 and atk~=0 then
+		if Duel.Destroy(tc,REASON_EFFECT,LOCATION_REMOVED)>0 and atk~=0 then
 			Duel.Recover(tp,atk,REASON_EFFECT)
 		end
 	end
