@@ -3370,9 +3370,7 @@ script/c99999996.lua	d6d549ddac9e9239cff5693a46565465
 script/c99999997.lua	3a24be0a979110a650c4e45071e9fdf5
 script/c99999998.lua	d0485184692ce65afaaa77dfe6cefafb
 update/delete.txt	c9b2ae557a77257e12e9a5599336afeb
-update/filelist.txt	833cc9bed011759c9cbe64530a6d039a
 update/readme.txt	e1555d90b56d941bcc2187baf892e071
 update/rename.txt	cbfaccc657e73040ec051233017b2c4d
-update/style	b30aab2a426357734393e6892693e98f
 update/update-server.bat	906682e2c43e33f9f06a058cea7da7bf
-update/version.txt	e4eabee6aa14111c47ed9d00e2bdc3aa
+update/version.txt	4a94cec5e5905fb8865d7b82ed73856b
