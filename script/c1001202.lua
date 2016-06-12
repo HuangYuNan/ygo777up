@@ -112,7 +112,7 @@ function c1001202.drop(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function c1001202.desfilter(c)
-	return c:IsDestructable()
+	return c:IsFaceup() and c:IsDestructable()
 end
 function c1001202.drtg1(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chk==0 then return Duel.IsExistingTarget(c1001202.desfilter,tp,0,LOCATION_ONFIELD,1,nil) end
