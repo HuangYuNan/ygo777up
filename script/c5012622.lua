@@ -1,6 +1,5 @@
 --月咏小萌
 function c5012622.initial_effect(c)
-	c:SetUniqueOnField(1,1,5012622)
 	--
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
@@ -16,7 +15,7 @@ function c5012622.initial_effect(c)
 	e3:SetProperty(EFFECT_FLAG_CARD_TARGET)
 	e3:SetType(EFFECT_TYPE_IGNITION)
 	e3:SetRange(LOCATION_MZONE)
-	e3:SetCountLimit(2)
+	e3:SetCountLimit(2,5012622)
 	e3:SetTarget(c5012622.target)
 	e3:SetOperation(c5012622.activate)
 	c:RegisterEffect(e3)

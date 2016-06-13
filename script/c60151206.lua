@@ -66,7 +66,7 @@ function c60151206.desop(e,tp,eg,ep,ev,re,r,rp)
 	if tc:IsRelateToBattle() and tc:IsFaceup() and c:IsFaceup() and c:IsLocation(LOCATION_MZONE) then
 		local atk=c:GetAttack()
 		local atk1=tc:GetAttack()
-		local def1=tc:GetDefence()
+		local def1=tc:GetDefense()
 		if c:GetFlagEffect(60151298)>0 then
 			Duel.Hint(HINT_OPSELECTED,1-tp,aux.Stringid(60151201,0))
 			Duel.Hint(HINT_CARD,0,60151206)

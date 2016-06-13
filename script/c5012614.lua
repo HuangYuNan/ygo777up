@@ -131,12 +131,12 @@ end
 function c5012614.tdcon(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	local bc=c:GetBattleTarget()
-	return bc and bc:IsAbleToDeck() and bc:IsFaceup() and (bc:IsAttackAbove(1700) or bc:IsDefenseAbove(800))
+	return bc and bc:IsAbleToDeck() and bc:IsFaceup() and (bc:IsAttackAbove(1700) or bc:IsDefenceAbove(800))
 end
 function c5012614.tdop(e,tp,eg,ep,ev,re,r,rp)
 	local bc=e:GetHandler():GetBattleTarget()
 	local atk=bc:GetBaseAttack()
-	local def=bc:GetBaseDefense()
+	local def=bc:GetBaseDefence()
 	local val=0
 	if atk>=def then
 	val=atk

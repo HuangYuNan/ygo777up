@@ -76,7 +76,7 @@ function c5012605.initial_effect(c)
 	e7:SetValue(c5012605.atkval)
 	c:RegisterEffect(e7)
 	local e8=e7:Clone()
-	e8:SetCode(EFFECT_UPDATE_DEFENSE)
+	e8:SetCode(EFFECT_UPDATE_DEFENCE)
 	c:RegisterEffect(e8)
 end
 function c5012605.over(c,g)

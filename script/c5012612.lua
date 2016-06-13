@@ -1,6 +1,5 @@
 --虚数学区·五行机关
 function c5012612.initial_effect(c)
-	c:SetSPSummonOnce(5012612)
 	--fusion material
 	c:EnableReviveLimit()
 	aux.AddFusionProcFunRep(c,aux.FilterBoolFunction(Card.IsSetCard,0xb16),2,true)
@@ -9,9 +8,10 @@ function c5012612.initial_effect(c)
 	e1:SetDescription(aux.Stringid(5012612,1))
 	e1:SetCategory(CATEGORY_TOHAND)
 	e1:SetProperty(EFFECT_FLAG_CARD_TARGET)
-	e1:SetType(EFFECT_TYPE_IGNITION)
+	e1:SetType(EFFECT_TYPE_QUICK_O)
+	e1:SetCode(EVENT_FREE_CHAIN)
 	e1:SetRange(LOCATION_MZONE)
-	e1:SetCountLimit(1)
+	e1:SetCountLimit(1,5012612)
 	e1:SetCost(c5012612.thcost)
 	e1:SetTarget(c5012612.thtg)
 	e1:SetOperation(c5012612.thop)
@@ -73,7 +73,7 @@ function c5012612.thop(e,tp,eg,ep,ev,re,r,rp)
 end
 function c5012612.drcon(e,tp,eg,ep,ev,re,r,rp)
 	local tg=eg:GetFirst()
-	return eg:GetCount()==1 and tg~=e:GetHandler() and tg:IsType(TYPE_SYNCHRO+TYPE_FUSION+TYPE_XYZ) and  tg:IsSetCard(0x350)
+	return eg:GetCount()==1 and tg~=e:GetHandler() and tg:IsType(TYPE_SYNCHRO+TYPE_FUSION+TYPE_XYZ+TYPE_RITUAL) and  tg:IsSetCard(0x350)
 	and tg:IsControler(tp)
 end
 function c5012612.drtg(e,tp,eg,ep,ev,re,r,rp,chk)

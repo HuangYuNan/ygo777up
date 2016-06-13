@@ -3,25 +3,7 @@ function c5012611.initial_effect(c)
 	--synchro summon
 	aux.AddSynchroProcedure(c,aux.FilterBoolFunction(Card.IsSetCard,0x350),aux.NonTuner(nil),1)
 	c:EnableReviveLimit()
-	--Negate
-	local e1=Effect.CreateEffect(c)
-	e1:SetType(EFFECT_TYPE_SINGLE)
-	e1:SetCode(EFFECT_EXTRA_ATTACK)
-	e1:SetValue(6)
-	c:RegisterEffect(e1)
-	--attack up
-	local e2=Effect.CreateEffect(c)
-	e2:SetType(EFFECT_TYPE_SINGLE)
-	e2:SetCode(EFFECT_CANNOT_DIRECT_ATTACK)
-	c:RegisterEffect(e2)
-	--
-	local e3=Effect.CreateEffect(c)
-	e3:SetType(EFFECT_TYPE_SINGLE)
-	e3:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
-	e3:SetCode(EFFECT_UPDATE_ATTACK)
-	e3:SetRange(LOCATION_MZONE)
-	e3:SetValue(-770)
-	c:RegisterEffect(e3)
+
 	--add setcode
 	local e4=Effect.CreateEffect(c)
 	e4:SetType(EFFECT_TYPE_SINGLE)
@@ -47,9 +29,6 @@ function c5012611.initial_effect(c)
 	e6:SetCondition(c5012611.ctcon2)
 	e6:SetValue(1)
 	c:RegisterEffect(e6)
-	local e7=e6:Clone()
-	e7:SetCode(EFFECT_INDESTRUCTABLE_BATTLE)
-	c:RegisterEffect(e7)
 end
 function c5012611.efilter(e,te)
 	return te:IsActiveType(TYPE_MONSTER) and te:GetOwner()~=e:GetOwner()

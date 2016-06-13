@@ -22,14 +22,6 @@ function c5012618.initial_effect(c)
 	e1:SetTarget(c5012618.tg)
 	e1:SetOperation(c5012618.op)
 	c:RegisterEffect(e1)
-	--destroy
-	local e2=Effect.CreateEffect(c)
-	e2:SetCategory(CATEGORY_DESTROY)
-	e2:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
-	e2:SetCode(EVENT_TO_HAND)
-	e2:SetCondition(c5012618.condition)
-	e2:SetOperation(c5012618.operation)
-	c:RegisterEffect(e2)
 	 --add setcode
 	local e3=Effect.CreateEffect(c)
 	e3:SetType(EFFECT_TYPE_SINGLE)
@@ -93,12 +85,6 @@ function c5012618.op(e,tp,eg,ep,ev,re,r,rp)
 end
 function c5012618.cfilter(c)
 	return c:IsSetCard(0x350) and c:IsType(TYPE_MONSTER) and c:GetSummonType()==SUMMON_TYPE_PENDULUM
-end
-function c5012618.condition(e,tp,eg,ep,ev,re,r,rp)
-	return not e:GetHandler():IsReason(REASON_DRAW) and e:GetHandler():IsPreviousLocation(LOCATION_DECK) 
-end
-function c5012618.operation(e,tp,eg,ep,ev,re,r,rp)
-		Duel.Destroy(e:GetHandler(),REASON_EFFECT)
 end
 function c5012618.refilter(c)
 	return c:IsFaceup() and c:IsSetCard(0x350) 

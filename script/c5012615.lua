@@ -2,6 +2,7 @@
 function c5012615.initial_effect(c)
 	--activate
 	local e1=Effect.CreateEffect(c)
+	e1:SetCategory(CATEGORY_TOHAND+CATEGORY_SEARCH)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
 	e1:SetCode(EVENT_FREE_CHAIN)
 	e1:SetOperation(c5012615.activate)
@@ -47,7 +48,7 @@ function c5012615.activate(e,tp,eg,ep,ev,re,r,rp)
 	local g=Duel.GetMatchingGroup(c5012615.thfilter,tp,LOCATION_DECK,0,nil)
 	if g:GetCount()>0 and Duel.SelectYesNo(tp,aux.Stringid(5012615,0)) then
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_ATOHAND)
-		local sg=g:RandomSelect(tp,1)
+		local sg=g:Select(tp,1,1,nil)
 		Duel.SendtoHand(sg,nil,REASON_EFFECT)
 		Duel.ConfirmCards(1-tp,sg)
 	end

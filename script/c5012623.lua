@@ -1,6 +1,5 @@
 --冥土追魂
 function c5012623.initial_effect(c)
-	c:SetUniqueOnField(1,1,5012623)
 	--cannot special summon
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(5012623,0))
@@ -8,6 +7,7 @@ function c5012623.initial_effect(c)
 	e1:SetProperty(EFFECT_FLAG_CARD_TARGET)
 	e1:SetType(EFFECT_TYPE_IGNITION)
 	e1:SetRange(LOCATION_MZONE)
+	e1:SetCountLimit(1,5012623)
 	e1:SetCost(c5012623.spcost)
 	e1:SetTarget(c5012623.sptg)
 	e1:SetOperation(c5012623.spop)
@@ -18,20 +18,10 @@ function c5012623.initial_effect(c)
 	e2:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_O)
 	e2:SetProperty(EFFECT_FLAG_DELAY)
 	e2:SetCode(EVENT_TO_GRAVE)
+	e2:SetCountLimit(1,5012623)
 	e2:SetTarget(c5012623.drtg)
 	e2:SetOperation(c5012623.drop)
 	c:RegisterEffect(e2)
-	--
-	local e3=Effect.CreateEffect(c)
-	e3:SetType(EFFECT_TYPE_SINGLE)
-	e3:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
-	e3:SetRange(LOCATION_MZONE)
-	e3:SetCode(EFFECT_INDESTRUCTABLE_BATTLE)
-	e3:SetValue(1)
-	c:RegisterEffect(e3)
-	local e4=e3:Clone()
-	e4:SetCode(EFFECT_INDESTRUCTABLE_EFFECT)
-	c:RegisterEffect(e4)
 	--
 	local e6=Effect.CreateEffect(c)
 	e6:SetType(EFFECT_TYPE_SINGLE)
@@ -44,8 +34,8 @@ function c5012623.initial_effect(c)
 	c:RegisterEffect(e7)
 end
 function c5012623.spcost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsDiscardable,tp,LOCATION_HAND,0,2,e:GetHandler()) end
-	Duel.DiscardHand(tp,Card.IsDiscardable,2,2,REASON_COST+REASON_DISCARD)
+	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsDiscardable,tp,LOCATION_HAND,0,1,e:GetHandler()) end
+	Duel.DiscardHand(tp,Card.IsDiscardable,1,1,REASON_COST+REASON_DISCARD)
 end
 function c5012623.filter(c,e,tp)
 	return (c:IsSetCard(0x350) or c:IsSetCard(0x23c)) and c:IsType(TYPE_MONSTER) and c:IsCanBeSpecialSummoned(e,0,tp,false,false)

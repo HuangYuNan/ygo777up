@@ -58,7 +58,7 @@ function c23456701.descon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():IsPreviousPosition(POS_FACEUP) and e:GetHandler():IsPreviousLocation(LOCATION_ONFIELD)
 end
 function c23456701.pofilter(c)
-	return c:IsType(TYPE_SPELL) or c:IsType(TYPE_TRAP) and c:IsFaceup() 
+	return c:IsType(TYPE_SPELL) or c:IsType(TYPE_TRAP) or (c:IsType(TYPE_PENDULUM) and not c:IsType(TYPE_MONSTER)) and c:IsFaceup() 
 end
 function c23456701.postg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c23456701.pofilter,tp,0,LOCATION_ONFIELD,1,nil) end
