@@ -53,9 +53,8 @@ function c23304016.desop(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function c23304016.condition2(e,tp,eg,ep,ev,re,r,rp)
-	local tn=Duel.GetTurnPlayer()
 	local ph=Duel.GetCurrentPhase()
-	return ph==PHASE_BATTLE
+	return ph>=PHASE_BATTLE_START and ph<=PHASE_BATTLE
 end
 function c23304016.filter2(c)
 	return c:IsSetCard(0x995) and c:IsSummonable(true,nil)
