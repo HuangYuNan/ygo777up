@@ -60,7 +60,7 @@ function c114100590.descost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Remove(e:GetHandler(),POS_FACEUP,REASON_COST)
 end
 function c114100590.desfilter(c)
-	return c:IsFaceup() and c:IsDestructable() and c:IsDefenceBelow(2100)
+	return c:IsFaceup() and c:IsDestructable() and c:IsDefenseBelow(2100)
 end
 function c114100590.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c114100590.filter,tp,0,LOCATION_MZONE,1,nil) end

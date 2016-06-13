@@ -63,5 +63,5 @@ function c114005033.discon(e,tp,eg,ep,ev,re,r,rp)
 end
 function c114005033.disop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.NegateEffect(ev)
-	Duel.ChangePosition(e:GetHandler(),POS_FACEDOWN_DEFENCE)
+	Duel.ChangePosition(e:GetHandler(),POS_FACEDOWN_DEFENSE)
 end

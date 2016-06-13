@@ -21,7 +21,7 @@ function c114000013.initial_effect(c)
     c:RegisterEffect(e3)
 	--defup(as_clone_of_atkup)
 	local e4=e3:Clone()
-	e4:SetCode(EFFECT_UPDATE_DEFENCE)
+	e4:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e4)
 	--immune
 	local e5=Effect.CreateEffect(c)

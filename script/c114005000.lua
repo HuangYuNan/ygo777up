@@ -93,7 +93,7 @@ function c114005000.spcost(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c114005000.splimit(e,c,sump,sumtype,sumpos,targetp,se)
 	return bit.band(sumpos,0x5)~=0
-	--POS_FACEUP_ATTACK	= 0x1 + POS_FACEUP_DEFENCE = 0x4
+	--POS_FACEUP_ATTACK	= 0x1 + POS_FACEUP_DEFENSE = 0x4
 end
 function c114005000.spfilter(c,e,tp)
 	return c114005000.otofilter(c) and c:GetLevel()==4 and c:IsCanBeSpecialSummoned(e,0,tp,false,false,POS_FACEDOWN) --not 0x199
@@ -107,7 +107,7 @@ function c114005000.spop(e,tp,eg,ep,ev,re,r,rp)
 	if Duel.GetLocationCount(tp,LOCATION_MZONE)<=0 then return end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
 	local g=Duel.SelectMatchingCard(tp,c114005000.spfilter,tp,LOCATION_DECK,0,1,1,nil,e,tp)
-	if g:GetCount()>0 and Duel.SpecialSummon(g,0,tp,tp,false,false,POS_FACEDOWN_DEFENCE)~=0 then
+	if g:GetCount()>0 and Duel.SpecialSummon(g,0,tp,tp,false,false,POS_FACEDOWN_DEFENSE)~=0 then
 		Duel.ConfirmCards(1-tp,g) --confirm cards
 	end
 end

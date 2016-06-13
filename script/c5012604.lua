@@ -98,8 +98,8 @@ function c5012604.distg(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.SetOperationInfo(0,CATEGORY_NEGATE,eg,1,0,0)
 end
 function c5012604.disop(e,tp,eg,ep,ev,re,r,rp)
-	if  e:GetHandler():IsDefencePos() then return end
-	if Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENCE) then
+	if  e:GetHandler():IsDefensePos() then return end
+	if Duel.ChangePosition(e:GetHandler(),POS_FACEUP_DEFENSE) then
 	Duel.NegateActivation(ev)
 	end
 end

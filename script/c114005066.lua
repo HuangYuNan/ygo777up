@@ -20,7 +20,7 @@ function c114005066.initial_effect(c)
 	c:RegisterEffect(e2)
 end
 function c114005066.defcon(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.GetAttackTarget()==e:GetHandler() and e:GetHandler():GetBattlePosition()==POS_FACEDOWN_DEFENCE
+	return Duel.GetAttackTarget()==e:GetHandler() and e:GetHandler():GetBattlePosition()==POS_FACEDOWN_DEFENSE
 end
 function c114005066.defop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
@@ -28,7 +28,7 @@ function c114005066.defop(e,tp,eg,ep,ev,re,r,rp)
 	if not c:IsRelateToBattle() then return end --excluded: tc:IsRelateToBattle() or not 
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_SINGLE)
-	e1:SetCode(EFFECT_UPDATE_DEFENCE)
+	e1:SetCode(EFFECT_UPDATE_DEFENSE)
 	e1:SetValue(1500)
 	e1:SetReset(RESET_EVENT+0x1ff0000)
 	c:RegisterEffect(e1)

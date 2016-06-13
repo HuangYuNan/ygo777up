@@ -97,7 +97,7 @@ end
 --set atk/def
 function c114100357.setpower(c,g)
 	local atk=g:GetFirst():GetBaseAttack()
-	local def=g:GetFirst():GetBaseDefence()
+	local def=g:GetFirst():GetBaseDefense()
 	if atk<0 then atk=0 end
 	if def<0 then def=0 end
 	local e1=Effect.CreateEffect(c)
@@ -109,7 +109,7 @@ function c114100357.setpower(c,g)
 	e1:SetValue(atk+500)
 	c:RegisterEffect(e1)
 	local e2=e1:Clone()
-	e2:SetCode(EFFECT_SET_DEFENCE)
+	e2:SetCode(EFFECT_SET_DEFENSE)
 	e2:SetValue(def+500)
 	c:RegisterEffect(e2)
 end

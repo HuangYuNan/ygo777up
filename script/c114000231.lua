@@ -49,7 +49,7 @@ function c114000231.operation(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
 	if c:IsFacedown() or not c:IsRelateToEffect(e) 
 		or not tc:IsPosition(POS_FACEUP_ATTACK) or not tc:IsRelateToEffect(e) then return end
-	Duel.ChangePosition(tc,POS_FACEUP_DEFENCE)
+	Duel.ChangePosition(tc,POS_FACEUP_DEFENSE)
 	local atkval=tc:GetAttack()/2
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_SINGLE)

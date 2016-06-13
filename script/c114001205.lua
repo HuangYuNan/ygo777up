@@ -34,7 +34,7 @@ function c114001205.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.ShuffleHand(tp)
 end
 function c114001205.filter(c)
-	return c:IsFaceup() and c:IsType(TYPE_EFFECT) and not ( c:IsDisabled() and c:GetAttack()==0 and c:GetDefence()==0 )
+	return c:IsFaceup() and c:IsType(TYPE_EFFECT) and not ( c:IsDisabled() and c:GetAttack()==0 and c:GetDefense()==0 )
 end
 function c114001205.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsControler(1-tp) and chkc:IsLocation(LOCATION_MZONE) and c114001205.filter(chkc) end
@@ -61,7 +61,7 @@ function c114001205.activate(e,tp,eg,ep,ev,re,r,rp)
 			e2:SetReset(RESET_EVENT+0x1fe0000)
 			tc:RegisterEffect(e2)
 		end
-		if tc:GetAttack()>0 or tc:GetDefence()>0 then 
+		if tc:GetAttack()>0 or tc:GetDefense()>0 then 
 			local e3=Effect.CreateEffect(c)
 			e3:SetType(EFFECT_TYPE_SINGLE)
 			e3:SetCode(EFFECT_SET_ATTACK_FINAL)
@@ -69,8 +69,8 @@ function c114001205.activate(e,tp,eg,ep,ev,re,r,rp)
 			e3:SetReset(RESET_EVENT+0x1fe0000)
 			tc:RegisterEffect(e3)
 			local e4=e3:Clone()
-			e4:SetCode(EFFECT_SET_DEFENCE_FINAL)
-			e4:SetValue(tc:GetDefence()/2)
+			e4:SetCode(EFFECT_SET_DEFENSE_FINAL)
+			e4:SetValue(tc:GetDefense()/2)
 			tc:RegisterEffect(e4)
 		end
 	end

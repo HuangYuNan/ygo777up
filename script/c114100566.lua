@@ -23,7 +23,7 @@ function c114100566.initial_effect(c)
 	c:RegisterEffect(e3)
 end
 function c114100566.atkf(c)
-	return c:IsAttribute(ATTRIBUTE_DARK) and c:GetAttack()==1500 and c:GetDefence()==800
+	return c:IsAttribute(ATTRIBUTE_DARK) and c:GetAttack()==1500 and c:GetDefense()==800
 end
 function c114100566.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsLocation(LOCATION_MZONE) and chkc:IsControler(tp) and chkc:IsFaceup() end
@@ -52,7 +52,7 @@ function c114100566.operation(e,tp,eg,ep,ev,re,r,rp)
 		e2:SetValue(-700)
 		tc:RegisterEffect(e2)
 		local e3=e2:Clone()
-		e3:SetCode(EFFECT_UPDATE_DEFENCE)
+		e3:SetCode(EFFECT_UPDATE_DEFENSE)
 		tc:RegisterEffect(e3)
 		if not tc:IsType(TYPE_EFFECT) then
 			if tc:IsType(TYPE_NORMAL) then
