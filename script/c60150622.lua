@@ -99,6 +99,9 @@ end
 function c60150622.cfilter(c)
 	return c:IsSetCard(0x3b21) and c:IsType(TYPE_MONSTER) and c:IsAbleToDeckOrExtraAsCost()
 end
+function c60150622.gfilter(c)
+	return c:IsType(TYPE_PENDULUM) and c:IsAbleToDeckOrExtraAsCost()
+end
 function c60150622.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c60150622.cfilter,tp,LOCATION_MZONE+LOCATION_GRAVE,0,1,nil) end
 	local g=Duel.GetMatchingGroup(c60150622.cfilter,tp,LOCATION_MZONE+LOCATION_GRAVE,0,nil)
