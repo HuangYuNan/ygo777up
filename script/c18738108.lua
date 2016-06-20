@@ -66,13 +66,13 @@ function c18738108.spop(e,tp,eg,ep,ev,re,r,rp,c)
 	Duel.Release(g1,REASON_COST+REASON_FUSION+REASON_MATERIAL)
 end
 function c18738108.cfilter(c)
-	return c:IsFacedown() and c:IsAbleToDeckAsCost()
+	return c:IsSetCard(0x3ab0) and c:IsAbleToRemoveAsCost() and c:IsType(TYPE_MONSTER)
 end
 function c18738108.drcost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(c18738108.cfilter,tp,LOCATION_REMOVED,0,1,nil) end
-	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TODECK)
-	local g=Duel.SelectMatchingCard(tp,c18738108.cfilter,tp,LOCATION_REMOVED,0,1,1,nil)
-	Duel.SendtoDeck(g,nil,1,REASON_COST)
+	if chk==0 then return Duel.IsExistingMatchingCard(c18738108.cfilter,tp,LOCATION_GRAVE,0,1,nil) end
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
+	local g=Duel.SelectMatchingCard(tp,c18738108.cfilter,tp,LOCATION_GRAVE,0,1,1,nil)
+	Duel.Remove(g,POS_FACEDOWN,REASON_COST)
 end
 function c18738108.drtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsAbleToRemove,tp,0,LOCATION_ONFIELD,1,nil) end

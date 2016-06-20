@@ -26,32 +26,32 @@ function c18706018.initial_effect(c)
 	e1:SetCode(EFFECT_INDESTRUCTABLE_BATTLE)
 	e1:SetValue(c18706018.ind2)
 	c:RegisterEffect(e1)
-    --Disable
-    local e2=Effect.CreateEffect(c)
-    e2:SetType(EFFECT_TYPE_TRIGGER_O+EFFECT_TYPE_SINGLE)
-    e2:SetCategory(CATEGORY_DISABLE)
-    e2:SetCode(EVENT_ATTACK_ANNOUNCE)
-    e2:SetProperty(EFFECT_FLAG_CARD_TARGET)
-    e2:SetTarget(c18706018.damtg)
-    e2:SetOperation(c18706018.damop)
-    c:RegisterEffect(e2)
-    local e3=e2:Clone()
-    e3:SetCode(EVENT_BE_BATTLE_TARGET)
-    c:RegisterEffect(e3)
+	--Disable
+	local e2=Effect.CreateEffect(c)
+	e2:SetType(EFFECT_TYPE_TRIGGER_O+EFFECT_TYPE_SINGLE)
+	e2:SetCategory(CATEGORY_DISABLE)
+	e2:SetCode(EVENT_ATTACK_ANNOUNCE)
+	e2:SetProperty(EFFECT_FLAG_CARD_TARGET)
+	e2:SetTarget(c18706018.damtg)
+	e2:SetOperation(c18706018.damop)
+	c:RegisterEffect(e2)
+	local e3=e2:Clone()
+	e3:SetCode(EVENT_BE_BATTLE_TARGET)
+	c:RegisterEffect(e3)
 end
 function c18706018.mfilter(c)
-	return c:IsSetCard(0xabb) and c:IsSetCard(0x6d) and not c:IsCode(18706018)
+	return c:IsType(TYPE_XYZ) and c:IsFaceup()
 end
 function c18706018.damtg(e,tp,eg,ep,ev,re,r,rp,chk)
-    if chk==0 then return true end
-    Duel.SetTargetPlayer(1-tp)
-    Duel.SetTargetParam(1200)
-    Duel.SetOperationInfo(0,CATEGORY_DAMAGE,nil,0,1-tp,1200)
+	if chk==0 then return true end
+	Duel.SetTargetPlayer(1-tp)
+	Duel.SetTargetParam(1200)
+	Duel.SetOperationInfo(0,CATEGORY_DAMAGE,nil,0,1-tp,1200)
 end
 function c18706018.damop(e,tp,eg,ep,ev,re,r,rp)
-    local p,d=Duel.GetChainInfo(0,CHAININFO_TARGET_PLAYER,CHAININFO_TARGET_PARAM)
-    Duel.Damage(p,d,REASON_EFFECT)
-		if Duel.IsExistingTarget(c18706018.mfilter,tp,LOCATION_MZONE,0,1,nil) then 
+	local p,d=Duel.GetChainInfo(0,CHAININFO_TARGET_PLAYER,CHAININFO_TARGET_PARAM)
+	Duel.Damage(p,d,REASON_EFFECT)
+		if Duel.IsExistingTarget(c18706018.mfilter,tp,0,LOCATION_MZONE,1,nil) then 
 		Duel.Damage(p,d,REASON_EFFECT)
 		end
 end

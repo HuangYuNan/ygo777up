@@ -5,7 +5,7 @@ function c5200015.initial_effect(c)
 	c:EnableReviveLimit()
 	--summon success
 	local e1=Effect.CreateEffect(c)
-	e1:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
+	e1:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
 	e1:SetCode(EVENT_SPSUMMON_SUCCESS)
 	e1:SetCondition(c5200015.sumcon)
 	e1:SetOperation(c5200015.sumop)
@@ -74,17 +74,6 @@ function c5200015.sumop(e,tp,eg,ep,ev,re,r,rp)
 		tc:RegisterEffect(e2)
 		tc=g:GetNext()
 	end
-	local e3=Effect.CreateEffect(e:GetHandler())
-	e3:SetType(EFFECT_TYPE_FIELD)
-	e3:SetProperty(EFFECT_FLAG_PLAYER_TARGET)
-	e3:SetCode(EFFECT_CANNOT_ACTIVATE)
-	e3:SetTargetRange(0,1)
-	e3:SetValue(c5200015.aclimit)
-	e3:SetReset(RESET_PHASE+PHASE_END)
-	Duel.RegisterEffect(e3,tp)
-end
-function c5200015.aclimit(e,re,tp)
-	return re:GetHandler():IsType(TYPE_SPELL+TYPE_TRAP+TYPE_MONSTER)
 end
 function c5200015.tdcon(e,tp,eg,ep,ev,re,r,rp)
 	local ph=Duel.GetCurrentPhase()
@@ -115,7 +104,7 @@ function c5200015.piecon(e,tp,eg,ep,ev,re,r,rp)
 end
 function c5200015.damcon(e,tp,eg,ep,ev,re,r,rp)
 	local tc=eg:GetFirst()
-	return ep~=tp and tc:IsSetCard(0x360) and tc:GetBattleTarget()~=nil and tc:GetBattleTarget():IsDefensePos() and e:GetHandler():GetOverlayCount()~=0
+	return ep~=tp and tc:IsSetCard(0x360) and tc:GetBattleTarget()~=nil and tc:GetBattleTarget():IsDefencePos() and e:GetHandler():GetOverlayCount()~=0
 end
 function c5200015.damop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.ChangeBattleDamage(ep,ev*2)

@@ -44,11 +44,18 @@ function c18781007.activate1(e,tp,eg,ep,ev,re,r,rp)
 			or Duel.SelectPosition(tp,c,POS_FACEUP_ATTACK+POS_FACEDOWN_DEFENSE)==POS_FACEUP_ATTACK) then
 			Duel.Summon(tp,c,true,nil)
 		else Duel.MSet(tp,c,true,nil) end
+			Duel.AdjustInstantly()
 		if tc:IsSummonable(true,nil) and (not tc:IsMSetable(true,nil) 
 			or Duel.SelectPosition(tp,tc,POS_FACEUP_ATTACK+POS_FACEDOWN_DEFENSE)==POS_FACEUP_ATTACK) then
 			Duel.Summon(tp,tc,true,nil)
 		else Duel.MSet(tp,tc,true,nil) end
 	end
+	local e1=Effect.CreateEffect(c)
+	e1:SetType(EFFECT_TYPE_SINGLE)
+	e1:SetCode(EFFECT_CANNOT_CHANGE_POSITION)
+	e1:SetProperty(EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_COPY_INHERIT)
+	e1:SetReset(RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_END)
+	c:RegisterEffect(e1)
 end
 function c18781007.filter2(c,e,tp)
 	return c:IsSetCard(0x6abb) and c:IsFaceup() and c:IsType(TYPE_XYZ)

@@ -31,7 +31,16 @@ function c5012603.initial_effect(c)
 	e5:SetRange(LOCATION_MZONE)
 	e5:SetTarget(c5012603.destg)
 	e5:SetOperation(c5012603.desop)
-	c:RegisterEffect(e5) 
+	c:RegisterEffect(e5)
+	--
+	local e6=Effect.CreateEffect(c)
+	e6:SetCategory(CATEGORY_SPECIAL_SUMMON)
+	e6:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_O)
+	e6:SetCode(EVENT_REMOVE)
+	e6:SetProperty(EFFECT_FLAG_DAMAGE_STEP+EFFECT_FLAG_DELAY)
+	e6:SetTarget(c5012603.tg)
+	e6:SetOperation(c5012603.op)
+	c:RegisterEffect(e6)  
 end
 function c5012603.costfilter(c)
 	return (c:IsSetCard(0x350) or c:IsSetCard(0x23c)) and c:IsAbleToGraveAsCost() 
@@ -66,6 +75,22 @@ function c5012603.desop(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
 	if tc:IsRelateToEffect(e) then
 		Duel.Destroy(tc,REASON_EFFECT)
+	end
+end
+function c5012603.spfilter(c,e,tp)
+	return (c:IsSetCard(0x350) or c:IsSetCard(0x23c) ) and c:IsCanBeSpecialSummoned(e,0,tp,false,false) and c:IsType(TYPE_TUNER)
+end
+function c5012603.tg(e,tp,eg,ep,ev,re,r,rp,chk)
+	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>-1
+		and Duel.IsExistingMatchingCard(c5012603.spfilter,tp,LOCATION_DECK,0,1,nil,e,tp) end
+	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,nil,1,tp,LOCATION_DECK)
+end
+function c5012603.op(e,tp,eg,ep,ev,re,r,rp)
+	if Duel.GetLocationCount(tp,LOCATION_MZONE)<=0 then return end
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
+	local g=Duel.SelectMatchingCard(tp,c5012603.spfilter,tp,LOCATION_DECK,0,1,1,nil,e,tp)
+	if g:GetCount()>0 then
+		Duel.SpecialSummon(g,0,tp,tp,false,false,POS_FACEUP)
 	end
 end
 

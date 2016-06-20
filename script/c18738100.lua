@@ -137,13 +137,13 @@ function c18738100.condition(e,tp,eg,ep,ev,re,r,rp)
 	end
 end 
 function c18738100.cfilter(c)
-	return c:IsFacedown() and c:IsAbleToDeckAsCost()
+	return c:IsSetCard(0x3ab0) and c:IsAbleToRemoveAsCost() and c:IsType(TYPE_MONSTER)
 end
 function c18738100.necost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(c18738100.cfilter,tp,LOCATION_REMOVED,0,1,nil) end
-	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TODECK)
-	local g=Duel.SelectMatchingCard(tp,c18738100.cfilter,tp,LOCATION_REMOVED,0,1,1,nil)
-	Duel.SendtoDeck(g,nil,1,REASON_COST)
+	if chk==0 then return Duel.IsExistingMatchingCard(c18738100.cfilter,tp,LOCATION_GRAVE,0,1,nil) end
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
+	local g=Duel.SelectMatchingCard(tp,c18738100.cfilter,tp,LOCATION_GRAVE,0,1,1,nil)
+	Duel.Remove(g,POS_FACEDOWN,REASON_COST)
 end
 function c18738100.netg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end

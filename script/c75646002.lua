@@ -12,7 +12,6 @@ function c75646002.initial_effect(c)
 	e2:SetType(EFFECT_TYPE_IGNITION)
 	e2:SetRange(LOCATION_FZONE)
 	e2:SetCountLimit(1)
-	e2:SetCost(c75646002.cost)
 	e2:SetTarget(c75646002.target)
 	e2:SetOperation(c75646002.operation)
 	c:RegisterEffect(e2)
@@ -34,10 +33,6 @@ function c75646002.initial_effect(c)
 	e4:SetTarget(c75646002.retarget1)
 	e4:SetValue(500)
 	c:RegisterEffect(e4)
-end
-function c75646002.cost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsDiscardable,tp,LOCATION_HAND,0,1,nil) end
-	Duel.DiscardHand(tp,Card.IsDiscardable,1,1,REASON_DISCARD+REASON_COST,nil)
 end
 function c75646002.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsSetCard,tp,LOCATION_DECK,0,1,nil,0x2c1)

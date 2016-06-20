@@ -1,7 +1,7 @@
 --滑膛火炮 卡尔臼炮
 function c20329005.initial_effect(c)
 	--xyz summon
-	aux.AddXyzProcedure(c,nil,10,3,c20329005.ovfilter,aux.Stringid(20329005,0))
+	aux.AddXyzProcedure(c,nil,10,3)
 	c:EnableReviveLimit()
 	--atk up
 	local e1=Effect.CreateEffect(c)
@@ -13,10 +13,6 @@ function c20329005.initial_effect(c)
 	e1:SetCost(c20329005.cost)
 	e1:SetOperation(c20329005.op)
 	c:RegisterEffect(e1)
-end
-function c20329005.ovfilter(c)
-	local lv=c:GetLevel()
-	return c:IsFaceup() and c:IsType(TYPE_SYNCHRO) and lv==10
 end
 function c20329005.con(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.GetCurrentPhase()==PHASE_MAIN1

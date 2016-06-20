@@ -1,5 +1,12 @@
---扑克少女·黑骑士爱丽丝
+--AIW·扑克魔术的影爱丽丝
 function c66612327.initial_effect(c)
+	--cannot special summon
+	local e6=Effect.CreateEffect(c)
+	e6:SetProperty(EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_UNCOPYABLE)
+	e6:SetType(EFFECT_TYPE_SINGLE)
+	e6:SetCode(EFFECT_SPSUMMON_CONDITION)
+	e6:SetValue(aux.FALSE)
+	c:RegisterEffect(e6)
 	--spsummon
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(66612327,0))
@@ -11,21 +18,15 @@ function c66612327.initial_effect(c)
 	e1:SetTarget(c66612327.target)
 	e1:SetOperation(c66612327.operation)
 	c:RegisterEffect(e1)
-	--diratk
-	local e3=Effect.CreateEffect(c)
-	e3:SetType(EFFECT_TYPE_SINGLE)
-	e3:SetCode(EFFECT_DIRECT_ATTACK)
-	e3:SetCondition(c66612327.dircon)
-	c:RegisterEffect(e3)
 end
 function c66612327.filter(c)
-	return c:IsFaceup() and (c:IsSetCard(0x666) or c:IsSetCard(0x660)) and c:GetLevel()>=2
+	return c:IsFaceup() and (c:IsSetCard(0x660) or c:IsSetCard(0x666))
 end
 function c66612327.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsLocation(LOCATION_MZONE) and chkc:IsControler(tp) and c66612327.filter(chkc) end
 	local c=e:GetHandler()
 	if chk==0 then return Duel.IsExistingTarget(c66612327.filter,tp,LOCATION_MZONE,0,1,nil)
-		and Duel.GetLocationCount(tp,LOCATION_MZONE)>0 and c:IsCanBeSpecialSummoned(e,0,tp,false,false) end
+		and Duel.GetLocationCount(tp,LOCATION_MZONE)>0 and c:IsCanBeSpecialSummoned(e,0,tp,true,false) end
 	Duel.Hint(HINT_SELECTMSG,tp,aux.Stringid(66612327,1))
 	Duel.SelectTarget(tp,c66612327.filter,tp,LOCATION_MZONE,0,1,1,nil)
 	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,c,1,0,0)
@@ -41,12 +42,18 @@ function c66612327.operation(e,tp,eg,ep,ev,re,r,rp)
 	e1:SetValue(-1)
 	tc:RegisterEffect(e1)
 	if c:IsRelateToEffect(e) then
-		Duel.SpecialSummon(c,0,tp,tp,false,false,POS_FACEUP)
+		Duel.SpecialSummonStep(c,0,tp,tp,true,true,POS_FACEUP)
+		local e3=Effect.CreateEffect(c)
+		e3:SetType(EFFECT_TYPE_SINGLE)
+		e3:SetCode(EFFECT_CANNOT_BE_SYNCHRO_MATERIAL)
+		e3:SetProperty(EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_UNCOPYABLE)
+		e3:SetValue(c66612327.splimit)
+		e3:SetReset(RESET_EVENT+0x1fe0000)
+		tc:RegisterEffect(e3)
+		Duel.SpecialSummonComplete()
 	end
 end
-function c66612327.cfilter(c)
-	return c:IsFaceup() and c:IsCode(19910004)
-end
-function c66612327.dircon(e)
-	return Duel.IsExistingMatchingCard(c66612327.cfilter,e:GetHandler():GetControler(),LOCATION_ONFIELD,0,1,nil)
+function c66612327.splimit(e,c)
+	if not c then return false end
+	return not c:IsSetCard(0x666)
 end

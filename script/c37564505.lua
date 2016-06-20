@@ -1,5 +1,5 @@
 --Nanahira & Halozy
-if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
+require "expansions/script/c37564765"
 function c37564505.initial_effect(c)
 	senya.nnhr(c)
 	local e4=Effect.CreateEffect(c)
@@ -8,7 +8,7 @@ function c37564505.initial_effect(c)
 	e4:SetType(EFFECT_TYPE_IGNITION)
 	e4:SetCountLimit(1,37560505)
 	e4:SetRange(LOCATION_HAND+LOCATION_GRAVE)
-	e4:SetCost(senya.discost(1))
+	e4:SetCost(senya.discost(2))
 	e4:SetTarget(senya.swwsstg)
 	e4:SetOperation(senya.swwssop)
 	c:RegisterEffect(e4)

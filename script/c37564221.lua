@@ -1,5 +1,5 @@
 --Septette for the Dead Princess
-if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
+require "expansions/script/c37564765"
 function c37564221.initial_effect(c)
 	senya.sww(c,2,true,false,false)
 	local e9=Effect.CreateEffect(c)
@@ -41,6 +41,20 @@ function c37564221.operation(e,tp,eg,ep,ev,re,r,rp)
 	if c:IsRelateToEffect(e) and c:IsFaceup() then
 		Duel.ChangePosition(c,POS_FACEDOWN_DEFENSE)
 	end
+	local e1=Effect.CreateEffect(e:GetHandler())
+	e1:SetType(EFFECT_TYPE_FIELD)
+	e1:SetCode(EFFECT_CANNOT_BE_EFFECT_TARGET)
+	e1:SetProperty(EFFECT_FLAG_SET_AVAILABLE)
+	e1:SetTargetRange(LOCATION_ONFIELD,0)
+	e1:SetTarget(function(e,c)
+		return c:IsFacedown() and c:IsLocation(LOCATION_MZONE)
+	end)
+	e1:SetValue(1)
+	e1:SetReset(RESET_PHASE+PHASE_END+RESET_OPPO_TURN,1)
+	Duel.RegisterEffect(e1,tp)
+	local e2=e1:Clone()
+	e2:SetCode(EFFECT_INDESTRUCTABLE_EFFECT)
+	Duel.RegisterEffect(e2,tp)
 end
 function c37564221.rmfilter(c)
 	return c:GetSummonLocation()==LOCATION_EXTRA and c:IsAbleToDeck() and c:IsFaceup()

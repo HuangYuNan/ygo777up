@@ -77,7 +77,7 @@ function c60150536.atktarget(e,c)
 	return c:IsAttackPos()
 end
 function c60150536.atktarget2(e,c)
-	return c:IsDefensePos() and (c:IsType(TYPE_EFFECT) or bit.band(c:GetOriginalType(),TYPE_EFFECT)==TYPE_EFFECT)
+	return c:IsDefencePos() and (c:IsType(TYPE_EFFECT) or bit.band(c:GetOriginalType(),TYPE_EFFECT)==TYPE_EFFECT)
 end
 function c60150536.actcon(e)
 	return e:GetHandler():GetOverlayGroup():IsExists(Card.IsCode,1,nil,60150514)

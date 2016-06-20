@@ -1,5 +1,5 @@
 --Tomaru Susumu
-if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
+require "expansions/script/c37564765"
 function c37564503.initial_effect(c)
 	senya.nnhr(c)
 	c:EnableReviveLimit()
@@ -48,7 +48,7 @@ function c37564503.atkcon(e,tp,eg,ep,ev,re,r,rp)
 end
 function c37564503.atkop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	c:RegisterFlagEffect(37564503,RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_DAMAGE_CAL,0,1)
+	c:RegisterFlagEffect(37564503,RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_END,0,1)
 	local bc=c:GetBattleTarget()
 	local val=bc:GetAttack()
 	if val>0 and c:IsRelateToBattle() and c:IsFaceup() then

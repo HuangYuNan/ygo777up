@@ -33,7 +33,7 @@ function c5200013.initial_effect(c)
 	c:RegisterEffect(e3)	
 end
 function c5200013.matcheck(e,c)
-	local ct=c:GetMaterial():Filter(Card.IsSetCard,nil,0x360):GetClassCount(Card.GetOriginalAttribute)
+	local ct=c:GetMaterial():Filter(Card.IsSetCard,nil,0x360):GetClassCount(Card.GetOriginalLevel)
 	e:SetLabel(ct)
 end
 function c5200013.tdcon(e,tp,eg,ep,ev,re,r,rp)

@@ -52,10 +52,10 @@ function c18706031.efilter(e,re)
 	  or re:GetHandler():GetRace()==RACE_CREATORGOD  or re:GetHandler():GetRace()==RACE_WYRM)
 end
 function c18706031.mfilter(c)
-	return c:IsSetCard(0xabb) and c:IsSetCard(0x6d) and not c:IsCode(18706031)
+	return c:IsType(TYPE_XYZ) and c:IsFaceup()
 end
 function c18706031.disop(e,tp,eg,ep,ev,re,r,rp)
-	if Duel.IsExistingTarget(c18706031.mfilter,tp,LOCATION_MZONE,0,1,nil) then 
+	if Duel.IsExistingTarget(c18706031.mfilter,tp,0,LOCATION_MZONE,1,nil) then 
 	if ep==tp or (Duel.GetFieldGroupCount(tp,LOCATION_MZONE,0)~=Duel.GetFieldGroupCount(tp,0,LOCATION_MZONE) and 
 	Duel.GetFieldGroupCount(tp,LOCATION_HAND,0)~=Duel.GetFieldGroupCount(tp,0,LOCATION_HAND)) then return end
 	else

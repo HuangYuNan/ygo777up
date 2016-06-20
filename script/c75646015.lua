@@ -38,28 +38,33 @@ function c75646015.initial_effect(c)
 	e4:SetCondition(c75646015.condition)
 	e4:SetValue(c75646015.aclimit)
 	c:RegisterEffect(e4)
-	--Remove
+	--Immune
 	local e5=Effect.CreateEffect(c)
-	e5:SetCategory(CATEGORY_REMOVE)
-	e5:SetType(EFFECT_TYPE_IGNITION)
-	e5:SetCode(EVENT_FREE_CHAIN)
-	e5:SetRange(LOCATION_SZONE)
-	e5:SetCountLimit(1)
-	e5:SetTarget(function(e,tp,eg,ep,ev,re,r,rp,chk)
-		if chk==0 then return Duel.IsExistingMatchingCard(Card.IsAbleToRemove,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,1,nil) end
-		local sg=Duel.GetMatchingGroup(Card.IsAbleToRemove,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,nil)
-		Duel.SetOperationInfo(0,CATEGORY_REMOVE,sg,1,0,0)
-	end)
-	e5:SetOperation(function(e,tp,eg,ep,ev,re,r,rp)
-		local sg=Duel.GetMatchingGroup(Card.IsAbleToRemove,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,nil)
-		if sg and sg:GetCount()~=0 then
-			Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
-			local rg=sg:Select(tp,1,1,nil)
-			Duel.HintSelection(rg)
-			Duel.Remove(rg,POS_FACEUP,REASON_EFFECT)
-		end
-	end)
+	e5:SetType(EFFECT_TYPE_SINGLE)
+	e5:SetCode(EFFECT_CANNOT_BE_EFFECT_TARGET)
+	e5:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
+	e5:SetRange(LOCATION_MZONE)
+	e5:SetCondition(c75646015.indcon)
+	e5:SetValue(aux.tgoval)
 	c:RegisterEffect(e5)
+	local e6=e5:Clone()
+	e6:SetCode(EFFECT_INDESTRUCTABLE_EFFECT)
+	e6:SetValue(c75646015.tgvalue)
+	c:RegisterEffect(e6)
+	--pierce
+	local e7=Effect.CreateEffect(c)
+	e7:SetType(EFFECT_TYPE_SINGLE)
+	e7:SetCode(EFFECT_PIERCE)
+	c:RegisterEffect(e7)
+end
+function c75646015.infilter1(c)
+	return c:IsFaceup() and c:IsCode(75646002)
+end
+function c75646015.indcon(e)
+	return Duel.IsExistingMatchingCard(c75646015.infilter1,e:GetHandlerPlayer(),LOCATION_ONFIELD,0,1,nil)
+end
+function c75646015.tgvalue(e,re,rp)
+	return rp~=e:GetHandlerPlayer()
 end
 function c75646015.mfilter(c,xyzc)
 	return c:IsFaceup() and c:IsType(TYPE_XYZ) and c:IsSetCard(0x2c1) and c:GetOverlayCount()>0 and c:IsCanBeXyzMaterial(xyzc)

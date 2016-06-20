@@ -85,12 +85,12 @@ function c60150520.sumcon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():IsPreviousPosition(POS_FACEUP) and e:GetHandler():IsPreviousLocation(LOCATION_ONFIELD)
 end
 function c60150520.indval(e,c)
-	return c:IsFaceup() and (c:GetAttack()~=c:GetBaseAttack() or c:GetDefense()~=c:GetBaseDefense())
+	return c:IsFaceup() and (c:GetAttack()~=c:GetBaseAttack() or c:GetDefence()~=c:GetBaseDefence())
 end
 function c60150520.efilter(e,te)
 	if te:IsActiveType(TYPE_MONSTER) then
 		local ec=te:GetOwner()
-		return (ec:GetAttack()~=ec:GetBaseAttack() or ec:GetDefense()~=ec:GetBaseDefense()) and not ec:IsCode(60150520)
+		return (ec:GetAttack()~=ec:GetBaseAttack() or ec:GetDefence()~=ec:GetBaseDefence()) and not ec:IsCode(60150520)
 	end
 end
 function c60150520.filter(c,e,tp)

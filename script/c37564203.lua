@@ -1,5 +1,5 @@
 --Sawawa-Kira Kira Time
-if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
+require "expansions/script/c37564765"
 function c37564203.initial_effect(c)
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(37564203,1))
@@ -18,7 +18,7 @@ function c37564203.initial_effect(c)
 	senya.sww(c,1,true,false,false)
 end
 function c37564203.filter(c)
-	return c:GetSummonLocation()==LOCATION_EXTRA and not (c:GetAttack()==0 and c:IsDisabled())
+	return bit.band(c:GetSummonType(),SUMMON_TYPE_SPECIAL)==SUMMON_TYPE_SPECIAL and not (c:GetAttack()==0 and c:IsDisabled())
 end
 function c37564203.tg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsLocation(LOCATION_MZONE) and c37564203.filter(chkc) end

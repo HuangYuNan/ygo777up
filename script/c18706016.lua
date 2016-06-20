@@ -47,10 +47,10 @@ function c18706016.Rfilter(c,code)
 	return c:GetCode()==code and c:IsAbleToRemove()
 end
 function c18706016.mfilter(c)
-	return c:IsSetCard(0xabb) and c:IsSetCard(0x6d) and not c:IsCode(18706016)
+	return c:IsType(TYPE_XYZ) and c:IsFaceup()
 end
 function c18706016.discost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if Duel.IsExistingTarget(c18706016.mfilter,tp,LOCATION_MZONE,0,1,nil) then 
+	if Duel.IsExistingTarget(c18706016.mfilter,tp,0,LOCATION_MZONE,1,nil) then 
 	if chk==0 then return Duel.IsExistingMatchingCard(c18706016.Rfilter,tp,LOCATION_GRAVE+LOCATION_DECK,LOCATION_GRAVE,1,nil,eg:GetFirst():GetCode()) end
 	local g=Duel.SelectMatchingCard(tp,c18706016.Rfilter,tp,LOCATION_GRAVE+LOCATION_DECK,LOCATION_GRAVE,1,1,nil,eg:GetFirst():GetCode())
 	Duel.Remove(g,POS_FACEUP,REASON_COST)

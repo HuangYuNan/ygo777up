@@ -1,12 +1,6 @@
 --现世的赤龙唤士 索妮娅
 function c60159906.initial_effect(c)
 	c:EnableReviveLimit()
-	--special summon condition
-	local e11=Effect.CreateEffect(c)
-	e11:SetType(EFFECT_TYPE_SINGLE)
-	e11:SetProperty(EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_UNCOPYABLE)
-	e11:SetCode(EFFECT_SPSUMMON_CONDITION)
-	c:RegisterEffect(e11)
 	--summon limit
 	local e21=Effect.CreateEffect(c)
 	e21:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
@@ -15,6 +9,7 @@ function c60159906.initial_effect(c)
 	e21:SetCondition(c60159906.regcon)
 	e21:SetOperation(c60159906.regop)
 	c:RegisterEffect(e21)
+	--
 	local e22=Effect.CreateEffect(c)
 	e22:SetType(EFFECT_TYPE_SINGLE)
 	e22:SetProperty(EFFECT_FLAG_CANNOT_DISABLE+EFFECT_FLAG_UNCOPYABLE)
@@ -49,8 +44,14 @@ function c60159906.initial_effect(c)
 	e3:SetCondition(c60159906.atkcon)
 	e3:SetValue(c60159906.atkval)
 	c:RegisterEffect(e3)
-	local e4=e3:Clone()
+	local e4=Effect.CreateEffect(c)
+	e4:SetDescription(aux.Stringid(60159906,2))
+	e4:SetType(EFFECT_TYPE_SINGLE)
 	e4:SetCode(EFFECT_SET_BASE_DEFENSE)
+	e4:SetProperty(EFFECT_FLAG_SINGLE_RANGE+EFFECT_FLAG_CLIENT_HINT)
+	e4:SetRange(LOCATION_MZONE)
+	e4:SetCondition(c60159906.atkcon)
+	e4:SetValue(c60159906.atkval)
 	c:RegisterEffect(e4)
 	--battle indestructable
 	local e5=Effect.CreateEffect(c)
@@ -93,9 +94,6 @@ function c60159906.checkop(e,tp,eg,ep,ev,re,r,rp)
 	if p1 then Duel.RegisterFlagEffect(0,60159906,RESET_PHASE+PHASE_END,0,1) end
 	if p2 then Duel.RegisterFlagEffect(1,60159906,RESET_PHASE+PHASE_END,0,1) end
 end
-function c60159906.xyzfilter(c)
-	return 
-end
 function c60159906.regcon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():GetSummonType()==SUMMON_TYPE_XYZ
 end
@@ -112,8 +110,8 @@ end
 function c60159906.sumlimit(e,c,sump,sumtype,sumpos,targetp,se)
 	return not c:IsCode(60159906)
 end
-function c60159906.splimit(e,se,sp,st,spos,tgp)
-	return bit.band(st,SUMMON_TYPE_XYZ)~=SUMMON_TYPE_XYZ or Duel.GetFlagEffect(tgp,60159906)==0
+function c60159906.splimit(e,se,sp,st)
+	return bit.band(st,SUMMON_TYPE_XYZ)==SUMMON_TYPE_XYZ
 end
 function c60159906.spfilter(c,sc,att)
 	return c:IsFaceup() and c:IsAttribute(att) and c:IsCanBeXyzMaterial(sc)

@@ -42,18 +42,18 @@ function c18700329.op(e,tp,eg,ep,ev,re,r,rp)
 		end
 	end
 end
-function c18700329.rmfilter(c)
-	return c:IsAbleToDeckAsCost() and c:IsFacedown()
+function c18700329.cfilter(c)
+	return c:IsSetCard(0x3ab0) and c:IsAbleToRemoveAsCost()
 end
 function c18700329.spcon(e,c)
 	if c==nil then return true end
-	return Duel.GetLocationCount(c:GetControler(),LOCATION_MZONE)>0 and Duel.IsExistingMatchingCard(c18700329.rmfilter,c:GetControler(),LOCATION_REMOVED,0,1,nil,nil)
+	return Duel.GetLocationCount(c:GetControler(),LOCATION_MZONE)>0 and Duel.IsExistingMatchingCard(c18700329.rmfilter,c:GetControler(),LOCATION_GRAVE,0,1,nil,nil)
 
 end
 function c18700329.spop(e,tp,eg,ep,ev,re,r,rp,c)
-	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TODECK)
-	local g=Duel.SelectMatchingCard(tp,c18700329.rmfilter,tp,LOCATION_REMOVED,0,1,3,e:GetHandler())
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
+	local g=Duel.SelectMatchingCard(tp,c18738100.cfilter,tp,LOCATION_GRAVE,0,1,1,nil)
 	if g:GetCount()>0 then
-	Duel.SendtoDeck(g,nil,1,REASON_COST)
+	Duel.Remove(g,POS_FACEDOWN,REASON_COST)
 	end
 end

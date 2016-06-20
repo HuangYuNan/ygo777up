@@ -1,18 +1,6 @@
 --剑舞-菲雅娜·雷·奥地西亚
 function c5200005.initial_effect(c)
 	c:SetUniqueOnField(1,0,5200005) 
-	--spsummon
-	local e1=Effect.CreateEffect(c)
-	e1:SetCategory(CATEGORY_SPECIAL_SUMMON)
-	e1:SetType(EFFECT_TYPE_QUICK_O)
-	e1:SetCode(EVENT_FREE_CHAIN)
-	e1:SetHintTiming(0,TIMING_BATTLE_STEP_END)
-	e1:SetRange(LOCATION_HAND)
-	e1:SetCountLimit(1,5200005)
-	e1:SetCondition(c5200005.spcon)
-	e1:SetTarget(c5200005.sptg)
-	e1:SetOperation(c5200005.spop)
-	c:RegisterEffect(e1)
 	--destroy
 	local e2=Effect.CreateEffect(c)
 	e2:SetCategory(CATEGORY_DESTROY)
@@ -45,29 +33,9 @@ function c5200005.initial_effect(c)
 	e4:SetOperation(c5200005.op)
 	c:RegisterEffect(e4)
 end
-function c5200005.spfilter(c)
-	return c:IsFaceup() and c:IsSetCard(0x360)
-end
-function c5200005.spcon(c,e,tp,eg,ep,ev,re,r,rp)  
-	return Duel.GetCurrentPhase()==PHASE_BATTLE_STEP and Duel.IsExistingMatchingCard(c5200005.spfilter,tp,LOCATION_MZONE,0,1,nil)
-end
-function c5200005.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return not e:GetHandler():IsStatus(STATUS_CHAINING) and Duel.GetLocationCount(tp,LOCATION_MZONE)>0
-		and e:GetHandler():IsCanBeSpecialSummoned(e,0,tp,false,false) end
-	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,e:GetHandler(),1,0,0)
-end
-function c5200005.spop(e,tp,eg,ep,ev,re,r,rp)
-	local c=e:GetHandler()
-	if not c:IsRelateToEffect(e) then return end
-	if Duel.SpecialSummon(c,0,tp,tp,false,false,POS_FACEUP)~=0 then
-		Duel.Recover(tp,0,REASON_EFFECT)
-	elseif Duel.GetLocationCount(tp,LOCATION_MZONE)<=0 then
-		Duel.SendtoGrave(c,REASON_RULE)
-	end
-end
 function c5200005.descon(e,tp,eg,ep,ev,re,r,rp)
 	local d=Duel.GetAttackTarget()
-	return e:GetHandler()==Duel.GetAttacker() and d and d:IsFaceup() and d:GetDefense()>e:GetHandler():GetAttack()
+	return e:GetHandler()==Duel.GetAttacker() and d and d:IsFaceup() and d:GetDefence()>e:GetHandler():GetAttack()
 end
 function c5200005.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
@@ -75,7 +43,7 @@ function c5200005.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c5200005.desop(e,tp,eg,ep,ev,re,r,rp)
 	local d=Duel.GetAttackTarget()
-	if d:IsRelateToBattle() and d:GetDefense()>e:GetHandler():GetAttack() then
+	if d:IsRelateToBattle() and d:GetDefence()>e:GetHandler():GetAttack() then
 		Duel.Destroy(d,REASON_EFFECT)
 	end
 end

@@ -31,22 +31,20 @@ function c18706058.initial_effect(c)
 	e4:SetOperation(c18706058.activate)
 	c:RegisterEffect(e4)
 end
-function c18706058.filter(c)
+function c18706058.dfilter(c)
 	return c:IsFaceup() and c:IsDestructable()
 end
 function c18706058.destg(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.IsExistingMatchingCard(c18706058.filter,tp,LOCATION_MZONE,LOCATION_MZONE,1,nil) end
-	local g=Duel.GetMatchingGroup(c18706058.filter,tp,LOCATION_MZONE,LOCATION_MZONE,nil)
+	if chkc then return chkc:IsOnField() and chkc:IsControler(1-tp) and c18706058.dfilter(chkc) end
+	if chk==0 then return Duel.IsExistingTarget(c18706058.dfilter,tp,0,LOCATION_MZONE,1,nil) end
+	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
+	local g=Duel.SelectTarget(tp,c18706058.dfilter,tp,0,LOCATION_MZONE,1,1,nil)
 	Duel.SetOperationInfo(0,CATEGORY_DESTROY,g,1,0,0)
 end
 function c18706058.desop(e,tp,eg,ep,ev,re,r,rp)
-	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
-	local g=Duel.SelectMatchingCard(tp,c18706058.filter,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil)
-	if g:GetCount()>0 then
-		Duel.HintSelection(g)
-		Duel.Destroy(g,REASON_EFFECT)
-			Duel.Damage(1-tp,1000,REASON_EFFECT)
-	end
+	local tc=Duel.GetFirstTarget()
+	local dg=Duel.GetMatchingGroup(Card.IsCode,tc:GetControler(),LOCATION_DECK+LOCATION_MZONE+LOCATION_EXTRA,0,nil,tc:GetCode())
+	Duel.Destroy(dg,REASON_EFFECT)
 end
 function c18706058.filter1(c)
 	return c:IsType(TYPE_MONSTER) and c:IsAbleToRemove()

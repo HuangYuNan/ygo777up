@@ -1,5 +1,5 @@
 --Too Late Snow
-if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
+require "expansions/script/c37564765"
 function c37564509.initial_effect(c)
 	senya.nntr(c)
 	local e1=Effect.CreateEffect(c)

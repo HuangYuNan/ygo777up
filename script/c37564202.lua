@@ -1,5 +1,5 @@
 --Sawawa-High Speed Cucumber
-if not senya then local io=require('io') local chk=io.open("expansions/script/c37564765.lua","r") if chk then chk:close() require "expansions/script/c37564765" else require "script/c37564765" end end
+require "expansions/script/c37564765"
 function c37564202.initial_effect(c)
 senya.sww(c,2,true,true,false)
 local e1=Effect.CreateEffect(c)
@@ -27,8 +27,9 @@ function c37564202.rmtg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 		and Duel.IsExistingTarget(c37564202.filter2,tp,LOCATION_MZONE,LOCATION_MZONE,1,nil) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
 	local g1=Duel.SelectTarget(tp,c37564202.filter1,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil)
+	local sc=g1:GetFirst()
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
-	local g2=Duel.SelectTarget(tp,c37564202.filter2,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,nil)
+	local g2=Duel.SelectTarget(tp,c37564202.filter2,tp,LOCATION_MZONE,LOCATION_MZONE,1,1,sc)
 	g1:Merge(g2)
 	Duel.SetOperationInfo(0,CATEGORY_REMOVE,g1,2,0,0)
 end
@@ -47,6 +48,11 @@ function c37564202.rmop(e,tp,eg,ep,ev,re,r,rp)
 		e1:SetCountLimit(1)
 		e1:SetOperation(c37564202.retop)
 		Duel.RegisterEffect(e1,tp)
+		local dc=og:FilterCount(Card.IsType,nil,TYPE_SYNCHRO)
+		if dc and dc>0 then
+			Duel.BreakEffect()
+			Duel.Draw(tp,dc,REASON_EFFECT)
+		end
 	end
  end
 end

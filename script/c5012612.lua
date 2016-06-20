@@ -1,5 +1,6 @@
 --虚数学区·五行机关
 function c5012612.initial_effect(c)
+	c:SetSPSummonOnce(5012612)
 	--fusion material
 	c:EnableReviveLimit()
 	aux.AddFusionProcFunRep(c,aux.FilterBoolFunction(Card.IsSetCard,0xb16),2,true)
@@ -11,7 +12,7 @@ function c5012612.initial_effect(c)
 	e1:SetType(EFFECT_TYPE_QUICK_O)
 	e1:SetCode(EVENT_FREE_CHAIN)
 	e1:SetRange(LOCATION_MZONE)
-	e1:SetCountLimit(1,5012612)
+	e1:SetCountLimit(1)
 	e1:SetCost(c5012612.thcost)
 	e1:SetTarget(c5012612.thtg)
 	e1:SetOperation(c5012612.thop)
