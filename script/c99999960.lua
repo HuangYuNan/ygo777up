@@ -74,7 +74,7 @@ end
 function c99999960.destg(e,tp,eg,ep,ev,re,r,rp,chk)
    if chk==0 then return true end
 	local bc=e:GetLabelObject()
-	if not  bc:IsSetCard(0xabb) and bc:IsFaceup() and bc:IsControlerCanBeChanged() and  not bc:IsType(TYPE_TOKEN)) then
+	if not  bc:IsSetCard(0xabb) and bc:IsFaceup() and bc:IsControlerCanBeChanged() and  not bc:IsType(TYPE_TOKEN) then
 	Duel.SetOperationInfo(0,CATEGORY_DESTROY,bc,1,0,0)
 end
 function c99999960.desop(e,tp,eg,ep,ev,re,r,rp)

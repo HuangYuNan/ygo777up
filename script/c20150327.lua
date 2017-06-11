@@ -27,7 +27,7 @@ function c20150327.initial_effect(c)
 	c:RegisterEffect(e3)
 end
 function c20150327.cfilter(c)
-	return c:IsCode(20150304) and c:IsFaceup()
+	return c:IsCode(20150303) and c:IsFaceup()
 end
 function c20150327.handcon(e)
 	local g=Duel.GetFieldGroup(e:GetHandlerPlayer(),LOCATION_MZONE,0)
@@ -39,13 +39,13 @@ function c20150327.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,e:GetHandler(),1,0,0)
 end
 function c20150327.activate(e,tp,eg,ep,ev,re,r,rp)
+	if Duel.GetLocationCount(tp,LOCATION_MZONE)<=0 then return end
 	local c=e:GetHandler()
-	if not c:IsRelateToEffect(e) then return end
-	if Duel.GetLocationCount(tp,LOCATION_MZONE)<=0
-		or not Duel.IsPlayerCanSpecialSummonMonster(tp,20150327,0,0x21,0,2400,4,RACE_AQUA,ATTRIBUTE_WATER) then return end
-	c:AddTrapMonsterAttribute(TYPE_EFFECT,ATTRIBUTE_WATER,RACE_AQUA,4,0,2400)
+	if c:IsRelateToEffect(e) and Duel.IsPlayerCanSpecialSummonMonster(tp,20150327,0,0x21,0,2400,4,RACE_AQUA,ATTRIBUTE_WATER) then
+	c:AddMonsterAttribute(0,0,0,0,0)
 	Duel.SpecialSummon(c,0,tp,tp,true,false,POS_FACEUP_DEFENSE)
-	c:TrapMonsterBlock()
+	c:TrapMonsterComplete(TYPE_EFFECT)
+	end
 end
 function c20150327.spcon(e,tp,eg,ep,ev,re,r,rp)
 		return e:GetHandler():IsReason(REASON_DESTROY)

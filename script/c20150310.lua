@@ -23,7 +23,7 @@ function c20150310.initial_effect(c)
 	e3:SetRange(LOCATION_SZONE)
 	e3:SetTargetRange(LOCATION_MZONE,0)
 	e3:SetCode(EFFECT_UPDATE_DEFENSE)
-	e3:SetTarget(aux.TargetBoolFunction(Card.IsCode,20150308))
+	e3:SetTarget(aux.TargetBoolFunction(Card.IsCode,20150332))
 	e3:SetValue(500)
 	c:RegisterEffect(e3)
 	--draw

@@ -20,7 +20,7 @@ function c29200014.initial_effect(c)
 	e1:SetOperation(c29200014.operation)
 	c:RegisterEffect(e1)
 end
-c29200014.dark_magician_list=true
+c29200014.satori_prpr_list=true
 function c29200014.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return e:GetHandler():IsAbleToRemoveAsCost() end
 	Duel.Remove(e:GetHandler(),POS_FACEUP,REASON_COST)

@@ -21,10 +21,10 @@ function c80009044.initial_effect(c)
 	e2:SetTarget(c80009044.destg2)
 	e2:SetOperation(c80009044.desop2)
 	c:RegisterEffect(e2)  
-	--defence attack
+	--DEFENSE attack
 	local e5=Effect.CreateEffect(c)
 	e5:SetType(EFFECT_TYPE_SINGLE)
-	e5:SetCode(EFFECT_DEFENCE_ATTACK)
+	e5:SetCode(EFFECT_DEFENSE_ATTACK)
 	e5:SetValue(1)
 	c:RegisterEffect(e5)
 	--chain attack

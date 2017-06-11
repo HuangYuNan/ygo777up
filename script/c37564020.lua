@@ -13,7 +13,7 @@ end
 
 function c37564020.thfilter(c,e,tp)
 	return c:IsFaceup() and c:IsSetCard(0x770) and c:GetOverlayCount()>0
-	and c:IsAbleToExtra() and Duel.IsExistingMatchingCard(c37564020.spfilter2,tp,LOCATION_EXTRA,0,1,nil,e,tp,c:GetCode(),rk)
+	and c:IsAbleToExtra() and Duel.IsExistingMatchingCard(c37564020.spfilter2,tp,LOCATION_EXTRA,0,1,nil,e,tp,c:GetCode(),c:GetRank())
 end
 function c37564020.spfilter2(c,e,tp,code,rk)
 	return c:IsSetCard(0x770) and c:GetRank()==rk and not c:IsCode(code) and c:IsCanBeSpecialSummoned(e,0,tp,true,true)

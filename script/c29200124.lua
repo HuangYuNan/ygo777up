@@ -27,7 +27,7 @@ function c29200124.condition(e,tp,eg,ep,ev,re,r,rp)
     local d=Duel.GetAttackTarget()
     if not d then return false end
     if a:IsControler(1-tp) then a,d=d,a end
-    return a:IsSetCard(0x53e0) and a:IsRelateToBattle() and (d:GetAttack()>0 or d:GetDefence()>0)
+    return a:IsSetCard(0x53e0) and a:IsRelateToBattle() and (d:GetAttack()>0 or d:GetDEFENSE()>0)
 end
 function c29200124.cost(e,tp,eg,ep,ev,re,r,rp,chk)
     if chk==0 then return e:GetHandler():IsAbleToGraveAsCost() end
@@ -45,7 +45,7 @@ function c29200124.operation(e,tp,eg,ep,ev,re,r,rp)
     e1:SetValue(0)
     d:RegisterEffect(e1)
     local e2=e1:Clone()
-    e2:SetCode(EFFECT_SET_DEFENCE_FINAL)
+    e2:SetCode(EFFECT_SET_DEFENSE_FINAL)
     d:RegisterEffect(e2)
 end
 function c29200124.thfilter(c)

@@ -35,9 +35,11 @@ function c60151127.atkcon(e,tp,eg,ep,ev,re,r,rp)
 end
 function c60151127.cointg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
-	Duel.SetOperationInfo(0,CATEGORY_COIN,nil,0,tp,1)
 	if e:GetHandler():IsHasEffect(60151199) then
 		Duel.SetChainLimit(c60151127.chlimit)
+		Duel.RegisterFlagEffect(tp,60151127,RESET_CHAIN,0,1)
+	else
+		Duel.SetOperationInfo(0,CATEGORY_COIN,nil,0,tp,1)
 	end
 end
 function c60151127.chlimit(e,ep,tp)
@@ -53,7 +55,7 @@ function c60151127.coinop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	if c:IsFacedown() then return end
 	local res=0
-	if c:IsHasEffect(60151199) then
+	if Duel.GetFlagEffect(tp,60151127)>0 then
 		res=1
 	else res=Duel.TossCoin(tp,1) end
 	if res==0 then

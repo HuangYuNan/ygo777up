@@ -3,7 +3,7 @@ function c29200015.initial_effect(c)
 	--Activate
 	local e1=Effect.CreateEffect(c)
 	e1:SetCategory(CATEGORY_SPECIAL_SUMMON)
-    e1:SetProperty(EFFECT_FLAG_CARD_TARGET)
+	e1:SetProperty(EFFECT_FLAG_CARD_TARGET)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
 	e1:SetCode(EVENT_FREE_CHAIN)
 	e1:SetCountLimit(1,29200015+EFFECT_COUNT_CODE_OATH)
@@ -19,7 +19,7 @@ function c29200015.initial_effect(c)
 		Duel.RegisterEffect(ge1,0)
 	end
 end
-c29200015.dark_magician_list=true
+c29200015.satori_prpr_list=true
 function c29200015.checkop(e,tp,eg,ep,ev,re,r,rp)
 	if re:IsActiveType(TYPE_MONSTER) and not re:GetHandler():IsRace(RACE_PSYCHO) then
 		Duel.RegisterFlagEffect(rp,29200015,RESET_PHASE+PHASE_END,0,1)
@@ -47,9 +47,9 @@ function c29200015.filter2(c)
 	return c:IsSetCard(0x33e0) and c:IsType(TYPE_MONSTER) and not c:IsType(TYPE_XYZ)
 end
 function c29200015.target(e,tp,eg,ep,ev,re,r,rp,chk)
-    if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0
-        and Duel.IsExistingTarget(c29200015.filter,tp,LOCATION_GRAVE,0,1,nil,e,tp) 
-        and Duel.IsExistingTarget(c29200015.filter2,tp,LOCATION_GRAVE,0,1,nil) end
+	if chk==0 then return Duel.GetLocationCount(tp,LOCATION_MZONE)>0
+		and Duel.IsExistingTarget(c29200015.filter,tp,LOCATION_GRAVE,0,1,nil,e,tp) 
+		and Duel.IsExistingTarget(c29200015.filter2,tp,LOCATION_GRAVE,0,1,nil) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
 	local g1=Duel.SelectTarget(tp,c29200015.filter,tp,LOCATION_GRAVE,0,1,1,nil,e,tp)
 	e:SetLabelObject(g1:GetFirst())

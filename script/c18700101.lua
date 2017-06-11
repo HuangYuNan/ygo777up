@@ -14,7 +14,7 @@ function c18700101.initial_effect(c)
 	--handes
 	local e3=Effect.CreateEffect(c)
 	e3:SetDescription(aux.Stringid(13959634,0))
-	e3:SetCategory(CATEGORY_HANDES)
+	e3:SetCategory(CATEGORY_SEARCH+CATEGORY_TOHAND)
 	e3:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_O)
 	e3:SetCode(EVENT_SPSUMMON_SUCCESS)
 	e3:SetCondition(c18700101.discon)
@@ -42,7 +42,7 @@ function c18700101.distg(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.SetOperationInfo(0,CATEGORY_TOHAND,nil,1,tp,LOCATION_DECK+LOCATION_GRAVE)
 end
 function c18700101.filter(c)
-	return c:GetCode()==1870199010 and c:IsAbleToHand()
+	return c:GetCode()==18799010 and c:IsAbleToHand()
 end
 function c18700101.disop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_ATOHAND)
@@ -53,7 +53,7 @@ function c18700101.disop(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function c18700101.repfilter(c,tp)
-	return c:IsFaceup() and c:IsControler(tp) and ((c:IsSetCard(0xab0)and c:IsLocation(LOCATION_MZONE)) or c:IsCode(1870199010))
+	return c:IsFaceup() and c:IsControler(tp) and ((c:IsSetCard(0xab0)and c:IsLocation(LOCATION_MZONE)) or c:IsCode(18799010))
 end
 function c18700101.reptg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return eg:IsExists(c18700101.repfilter,1,nil,tp) and e:GetHandler():GetFlagEffect(18700101)==0 end

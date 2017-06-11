@@ -53,7 +53,7 @@ function c18781002.splimit(e,c)
 	return not c:IsSetCard(0xabb)
 end
 function c18781002.dfilter(c,atk)
-	return c:IsFaceup() and c:IsDestructable() and c:IsDefenseBelow(2500)
+	return c:IsFaceup() and c:IsDestructable() and c:IsDEFENSEBelow(2500)
 end
 function c18781002.ccfilter2(c)
 	return c:IsFaceup() and c:IsSetCard(0x6abb) and c:IsType(TYPE_XYZ)

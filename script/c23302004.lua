@@ -35,7 +35,7 @@ function c23302004.atkcon(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.GetCurrentPhase()~=PHASE_DAMAGE or not Duel.IsDamageCalculated()
 end
 function c23302004.atktg(e,c)
-	return c:IsSetCard(0xddd)
+	return c:IsSetCard(0x992)
 end
 function c23302004.activate(e,tp,eg,ep,ev,re,r,rp)
 	if not e:GetHandler():IsRelateToEffect(e) then return end
@@ -55,7 +55,7 @@ function c23302004.aclimit(e,re,tp)
 	return re:IsHasType(EFFECT_TYPE_ACTIVATE) and re:IsActiveType(TYPE_SPELL)
 end
 function c23302004.repfilter(c,tp)
-	return c:IsFaceup() and c:IsControler(tp) and c:IsLocation(LOCATION_MZONE) and c:IsSetCard(0xddd)
+	return c:IsFaceup() and c:IsControler(tp) and c:IsLocation(LOCATION_MZONE) and c:IsSetCard(0x992)
 		and c:IsReason(REASON_EFFECT+REASON_BATTLE)
 end
 function c23302004.reptg(e,tp,eg,ep,ev,re,r,rp,chk)

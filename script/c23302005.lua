@@ -31,7 +31,7 @@ function c23302005.initial_effect(c)
 	c:RegisterEffect(e3)
 end
 function c23302005.atktg(e,c)
-	return c:IsSetCard(0xddd)
+	return c:IsSetCard(0x992)
 end
 function c23302005.activate(e,tp,eg,ep,ev,re,r,rp)
 	if not e:GetHandler():IsRelateToEffect(e) then return end
@@ -48,7 +48,7 @@ function c23302005.operation(e,tp,eg,ep,ev,re,r,rp)
 	local bc=Duel.GetAttackTarget()
 	if not bc then return end
 	if tc:IsControler(1-tp) then tc,bc=bc,tc end
-	if tc:IsSetCard(0xddd) and not bc:IsRace(RACE_FAIRY) and bc:IsRelateToBattle() then
+	if tc:IsSetCard(0x992) and not bc:IsRace(RACE_FAIRY) and bc:IsRelateToBattle() then
 		Duel.Hint(HINT_CARD,0,23302005)
 		Duel.Destroy(bc,REASON_EFFECT)
 	end
@@ -57,7 +57,7 @@ function c23302005.aclimit(e,re,tp)
 	return re:IsHasType(EFFECT_TYPE_ACTIVATE) and re:IsActiveType(TYPE_SPELL)
 end
 function c23302005.repfilter(c,tp)
-	return c:IsFaceup() and c:IsControler(tp) and c:IsLocation(LOCATION_MZONE) and c:IsSetCard(0xddd)
+	return c:IsFaceup() and c:IsControler(tp) and c:IsLocation(LOCATION_MZONE) and c:IsSetCard(0x992)
 		and c:IsReason(REASON_EFFECT+REASON_BATTLE)
 end
 function c23302005.reptg(e,tp,eg,ep,ev,re,r,rp,chk)
@@ -71,7 +71,7 @@ function c23302005.repop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Remove(e:GetHandler(),POS_FACEUP,REASON_EFFECT)
 end
 function c23302005.thfilter(c)
-	return c:IsFaceup() and not c:IsSetCard(0xddd)
+	return c:IsFaceup() and not c:IsSetCard(0x992)
 end
 function c23302005.thcon(e,tp,eg,ep,ev,re,r,rp)
 	local at=Duel.GetAttacker()

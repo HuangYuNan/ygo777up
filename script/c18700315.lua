@@ -18,7 +18,7 @@ function c18700315.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Release(e:GetHandler(),REASON_COST)
 end
 function c18700315.filter(c)
-	return c:IsFaceup() and c:IsDefensePos() and c:IsSetCard(0xab0)
+	return c:IsFaceup() and c:IsDEFENSEPos() and c:IsSetCard(0xab0)
 end
 function c18700315.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chkc then return chkc:GetLocation()==LOCATION_MZONE and chkc:IsSetCard(0xab0) and chkc:IsFaceup() end
@@ -29,7 +29,7 @@ function c18700315.target(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c18700315.operation(e,tp,eg,ep,ev,re,r,rp)
 	local tc=Duel.GetFirstTarget()
-	if tc:IsRelateToEffect(e) and tc:IsFaceup() and tc:IsDefensePos() then
+	if tc:IsRelateToEffect(e) and tc:IsFaceup() and tc:IsDEFENSEPos() then
 		Duel.ChangePosition(tc,POS_FACEDOWN_DEFENSE)
 		Duel.Draw(tp,1,REASON_EFFECT)
 	end

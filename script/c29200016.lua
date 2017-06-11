@@ -11,7 +11,7 @@ function c29200016.initial_effect(c)
 	e1:SetOperation(c29200016.activate)
 	c:RegisterEffect(e1)
 end
-c29200016.dark_magician_list=true
+c29200016.satori_prpr_list=true
 function c29200016.cfilter(c)
 	return (c:IsFacedown() or not c:IsSetCard(0x33e0)) and c:IsType(TYPE_MONSTER)
 end

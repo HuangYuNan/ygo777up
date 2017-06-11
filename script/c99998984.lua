@@ -1,6 +1,6 @@
 --宝具 军神五兵
 function c99998984.initial_effect(c)
-	c:SetUniqueOnField(1,0,999982e0)
+	c:SetUniqueOnField(1,0,99998984)
 	--Activate
 	local e1=Effect.CreateEffect(c)
 	e1:SetDescription(aux.Stringid(99991099,6))
@@ -138,7 +138,7 @@ end
 function c99998984.tg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsLocation(LOCATION_MZONE) and chkc:IsControler(1-tp) and chkc:IsDestructable() end
 	if chk==0 then return Duel.IsExistingTarget(Card.IsDestructable,tp,0,LOCATION_MZONE,1,nil) end
-	Duel.Hint(HINT_SELECTMSG,tp,aux.Stringid(999996,1))
+	Duel.Hint(HINT_SELECTMSG,tp,aux.Stringid(99991096,1))
 	local g0=Duel.SelectTarget(tp,Card.IsDestructable,tp,0,LOCATION_MZONE,1,1,nil)
 	local tc=g0:GetFirst()
 	local seq=tc:GetSequence()

@@ -61,6 +61,7 @@ function c18755509.activate(e,tp,eg,ep,ev,re,r,rp)
 		e2:SetCode(EFFECT_EXTRA_SUMMON_COUNT)
 		e2:SetRange(LOCATION_MZONE)
 		e2:SetTargetRange(LOCATION_HAND,0)
+		e2:SetCondition(c18755509.sumcon)
 		e2:SetTarget(aux.TargetBoolFunction(Card.IsSetCard,0x5abb))
 		e2:SetReset(RESET_EVENT+0x1fe0000)
 		tc:RegisterEffect(e2) 
@@ -69,6 +70,10 @@ function c18755509.activate(e,tp,eg,ep,ev,re,r,rp)
 		Duel.SendtoHand(c,nil,REASON_EFFECT)
 		Duel.ConfirmCards(1-tp,e:GetHandler())
 	end
+end
+function c18755509.sumcon(e)
+	local c=e:GetHandler()
+	return not c:IsDisabled()
 end
 function c18755509.con1(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()

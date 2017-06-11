@@ -60,13 +60,13 @@ function c60150514.mfilter(c)
 	return c:IsRace(RACE_FIEND) and c:IsAttribute(ATTRIBUTE_LIGHT)
 end
 function c60150514.target(e,c)
-	return c:IsPosition(POS_FACEUP) and c:GetBaseAttack()>c:GetBaseDefence()
+	return c:IsPosition(POS_FACEUP) and c:GetBaseAttack()>c:GetBaseDEFENSE()
 end
 function c60150514.target2(e,c)
-	return c:IsPosition(POS_FACEUP) and c:GetBaseAttack()<c:GetBaseDefence()
+	return c:IsPosition(POS_FACEUP) and c:GetBaseAttack()<c:GetBaseDEFENSE()
 end
 function c60150514.target3(e,c)
-	return c:IsPosition(POS_FACEUP) and c:GetBaseAttack()==c:GetBaseDefence() and not c:IsType(TYPE_TOKEN)
+	return c:IsPosition(POS_FACEUP) and c:GetBaseAttack()==c:GetBaseDEFENSE() and not c:IsType(TYPE_TOKEN)
 end
 function c60150514.tdtg3(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(Card.IsAbleToDeck,tp,0,LOCATION_GRAVE,1,nil) end

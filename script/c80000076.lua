@@ -30,7 +30,7 @@ function c80000076.ftarget(e,c)
 	return e:GetLabel()~=c:GetFieldID()
 end
 function c80000076.dfilter(c)
-	return c:IsFaceup() and c:GetDefence()<=3000 and c:IsDestructable()
+	return c:IsFaceup() and c:GetDEFENSE()<=3000 and c:IsDestructable()
 end
 function c80000076.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c80000076.dfilter,tp,LOCATION_MZONE,LOCATION_MZONE,1,e:GetHandler()) end

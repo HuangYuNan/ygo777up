@@ -29,14 +29,14 @@ function c20329004.spcon(e,c)
 	if c==nil then return true end
 	local tp=c:GetControler()
 	if Duel.GetLocationCount(tp,LOCATION_MZONE)<=0 then return false end
-	local g=Duel.GetMatchingGroup(c20329004.spfilter,tp,LOCATION_HAND,0,nil)
+	local g=Duel.GetMatchingGroup(c20329004.spfilter,tp,LOCATION_HAND,0,c)
 	if not c:IsAbleToGraveAsCost() then
 		g:RemoveCard(c)
 	end
 	return g:GetCount()>0
 end
 function c20329004.spop(e,tp,eg,ep,ev,re,r,rp,c)
-	local g=Duel.GetMatchingGroup(c20329004.spfilter,c:GetControler(),LOCATION_HAND,0,nil)
+	local g=Duel.GetMatchingGroup(c20329004.spfilter,c:GetControler(),LOCATION_HAND,0,c)
 	if not c:IsAbleToGraveAsCost() then
 		g:RemoveCard(c)
 	end

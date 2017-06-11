@@ -23,14 +23,14 @@ function c60151128.initial_effect(c)
 	e2:SetTarget(c60151128.target)
 	e2:SetOperation(c60151128.activate)
 	c:RegisterEffect(e2)
-    --destroy replace
-    local e7=Effect.CreateEffect(c)
-    e7:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
-    e7:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
-    e7:SetCode(EFFECT_DESTROY_REPLACE)
-    e7:SetRange(LOCATION_MZONE)
-    e7:SetTarget(c60151128.reptg)
-    c:RegisterEffect(e7)
+	--destroy replace
+	local e7=Effect.CreateEffect(c)
+	e7:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_CONTINUOUS)
+	e7:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
+	e7:SetCode(EFFECT_DESTROY_REPLACE)
+	e7:SetRange(LOCATION_MZONE)
+	e7:SetTarget(c60151128.reptg)
+	c:RegisterEffect(e7)
 end
 function c60151128.xyzfilter(c)
 	return c:IsSetCard(0x9b23)
@@ -41,9 +41,11 @@ function c60151128.atkcon(e,tp,eg,ep,ev,re,r,rp)
 end
 function c60151128.cointg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
-	Duel.SetOperationInfo(0,CATEGORY_COIN,nil,0,tp,1)
 	if e:GetHandler():IsHasEffect(60151199) then
 		Duel.SetChainLimit(c60151128.chlimit)
+		Duel.RegisterFlagEffect(tp,60151128,RESET_CHAIN,0,1)
+	else
+		Duel.SetOperationInfo(0,CATEGORY_COIN,nil,0,tp,1)
 	end
 end
 function c60151128.chlimit(e,ep,tp)
@@ -53,7 +55,7 @@ function c60151128.coinop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	if c:IsFacedown() then return end
 	local res=0
-	if c:IsHasEffect(60151199) then
+	if Duel.GetFlagEffect(tp,60151128)>0 then
 		res=1
 	else res=Duel.TossCoin(tp,1) end
 	if res==0 then
@@ -70,6 +72,7 @@ function c60151128.coinop(e,tp,eg,ep,ev,re,r,rp)
 		e2:SetProperty(EFFECT_FLAG_PLAYER_TARGET+EFFECT_FLAG_CLIENT_HINT)
 		e2:SetTargetRange(0,1)
 		e2:SetValue(aux.TRUE)
+		e2:SetReset(RESET_EVENT+0x1fe0000)
 		e2:SetCondition(c60151128.limcon)
 		e:GetHandler():RegisterEffect(e2)
 	end
@@ -82,7 +85,7 @@ function c60151128.filter(c,e,tp)
 		and (not e or (c:IsRelateToEffect(e) and c:IsLocation(LOCATION_MZONE)))
 end
 function c60151128.target(e,tp,eg,ep,ev,re,r,rp,chk)
-    local c=e:GetHandler()
+	local c=e:GetHandler()
 	if chk==0 then 
 		local a=eg:FilterCount(c60151128.filter,nil,nil,1-tp)
 		local b=Duel.GetMatchingGroupCount(Card.IsAbleToGrave,tp,LOCATION_ONFIELD,0,nil)
@@ -93,7 +96,7 @@ function c60151128.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	local g1=Duel.GetMatchingGroup(Card.IsAbleToGrave,tp,LOCATION_ONFIELD,0,nil)
 	Duel.SetTargetCard(g)
 	Duel.SetOperationInfo(0,CATEGORY_REMOVE,g,g:GetCount(),0,0)
-    c:RegisterFlagEffect(60151128,RESET_CHAIN,0,1)
+	c:RegisterFlagEffect(60151128,RESET_CHAIN,0,1)
 	Duel.SetChainLimit(c60151128.climit)
 end
 function c60151128.climit(e,re,tp)
@@ -146,10 +149,10 @@ function c60151128.activate(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function c60151128.reptg(e,tp,eg,ep,ev,re,r,rp,chk)
-    local c=e:GetHandler()
-    if chk==0 then return c:IsReason(REASON_BATTLE+REASON_EFFECT) and c:CheckRemoveOverlayCard(tp,1,REASON_EFFECT) end
-    if Duel.SelectYesNo(tp,aux.Stringid(60151128,2)) then
-        c:RemoveOverlayCard(tp,1,1,REASON_EFFECT)
-        return true
-    else return false end
+	local c=e:GetHandler()
+	if chk==0 then return c:IsReason(REASON_BATTLE+REASON_EFFECT) and c:CheckRemoveOverlayCard(tp,1,REASON_EFFECT) end
+	if Duel.SelectYesNo(tp,aux.Stringid(60151128,2)) then
+		c:RemoveOverlayCard(tp,1,1,REASON_EFFECT)
+		return true
+	else return false end
 end

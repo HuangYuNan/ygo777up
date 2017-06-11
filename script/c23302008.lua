@@ -49,7 +49,7 @@ function c23302008.aclimit(e,re,tp)
 	return re:IsHasType(EFFECT_TYPE_ACTIVATE) and re:IsActiveType(TYPE_SPELL)
 end
 function c23302008.filter(c)
-	return c:IsFaceup() and c:IsSetCard(0xddd)
+	return c:IsFaceup() and c:IsSetCard(0x992)
 end
 function c23302008.con(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.IsExistingMatchingCard(c23302008.filter,tp,LOCATION_MZONE,0,1,nil) and not re:IsActiveType(TYPE_MONSTER)

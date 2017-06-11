@@ -31,7 +31,7 @@ function c18781009.tgfilter(c)
 end
 function c18781009.tgtg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:GetControler()==tp and chkc:GetLocation()==LOCATION_GRAVE and c18781009.tgfilter(chkc) end
-	if chk==0 then return Duel.IsExistingTarget(c18781009.tgfilter,tp,LOCATION_GRAVE,0,2,nil) end
+	if chk==0 then return Duel.IsExistingTarget(c18781009.tgfilter,tp,LOCATION_GRAVE,0,1,nil) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TODECK)
 	local g=Duel.SelectTarget(tp,c18781009.tgfilter,tp,LOCATION_GRAVE,0,1,2,nil)
 end

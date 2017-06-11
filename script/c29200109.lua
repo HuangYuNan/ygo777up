@@ -19,7 +19,7 @@ function c29200109.initial_effect(c)
 	e10:SetValue(c29200109.val)
 	c:RegisterEffect(e10)
 	local e2=e10:Clone()
-	e2:SetCode(EFFECT_UPDATE_DEFENCE)
+	e2:SetCode(EFFECT_UPDATE_DEFENSE)
 	c:RegisterEffect(e2)
 end
 c29200109.dyz_utai_list=true

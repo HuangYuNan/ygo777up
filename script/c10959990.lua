@@ -60,8 +60,8 @@ function c10959990.damop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Recover(tp,300,REASON_EFFECT)
 end
 function c10959990.rmcost(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return Duel.CheckLPCost(tp,2000) end
-	Duel.PayLPCost(tp,2000)
+	if chk==0 then return Duel.CheckLPCost(tp,3000) end
+	Duel.PayLPCost(tp,3000)
 end
 function c10959990.rmtg(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	if chkc then return chkc:IsOnField() and chkc:IsAbleToRemove() end

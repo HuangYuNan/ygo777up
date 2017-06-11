@@ -103,7 +103,7 @@ function c1000713.spop(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function c1000713.mfilter(c)
-	return c:IsFaceup() and c:IsType(TYPE_MONSTER) and c:IsLevelBelow(4) and c:IsSetCard(0x5204) and not c:IsType(TYPE_XYZ)
+	return c:IsFaceup() and c:IsType(TYPE_MONSTER) and c:IsLevelBelow(4) and c:IsSetCard(0x5204) and not c:IsType(TYPE_XYZ) and not c:IsType(TYPE_TOKEN)
 end
 function c1000713.xyzfilter1(c,g)
 	return g:IsExists(c1000713.xyzfilter2,1,c,c:GetLevel())

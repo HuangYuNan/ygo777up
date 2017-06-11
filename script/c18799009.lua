@@ -76,7 +76,7 @@ function c18799009.op(e,tp,eg,ep,ev,re,r,rp)
 end
 function c18799009.regcon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler()==Duel.GetAttacker() and Duel.GetAttackTarget() 
-	and Duel.GetAttackTarget():IsDefensePos() and Duel.GetAttackTarget():IsAbleToRemove()
+	and Duel.GetAttackTarget():IsDEFENSEPos() and Duel.GetAttackTarget():IsAbleToRemove()
 end
 function c18799009.regtg(e,tp,eg,ep,ev,re,r,rp,chk)
 	local t=Duel.GetAttackTarget()

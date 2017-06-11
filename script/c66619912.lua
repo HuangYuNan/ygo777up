@@ -37,9 +37,6 @@ function c66619912.initial_effect(c)
 	e3:SetOperation(c66619912.hspop)
 	c:RegisterEffect(e3)
 end
-function c66619912.filter(c,e,tp)
-	return c:GetSummonPlayer()==1-tp
-end
 function c66619912.cfilter(c)
 	return c:IsFaceup() and c:IsCode(66619916) and c:IsAbleToGraveAsCost()
 end
@@ -50,17 +47,15 @@ function c66619912.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.SendtoGrave(g,REASON_COST)
 end
 function c66619912.target(e,tp,eg,ep,ev,re,r,rp,chk)
-	if chk==0 then return eg:IsExists(c66619912.filter,1,nil,nil,1-tp) end
-	local g=eg:Filter(c66619912.filter,nil,nil,1-tp)
-	Duel.SetTargetCard(g)
-	Duel.SetOperationInfo(0,CATEGORY_DISABLE,g,g:GetCount(),0,0)
+	if chk==0 then return rp~=tp end
+	Duel.SetTargetCard(eg)
+	Duel.SetOperationInfo(0,CATEGORY_DISABLE,nil,0,1-tp,0)
 end
 function c66619912.activate(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
-	local tg=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS)
-	local g=tg:Filter(c66619912.filter,nil,e,1-tp)
-	local tc=g:GetFirst()
-	if tc:IsRelateToEffect(e) then
+	local tc=eg:GetFirst()
+	if tc:IsRelateToEffect(e) and tc:IsFaceup() then
+		Duel.NegateRelatedChain(tc,RESET_TURN_SET)
 		local e2=Effect.CreateEffect(c)
 		e2:SetType(EFFECT_TYPE_SINGLE)
 		e2:SetCode(EFFECT_DISABLE)

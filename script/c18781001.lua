@@ -95,6 +95,7 @@ function c18781001.hdtg(e,tp,eg,ep,ev,re,r,rp,chk)
 end
 function c18781001.hdop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
+	if not e:GetHandler():IsRelateToEffect(e) then return end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_TARGET)
 	local g2=Duel.SelectMatchingCard(tp,c18781001.ccfilter2,tp,LOCATION_MZONE,0,1,1,nil)
 	local tc=g2:GetFirst()

@@ -99,7 +99,7 @@ function c99999927.op(e,tp,eg,ep,ev,re,r,rp)
 	local tc1=g1:GetFirst()
 	if tc1  then
 		if Duel.GetLocationCount(tp,LOCATION_SZONE)>0 and c:IsFaceup()
-			and (not tc1:IsAbleToHand()  or Duel.SelectYesNo(tp,aux.Stringid(999997,5))) then
+			and (not tc1:IsAbleToHand()  or Duel.SelectYesNo(tp,aux.Stringid(99991097,5))) then
 				if c:IsFacedown() or not c:IsRelateToEffect(e) then return end
 		Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_EQUIP)
 			Duel.Equip(tp,tc1,c)

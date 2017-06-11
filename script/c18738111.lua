@@ -82,7 +82,7 @@ function c18738111.activate(e,tp,eg,ep,ev,re,r,rp)
 			Duel.SpecialSummon(tc,SUMMON_TYPE_FUSION,tp,tp,false,false,POS_FACEUP)
 		local ct=mat1:FilterCount(Card.IsSetCard,nil,0xab0)
 		local g=Duel.GetMatchingGroup(c18738111.filter,tp,LOCATION_ONFIELD,LOCATION_ONFIELD,nil)
-		if g:GetCount()>0 and ct>0 and Duel.SelectYesNo(tp,aux.Stringid(18738111,0)) then
+		if g:GetCount()>0 and ct>0 then
 			Duel.BreakEffect()
 			Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
 			local dg=g:Select(tp,1,ct,nil)

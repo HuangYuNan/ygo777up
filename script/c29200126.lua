@@ -22,7 +22,7 @@ function c29200126.initial_effect(c)
     e1:SetValue(500)
     c:RegisterEffect(e1)
     local e3=e1:Clone()
-    e3:SetCode(EFFECT_UPDATE_DEFENCE)
+    e3:SetCode(EFFECT_UPDATE_DEFENSE)
     c:RegisterEffect(e3)
     --tohand
     local e10=Effect.CreateEffect(c)

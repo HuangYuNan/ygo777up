@@ -29,9 +29,11 @@ function c60151101.initial_effect(c)
 end
 function c60151101.cointg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
-	Duel.SetOperationInfo(0,CATEGORY_COIN,nil,0,tp,1)
 	if e:GetHandler():IsHasEffect(60151199) then
 		Duel.SetChainLimit(c60151101.chlimit)
+		Duel.RegisterFlagEffect(tp,60151101,RESET_CHAIN,0,1)
+	else
+		Duel.SetOperationInfo(0,CATEGORY_COIN,nil,0,tp,1)
 	end
 end
 function c60151101.chlimit(e,ep,tp)
@@ -47,7 +49,7 @@ function c60151101.coinop(e,tp,eg,ep,ev,re,r,rp)
 	if e:GetHandler():IsFacedown() then return end
 	local c=e:GetHandler()
 	local res=0
-	if c:IsHasEffect(60151199) then
+	if Duel.GetFlagEffect(tp,60151101)>0 then
 		res=1
 	else res=Duel.TossCoin(tp,1) end
 	if res==0 then

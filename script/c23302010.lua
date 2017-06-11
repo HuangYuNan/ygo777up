@@ -55,7 +55,7 @@ function c23302010.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Remove(e:GetHandler(),POS_FACEUP,REASON_COST)
 end
 function c23302010.filter(c)
-	return c:IsFaceup() and c:IsSetCard(0xddd)
+	return c:IsFaceup() and c:IsSetCard(0x992)
 end
 function c23302010.discon(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.IsExistingMatchingCard(c23302010.filter,tp,LOCATION_MZONE,0,1,nil) and (Duel.IsPlayerCanDiscardDeck(tp,2) or Duel.IsPlayerCanDiscardDeck(1-tp,2))

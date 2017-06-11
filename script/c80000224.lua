@@ -23,7 +23,7 @@ function c80000224.initial_effect(c)
 	--defind
 	local e3=Effect.CreateEffect(c)
 	e3:SetType(EFFECT_TYPE_SINGLE)
-	e3:SetCode(EFFECT_UPDATE_DEFENCE)
+	e3:SetCode(EFFECT_UPDATE_DEFENSE)
 	e3:SetProperty(EFFECT_FLAG_SINGLE_RANGE)
 	e3:SetRange(LOCATION_MZONE)
 	e3:SetValue(c80000224.atkval)
@@ -107,7 +107,7 @@ function c80000224.splimit(e,se,sp,st)
 	return bit.band(st,SUMMON_TYPE_XYZ)==SUMMON_TYPE_XYZ
 end 
 function c80000224.filter(c,atk)
-	return c:IsFaceup() and c:GetDefence()<=atk and c:IsDestructable()
+	return c:IsFaceup() and c:GetDEFENSE()<=atk and c:IsDestructable()
 end
 function c80000224.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end

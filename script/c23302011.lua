@@ -59,7 +59,7 @@ function c23302011.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Remove(e:GetHandler(),POS_FACEUP,REASON_COST)
 end
 function c23302011.filter(c)
-	return c:IsFaceup() and c:IsSetCard(0xddd)
+	return c:IsFaceup() and c:IsSetCard(0x992)
 end
 function c23302011.rgcon(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.IsExistingMatchingCard(c23302011.filter,tp,LOCATION_MZONE,0,1,nil)

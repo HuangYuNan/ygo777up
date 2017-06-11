@@ -13,7 +13,7 @@ function c10953616.initial_effect(c)
 	e1:SetTarget(c10953616.target)
 	e1:SetOperation(c10953616.activate)
 	c:RegisterEffect(e1)
-	--to defence
+	--to DEFENSE
 	local e2=Effect.CreateEffect(c)
 	e2:SetDescription(aux.Stringid(10953616,1))
 	e2:SetCategory(CATEGORY_POSITION)

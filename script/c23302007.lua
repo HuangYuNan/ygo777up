@@ -47,7 +47,7 @@ end
 function c23302007.disop(e,tp,eg,ep,ev,re,r,rp)
 	local loc=Duel.GetChainInfo(ev,CHAININFO_TRIGGERING_LOCATION)
 	if re:IsActiveType(TYPE_MONSTER) and loc==LOCATION_MZONE
-		and not re:GetHandler():IsSetCard(0xddd) then
+		and not re:GetHandler():IsSetCard(0x992) then
 		Duel.Hint(HINT_CARD,0,23302007)
 		Duel.NegateEffect(ev)
 	end
@@ -56,7 +56,7 @@ function c23302007.aclimit(e,re,tp)
 	return re:IsHasType(EFFECT_TYPE_ACTIVATE) and re:IsActiveType(TYPE_SPELL)
 end
 function c23302007.filter(c)
-	return c:IsFaceup() and c:IsSetCard(0xddd)
+	return c:IsFaceup() and c:IsSetCard(0x992)
 end
 function c23302007.con(e,tp,eg,ep,ev,re,r,rp)
 	return Duel.IsExistingMatchingCard(c23302007.filter,tp,LOCATION_MZONE,0,1,nil) and re:IsActiveType(TYPE_MONSTER)

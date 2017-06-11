@@ -62,15 +62,13 @@ function c20152635.filter(c)
 	return c:IsType(TYPE_SPELL+TYPE_TRAP) and c:IsAbleToRemove()
 end
 function c20152635.target(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
-	if chkc then return chkc:IsLocation(LOCATION_GRAVE) and chkc:IsControler(1-tp) and c20152635.filter(chkc) end
+	if chkc then return chkc:GetLocation()==LOCATION_GRAVE and chkc:IsAbleToRemove() end
 	if chk==0 then return Duel.IsExistingTarget(c20152635.filter,tp,LOCATION_GRAVE,LOCATION_GRAVE,1,nil) end
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_REMOVE)
-	local g=Duel.SelectTarget(tp,c20152635.filter,tp,LOCATION_GRAVE,LOCATION_GRAVE,1,120,nil)
+	local g=Duel.SelectTarget(tp,c20152635.filter,tp,LOCATION_GRAVE,LOCATION_GRAVE,1,99,nil)
 	Duel.SetOperationInfo(0,CATEGORY_REMOVE,g,g:GetCount(),0,0)
 end
 function c20152635.operation(e,tp,eg,ep,ev,re,r,rp)
-	if c==nil then return true end
-	local tp=c:GetControler()
 	local g=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS):Filter(Card.IsRelateToEffect,nil,e)
 	local ct=Duel.Remove(g,POS_FACEUP,REASON_EFFECT)
 	if ct>0 then

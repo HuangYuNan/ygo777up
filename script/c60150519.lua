@@ -25,10 +25,10 @@ function c60150519.initial_effect(c)
 	c:RegisterEffect(e5)
 end
 function c60150519.atktarget(e,c)
-	return c:IsPosition(POS_FACEUP) and (c:GetAttack()~=c:GetBaseAttack() or c:GetDefence()~=c:GetBaseDefence())
+	return c:IsPosition(POS_FACEUP) and (c:GetAttack()~=c:GetBaseAttack() or c:GetDEFENSE()~=c:GetBaseDEFENSE())
 end
 function c60150519.filter2(c)
-	return c:IsFaceup() and (c:GetAttack()~=c:GetBaseAttack() or c:GetDefence()~=c:GetBaseDefence())
+	return c:IsFaceup() and (c:GetAttack()~=c:GetBaseAttack() or c:GetDEFENSE()~=c:GetBaseDEFENSE())
 end
 function c60150519.negcost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return e:GetHandler():CheckRemoveOverlayCard(tp,1,REASON_COST) end
@@ -52,11 +52,11 @@ local c=e:GetHandler()
 			e1:SetReset(RESET_EVENT+0x1fe0000)
 			tc:RegisterEffect(e1)
 		end
-		if tc:GetDefence()~=tc:GetBaseDefence() then
+		if tc:GetDEFENSE()~=tc:GetBaseDEFENSE() then
 			local e1=Effect.CreateEffect(c)
 			e1:SetType(EFFECT_TYPE_SINGLE)
 			e1:SetCode(EFFECT_SET_DEFENSE_FINAL)
-			e1:SetValue(tc:GetBaseDefence())
+			e1:SetValue(tc:GetBaseDEFENSE())
 			e1:SetReset(RESET_EVENT+0x1fe0000)
 			tc:RegisterEffect(e1)
 		end

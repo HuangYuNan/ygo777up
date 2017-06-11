@@ -35,17 +35,17 @@ function c29200142.rev(e,re,r,rp,rc)
 end
 function c29200142.reptg(e,tp,eg,ep,ev,re,r,rp,chk)
 	local c=e:GetHandler()
-	if chk==0 then return e:GetHandler():IsReason(REASON_EFFECT+REASON_BATTLE) and c:GetDefence()~=0 end
+	if chk==0 then return e:GetHandler():IsReason(REASON_EFFECT+REASON_BATTLE) and c:GetDEFENSE()~=0 end
 	if Duel.SelectYesNo(tp,aux.Stringid(29200142,0)) then
 	local preatk=c:GetAttack()
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_SINGLE)
 	e1:SetProperty(EFFECT_FLAG_COPY_INHERIT)
 	e1:SetReset(RESET_EVENT+0x1ff0000)
-	e1:SetCode(EFFECT_UPDATE_DEFENCE)
+	e1:SetCode(EFFECT_UPDATE_DEFENSE)
 	e1:SetValue(-500)
 	c:RegisterEffect(e1)
-	if predef~=0 and c:GetDefence()==0 then 
+	if predef~=0 and c:GetDEFENSE()==0 then 
 	   Duel.Destroy(e:GetHandler(),REASON_EFFECT)
 	end
 		return true

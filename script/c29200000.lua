@@ -22,7 +22,7 @@ function c29200000.initial_effect(c)
 	e3:SetOperation(c29200000.operation2)
 	c:RegisterEffect(e3)
 end
-c29200000.dark_magician_list=true
+c29200000.satori_prpr_list=true
 function c29200000.filter1(c)
 	return c:IsSetCard(0x33e0) and c:IsDiscardable()
 end
@@ -43,7 +43,7 @@ function c29200000.con2(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler():GetFlagEffect(20500121)==0
 end
 function c29200000.filter2(c)
-	return c.dark_magician_list and c:IsAbleToHand()
+	return c.satori_prpr_list and c:IsAbleToHand()
 end
 function c29200000.target2(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.IsExistingMatchingCard(c29200000.filter2,tp,LOCATION_GRAVE,0,1,nil) end

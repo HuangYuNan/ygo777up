@@ -101,7 +101,7 @@ function c60150933.activate2(e,tp,eg,ep,ev,re,r,rp)
 				e1:SetType(EFFECT_TYPE_SINGLE)
 				e1:SetCode(EFFECT_IMMUNE_EFFECT)
 				e1:SetValue(c60150933.efilter)
-				e1:SetReset(RESET_EVENT+0x1fe0000+RESET_PHASE+RESET_END)
+				e1:SetReset(RESET_EVENT+0x1fe0000+RESET_PHASE+PHASE_END)
 				ac:RegisterEffect(e1)
 			end
 		end

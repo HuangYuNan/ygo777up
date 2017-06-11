@@ -42,7 +42,7 @@ function c23302006.activate(e,tp,eg,ep,ev,re,r,rp)
 	Duel.RegisterEffect(e1,tp)
 end
 function c23302006.pietg(e,c)
-	return c:IsSetCard(0xddd)
+	return c:IsSetCard(0x992)
 end
 function c23302006.aclimit(e,re,tp)
 	return re:IsHasType(EFFECT_TYPE_ACTIVATE) and re:IsActiveType(TYPE_SPELL)
@@ -52,10 +52,10 @@ function c23302006.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	Duel.Remove(e:GetHandler(),POS_FACEUP,REASON_COST)
 end
 function c23302006.filter(c)
-	return c:IsFaceup() and not c:IsSetCard(0xddd)
+	return c:IsFaceup() and not c:IsSetCard(0x992)
 end
 function c23302006.filter2(c)
-	return c:IsFaceup() and c:IsSetCard(0xddd)
+	return c:IsFaceup() and c:IsSetCard(0x992)
 end
 function c23302006.condition2(e,tp,eg,ep,ev,re,r,rp)
 	return not Duel.IsExistingMatchingCard(c23302006.filter,tp,LOCATION_MZONE,0,1,nil) and Duel.IsExistingMatchingCard(c23302006.filter2,tp,LOCATION_MZONE,0,1,nil)

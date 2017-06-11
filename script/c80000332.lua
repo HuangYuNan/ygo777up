@@ -60,7 +60,7 @@ function c80000332.spop(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
 	local g=Duel.SelectMatchingCard(tp,c80000332.spfilter,tp,LOCATION_DECK+LOCATION_GRAVE,0,1,1,nil,e,tp)
 	local tc=g:GetFirst()
-	Duel.SpecialSummon(tc,0,tp,tp,false,false,POS_FACEUP_DEFENCE) 
+	Duel.SpecialSummon(tc,0,tp,tp,false,false,POS_FACEUP_DEFENSE) 
 end
 function c80000332.thfilter(c)
 	return c:IsSetCard(0x2d0) and c:IsType(TYPE_MONSTER) and c:IsAbleToHand() and c:GetLevel()==3 and c:IsRace(RACE_INSECT)

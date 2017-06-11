@@ -56,9 +56,10 @@ function c60151199.cfilter(c)
 	return c:IsSetCard(0x9b23) and c:IsType(TYPE_MONSTER) and (c:IsReason(REASON_EFFECT))
 end
 function c60151199.ctcon(e,tp,eg,ep,ev,re,r,rp)
-	return eg:IsExists(c60151199.cfilter,1,nil) and re:GetHandler():IsSetCard(0x9b23)
+	return eg and eg:IsExists(c60151199.cfilter,1,nil) and re:GetHandler():IsSetCard(0x9b23)
 end
 function c60151199.ctop(e,tp,eg,ep,ev,re,r,rp)
+	if not eg then return end
 	local ct=eg:FilterCount(c60151199.cfilter,nil)
 	e:GetHandler():AddCounter(0x101b,ct)
 end

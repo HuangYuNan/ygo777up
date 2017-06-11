@@ -69,6 +69,6 @@ end
 function c29200123.operation(e,tp,eg,ep,ev,re,r,rp,chk)
 	local g=eg:Filter(c29200123.filter,nil,e,tp)
 	if g:GetCount()>0 then
-		Duel.ChangePosition(g,POS_FACEDOWN_DEFENCE)
+		Duel.ChangePosition(g,POS_FACEDOWN_DEFENSE)
 	end
 end

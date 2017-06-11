@@ -42,7 +42,7 @@ function c18799011.ffilter(c)
 end
 function c18799011.regcon(e,tp,eg,ep,ev,re,r,rp)
 	return e:GetHandler()==Duel.GetAttacker() and Duel.GetAttackTarget() 
-	and Duel.GetAttackTarget():IsDefensePos() and Duel.GetAttackTarget():IsAbleToRemove() and Duel.GetAttackTarget():IsFacedown()
+	and Duel.GetAttackTarget():IsDEFENSEPos() and Duel.GetAttackTarget():IsAbleToRemove() and Duel.GetAttackTarget():IsFacedown()
 end
 function c18799011.filter1(c)
 	return not c:IsAttackPos() and c:IsAbleToRemove() and c:IsFacedown()

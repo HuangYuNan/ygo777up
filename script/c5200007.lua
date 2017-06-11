@@ -39,7 +39,7 @@ function c5200007.initial_effect(c)
 end
 function c5200007.spfilter(c,tp)
 	return c:IsReason(REASON_BATTLE+REASON_EFFECT)
-		and c:IsSetCard(0x360) and c:GetPreviousControler()==tp and c:IsPreviousLocation(LOCATION_MZONE) and c:IsPreviousPosition(POS_FACEUP)
+		and c:IsSetCard(0x360) and c:GetPreviousControler()==tp and c:IsPreviousLocation(LOCATION_MZONE) and c:IsPreviousPosition(POS_FACEUP) and not c:IsCode(5200007)
 end
 function c5200007.spcon(e,tp,eg,ep,ev,re,r,rp)
 	return eg:IsExists(c5200007.spfilter,1,nil,tp)

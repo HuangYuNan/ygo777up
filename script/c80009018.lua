@@ -20,13 +20,13 @@ end
 function c80009018.caop(e,tp,eg,ep,ev,re,r,rp)
 	local c=e:GetHandler()
 	local bc=c:GetBattleTarget()
-	if Duel.GetAttacker()==c and bc and bit.band(bc:GetBattlePosition(),POS_DEFENCE)~=0 and c:IsRelateToBattle() and c:IsChainAttackable() then
+	if Duel.GetAttacker()==c and bc and bit.band(bc:GetBattlePosition(),POS_DEFENSE)~=0 and c:IsRelateToBattle() and c:IsChainAttackable() then
 		Duel.ChainAttack()
 	end
 end
 function c80009018.descon(e,tp,eg,ep,ev,re,r,rp)
 	local d=Duel.GetAttackTarget()
-	return e:GetHandler()==Duel.GetAttacker() and d and d:IsFacedown() and d:IsDefencePos()
+	return e:GetHandler()==Duel.GetAttacker() and d and d:IsFacedown() and d:IsDEFENSEPos()
 end
 function c80009018.destg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.GetAttackTarget():IsDestructable() end

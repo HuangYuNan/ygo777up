@@ -126,7 +126,7 @@ function c99999977.sop(e,tp,eg,ep,ev,re,r,rp)
 		Duel.Equip(tp,g1,c)
 	end
 	if Duel.IsExistingMatchingCard(c99999977.sfilter,tp,LOCATION_DECK+LOCATION_GRAVE,0,1,nil)
-	and  Duel.SelectYesNo(tp,aux.Stringid(999999,2))  then
+	and  Duel.SelectYesNo(tp,aux.Stringid(99991099,2))  then
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_ATOHAND)
 	local g2=Duel.SelectTarget(tp,c99999977.sfilter,tp,LOCATION_GRAVE+LOCATION_DECK,0,1,1,nil)
 	if g2 then

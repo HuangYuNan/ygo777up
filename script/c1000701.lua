@@ -101,5 +101,5 @@ function c1000701.thop(e,tp,eg,ep,ev,re,r,rp)
 	end
 end
 function c1000701.splimit(e,c)
-	return not c:IsRace(RACE_ZOMBIE) and c:IsAttribute(ATTRIBUTE_DARK)
+	return not c:IsRace(RACE_ZOMBIE)
 end

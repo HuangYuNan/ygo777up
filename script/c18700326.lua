@@ -33,7 +33,7 @@ function c18700326.atktg(e,c)
 	return c:IsSetCard(0xabb)
 end
 function c18700326.disable(e,c)
-	return (c:IsType(TYPE_EFFECT) or bit.band(c:GetOriginalType(),TYPE_EFFECT)==TYPE_EFFECT) and c:IsDefensePos()
+	return (c:IsType(TYPE_EFFECT) or bit.band(c:GetOriginalType(),TYPE_EFFECT)==TYPE_EFFECT) and c:IsDEFENSEPos()
 end
 
 function c18700326.cost(e,tp,eg,ep,ev,re,r,rp,chk)
